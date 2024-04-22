@@ -32,5 +32,11 @@ class DoctorBase(BaseModel):
     birthdate: Optional[date] = None
     city: Optional[constr(max_length=100)] = None
 
-
+class DoctorCreate(DoctorBase):
+    '''
+    Schema to create a new doctor
+    '''
+    specialties: List[int]
+    experiences: List[ExperienceBase]
+    educations: List[EducationBase]
 
