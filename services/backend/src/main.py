@@ -1,10 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .routes.doctor_routes import doctor_routes
+from .models import db_models
+from .config import db
+
+# Create tables on db
+db_models.Base.metadata.create_all(db.engine)
 
 app = FastAPI()
 
-# CORS
+# CORS 
 origins = [
     "*", 
 ]
