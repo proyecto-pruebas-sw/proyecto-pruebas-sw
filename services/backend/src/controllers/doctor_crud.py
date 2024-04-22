@@ -1,9 +1,19 @@
 from sqlalchemy.orm import Session
+from sqlalchemy import select
 from src.schemas import schemas
 from src.models import db_models
 
-def get_doctors():
-    pass
+def get_doctors(db: Session):
+    '''
+    Get all doctors
+
+    Returns:
+    - List[db_models.DoctorTable]
+    '''
+    statement = select(db_models.DoctorTable)
+    doctors = db.scalars(statement).all()
+
+    return [schemas.DoctorList.from_orm(doctor) for doctor in doctors]
 
 def get_doctor():
     pass

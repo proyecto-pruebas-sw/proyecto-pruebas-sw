@@ -7,8 +7,25 @@ from sqlalchemy.orm import Session
 doctor_routes = APIRouter()
 
 @doctor_routes.get('/doctor')
-async def get_doctors():
-    pass
+async def get_doctors(response: Response, db: Session = Depends(get_db)):
+    '''
+    Endpoint to get all doctors
+
+    Parameters:
+    - response: Response
+    - db: Session
+
+    Returns:
+    - List[schemas.DoctorList]
+    '''
+
+    try:
+        doctors = doctor_crud.get_doctors(db)
+        return doctors
+    
+    except Exception as e:
+        response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+        return {"error": str(e)}
 
 @doctor_routes.get('/doctor/{doctor_id}')
 async def get_doctor(doctor_id: int):

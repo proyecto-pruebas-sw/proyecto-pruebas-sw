@@ -5,6 +5,12 @@ from datetime import date
 class SpecialtyBase(BaseModel):
     name: constr(max_length=255)
 
+class SpecialtyList(SpecialtyBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
 class ExperienceBase(BaseModel):
     job_title: constr(max_length=255)
     description: Optional[constr(max_length=255)] = None
@@ -40,3 +46,12 @@ class DoctorCreate(DoctorBase):
     experiences: List[ExperienceBase]
     educations: List[EducationBase]
 
+class DoctorList(DoctorBase):
+    '''
+    Schema to list doctors
+    '''
+    id: int
+    specialties: List[SpecialtyList]
+
+    class Config:
+        from_attributes = True
