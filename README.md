@@ -5,7 +5,7 @@
 ### Pasos para la instalación
 - Clonar el repositorio
 ```
-git clone https://github.com/nanonacho/proyecto-pruebas-sw
+git clone https://github.com/proyecto-pruebas-sw/proyecto-pruebas-sw
 ```
 - Entrar al repositorio clonado
 ```
@@ -17,13 +17,13 @@ docker compose -f .\docker-compose.dev.yml up
 ```
 
 ## Opción 2:
-### Requerimientos
+### Requerimientoss
 - Python 3.11.9
 - Node 20.12.2
 ### Pasos para la instalación
 - Clonar el repositorio
 ```
-git clone https://github.com/nanonacho/proyecto-pruebas-sw
+git clone https://github.com/proyecto-pruebas-sw/proyecto-pruebas-sw
 ```
 - Entrar al repositorio clonado
 ```
