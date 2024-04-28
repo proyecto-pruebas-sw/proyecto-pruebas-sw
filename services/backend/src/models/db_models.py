@@ -14,8 +14,8 @@ class DoctorTable(Base):
     city = Column(String)
 
     specialties = relationship('SpecialtyTable', secondary='doctor_specialties', back_populates='doctors')
-    experiences = relationship('ExperienceTable', back_populates='doctor')
-    educations = relationship('EducationTable', back_populates='doctor')
+    experiences = relationship('ExperienceTable', back_populates='doctor', cascade='all, delete')
+    educations = relationship('EducationTable', back_populates='doctor', cascade='all, delete')
 
     @validates('name', 'lastname', 'rut', 'email', 'city')
     def convert_upper(self, key, value):

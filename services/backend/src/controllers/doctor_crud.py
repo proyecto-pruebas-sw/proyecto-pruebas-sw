@@ -64,5 +64,22 @@ def create_doctor(db: Session, doctor: schemas.DoctorCreate):
 def update_doctor():
     pass
 
-def delete_doctor():
-    pass
+def delete_doctor(db: Session, doctor_id: int):
+    '''
+    Delete a doctor
+
+    Parameters:
+    - db: Session
+    - doctor_id: int
+
+    Returns:
+    - Message confirming the deletion
+    '''
+
+    # Delete doctor
+    db_doctor = db.get(db_models.DoctorTable, doctor_id)
+    if db_doctor is None:
+        return {'message': 'Doctor not found'}
+    db.delete(db_doctor)
+    db.commit()
+    return {'message': 'Doctor deleted successfully'}

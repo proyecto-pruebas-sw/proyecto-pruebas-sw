@@ -58,5 +58,22 @@ async def update_doctor(doctor_id: int, response: Response):
     pass
 
 @doctor_routes.delete('/doctor/{doctor_id}')
-async def delete_doctor(doctor_id: int, response: Response):
-    pass
+async def delete_doctor(response: Response, doctor_id: int, db: Session = Depends(get_db)):
+    '''
+    Endpoint to delete a doctor
+
+    Parameters:
+    - response: Response
+    - doctor_id: int
+    - db: Session
+
+    Returns:
+    - Message confirming the deletion
+    '''
+    try:
+        message = doctor_crud.delete_doctor(db, doctor_id)
+        return message
+    
+    except Exception as e:
+        response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+        return {"error": str(e)}
