@@ -15,8 +15,38 @@ def get_doctors(db: Session):
 
     return [schemas.DoctorList.from_orm(doctor) for doctor in doctors]
 
-def get_doctor():
-    pass
+def get_doctor(db: Session, doctor_id: int):
+    '''
+    Get a doctor by id
+
+    Parameters:
+    - db: Session
+    - doctor_id: int
+
+    Returns:
+    - db_models.DoctorTable
+    '''
+    # Get doctor details
+    doctor = db.query(db_models.DoctorTable).filter(db_models.DoctorTable.id == doctor_id).first()
+
+    if doctor is None:
+        return {"Error": "Doctor not found"}    
+    
+    doctor_detail = schemas.DoctorDetail(
+        id=doctor.id,
+        name=doctor.name,
+        lastname=doctor.lastname,
+        rut=doctor.rut,
+        email=doctor.email,
+        phone=doctor.phone,
+        birthdate=doctor.birthdate,
+        city=doctor.city,
+        specialties=[schemas.SpecialtyList(id=specialty.id, name=specialty.name) for specialty in doctor.specialties],
+        experiences=[schemas.ExperienceBase(id=experience.id, job_title=experience.job_title, description=experience.description, institution=experience.institution, city=experience.city, country=experience.country, start_date=experience.start_date, end_date=experience.end_date) for experience in doctor.experiences],
+        educations=[schemas.EducationBase(id=education.id, degree=education.degree, description=education.description, institution=education.institution, city=education.city, country=education.country, start_date=education.start_date, end_date=education.end_date) for education in doctor.educations]
+    )
+
+    return doctor_detail
 
 def create_doctor(db: Session, doctor: schemas.DoctorCreate):
     '''

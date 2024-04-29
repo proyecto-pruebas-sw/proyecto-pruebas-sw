@@ -55,3 +55,14 @@ class DoctorList(DoctorBase):
 
     class Config:
         from_attributes = True
+
+class DoctorDetail(DoctorBase):
+    '''
+    Schema to get all doctor details
+    '''
+    specialties: List[SpecialtyList]
+    experiences: List[ExperienceBase]
+    educations: List[EducationBase]
+
+    class Config:
+        from_attributes = True
