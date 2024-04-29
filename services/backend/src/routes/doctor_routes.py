@@ -28,8 +28,25 @@ async def get_doctors(response: Response, db: Session = Depends(get_db)):
         return {"error": str(e)}
 
 @doctor_routes.get('/doctor/{doctor_id}')
-async def get_doctor(doctor_id: int):
-    pass
+async def get_doctor(response: Response, doctor_id: int, db: Session = Depends(get_db)):
+    '''
+    Endpoint to get a doctor and its details by id
+
+    Parameters:
+    response: Response
+    doctor_id: int
+    db: Session
+
+    Returns:
+    - schemas.DoctorDetail
+    '''
+    try:
+        doctor = doctor_crud.get_doctor(db, doctor_id)
+        return doctor
+    
+    except Exception as e:
+        response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+        return {"error": str(e)}
 
 @doctor_routes.post('/doctor')
 async def create_doctor(response: Response, doctor: schemas.DoctorCreate, db: Session = Depends(get_db)):
