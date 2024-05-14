@@ -30,7 +30,7 @@ def get_doctor(db: Session, doctor_id: int):
     doctor = db.query(db_models.DoctorTable).filter(db_models.DoctorTable.id == doctor_id).first()
 
     if doctor is None:
-        return {"Error": "Doctor not found"}    
+        raise Exception("Not found")
     
     doctor_detail = schemas.DoctorDetail(
         id=doctor.id,
@@ -108,8 +108,11 @@ def delete_doctor(db: Session, doctor_id: int):
 
     # Delete doctor
     db_doctor = db.get(db_models.DoctorTable, doctor_id)
+
     if db_doctor is None:
-        return {'message': 'Doctor not found'}
+        raise Exception("Not found")
+    
     db.delete(db_doctor)
     db.commit()
+    
     return {'message': 'Doctor deleted successfully'}

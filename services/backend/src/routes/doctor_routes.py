@@ -45,8 +45,12 @@ async def get_doctor(response: Response, doctor_id: int, db: Session = Depends(g
         return doctor
     
     except Exception as e:
-        response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return {"error": str(e)}
+        if str(e) == "Not found":
+            response.status_code = status.HTTP_404_NOT_FOUND
+            return {"error": "Doctor not found"}
+        else:
+            response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            return {"error": str(e)}
 
 @doctor_routes.post('/doctor')
 async def create_doctor(response: Response, doctor: schemas.DoctorCreate, db: Session = Depends(get_db)):
@@ -92,5 +96,9 @@ async def delete_doctor(response: Response, doctor_id: int, db: Session = Depend
         return message
     
     except Exception as e:
-        response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return {"error": str(e)}
+        if str(e) == "Not found":
+            response.status_code = status.HTTP_404_NOT_FOUND
+            return {"error": "Doctor not found"}
+        else:
+            response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            return {"error": str(e)}
