@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-psql_url = "postgresql://postgres:postgres@postgres/postgres"
+psql_url = "postgresql://postgres:Pruebas12345@postgres:5432/medical_directory"
 
 engine = create_engine(psql_url)
 SessionLocal = sessionmaker(autocommit=False, autoflush = False, bind=engine)
