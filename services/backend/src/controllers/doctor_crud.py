@@ -3,17 +3,30 @@ from sqlalchemy import select
 from src.schemas import schemas
 from src.models import db_models
 
-def get_doctors(db: Session):
+def get_doctors(db: Session, specialty_id: int = None, doctor_name: str = None, doctor_city: str = None):
     '''
     Get all doctors
 
     Returns:
     - List[db_models.DoctorTable]
     '''
-    statement = select(db_models.DoctorTable)
-    doctors = db.scalars(statement).all()
 
+    # Get doctors
+    statement = select(db_models.DoctorTable)
+
+    if specialty_id is not None:
+        statement = statement.join(db_models.DoctorSpecialtyTable).filter(db_models.DoctorSpecialtyTable.specialty_id == specialty_id)
+    
+    if doctor_name is not None:
+        statement = statement.filter((db_models.DoctorTable.name + " " + db_models.DoctorTable.lastname).ilike(f'%{doctor_name}%'))
+
+    if doctor_city is not None:
+        statement = statement.filter(db_models.DoctorTable.city.ilike(f'%{doctor_city}%'))
+    
+    doctors = db.scalars(statement).all()
     return [schemas.DoctorList.from_orm(doctor) for doctor in doctors]
+    
+
 
 def get_doctor(db: Session, doctor_id: int):
     '''
