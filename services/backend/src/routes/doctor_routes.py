@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 doctor_routes = APIRouter()
 
 @doctor_routes.get('/doctor')
-async def get_doctors(response: Response, db: Session = Depends(get_db)):
+async def get_doctors(response: Response, specialty_id: int = None, doctor_name: str = None, doctor_city: str = None, db: Session = Depends(get_db)):
     '''
     Endpoint to get all doctors
 
@@ -20,7 +20,7 @@ async def get_doctors(response: Response, db: Session = Depends(get_db)):
     '''
 
     try:
-        doctors = doctor_crud.get_doctors(db)
+        doctors = doctor_crud.get_doctors(db, specialty_id, doctor_name, doctor_city)
         return doctors
     
     except Exception as e:
