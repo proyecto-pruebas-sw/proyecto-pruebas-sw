@@ -75,8 +75,29 @@ async def create_doctor(response: Response, doctor: schemas.DoctorCreate, db: Se
         return {"error": str(e)}
 
 @doctor_routes.put('/doctor/{doctor_id}')
-async def update_doctor(doctor_id: int, response: Response):
-    pass
+async def update_doctor(response: Response, doctor_id: int, doctor: schemas.DoctorBase, db: Session = Depends(get_db)):
+    '''
+    Endpoint to update a doctor
+
+    Parameters:
+    - doctor_id: int
+    - response: Response
+
+    Returns:
+    - db_models.DoctorTable
+    '''
+
+    try:
+        db_doctor = doctor_crud.update_doctor(db, doctor_id, doctor)
+        return db_doctor
+    
+    except Exception as e:
+        if str(e) == "Not found":
+            response.status_code = status.HTTP_404_NOT_FOUND
+            return {"error": "Doctor not found"}
+        else:
+            response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            return {"error": str(e)}
 
 @doctor_routes.delete('/doctor/{doctor_id}')
 async def delete_doctor(response: Response, doctor_id: int, db: Session = Depends(get_db)):
