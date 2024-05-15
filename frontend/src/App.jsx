@@ -3,27 +3,38 @@ import './App.css'
 import MedicDetails from './pages/medicDetails';
 import ListMedics from './pages/listMedics';
 import EditPersonalInfo from './pages/editPersonalInfo';
+import NewSpeciality from './pages/newSpeciality';
+import Specialities from './pages/specialities';
+import NewMedic from './pages/newMedic';
 
 function App() {
 
   const router = createBrowserRouter(
     [
       {
-        path: '/',
-        element: < ListMedics/>,
-      },
-      {
-        path: '/medics/search',
-        element: <span>search</span>,
-      },
-      {
-        path: '/medics/:id/editPersonalInfo',
-        element: <EditPersonalInfo />
+      path: '/medics/:id/editPersonalInfo',
+      element: <EditPersonalInfo />,
       },
       {
         path: '/medics/:id',
-        element: <MedicDetails />
-      }
+        element: <MedicDetails />,
+      },
+      {
+        path: '/medics/new',
+        element: <NewMedic />,
+      },
+      {
+        path: '/specialities/new',
+        element: <NewSpeciality />,
+      },
+      {
+        path: '/specialities',
+        element: <Specialities />
+      },
+      {
+        path: '/',
+        element: <ListMedics />,
+      },
     ]
   );
 

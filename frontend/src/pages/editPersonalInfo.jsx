@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { InputText } from "primereact/inputtext";
-import { InputMask } from "primereact/inputmask";
 import { Card } from "primereact/card";
 
 const EditPersonalInfo = () => {

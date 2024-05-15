@@ -8,6 +8,20 @@ import { useNavigate } from "react-router-dom";
 const NewSpeciality = () => {
   const navigate = useNavigate();
 
+  const handleSpecialityCreate = (data) => {
+    axios.post('http://4.203.106.91:8000/specialty',{
+      name: data.speciality
+    })
+    .then((res) => {
+      console.log(res);
+      navigate('/specialities');
+    })
+    .catch((error) => {
+      console.log({error});
+      navigate('/');
+    });
+  };
+
   const formik = useFormik({
     validateOnMount: true,
     initialValues: {
@@ -17,49 +31,40 @@ const NewSpeciality = () => {
       const errors = {};
 
       if (values.speciality === '') {
-        errors.speciality = 'Especialidad no puede estar vacía';
+        errors.speciality = 'Especialidad no puede estar vacía'; 
       }
 
       return errors;
     },
     onSubmit: (data) => {
+      console.log("submit");
       handleSpecialityCreate(data);
       formik.resetForm();
     },
   });
 
-  const handleSpecialityCreate = (data) => {
-    axios.post('http://4.203.106.91:8000/speciality',{
-      name: data.speciality
-    })
-    .then((res) => {
-      navigate('/');
-    })
-    .catch((error) => {
-      navigate('/');
-    });
-  };
-
   return(
     <div className="newSpeciality">
       <h2 className="mt-8 ml-5">Crear especialidad</h2>
       <Card>
-        <label htmlFor="speciality" className="block">
-          Nombre
-        </label>
-        <InputText
-          id="speciality"
-          value={formik.values.speciality}
-          onChange={(e) =>
-            formik.setFieldValue('speciality', e.target.value)
-          }
-        />
-        <small className="text-red-500">{formik.errors.speciality}</small>
-        <Button
-          type="submit"
-          label="Crear especialidad"
-          disabled={formik.errors.speciality === undefined}
-        />
+        <form onSubmit={formik.handleSubmit}>
+          <label htmlFor="speciality" className="block">
+            Nombre
+          </label>
+          <InputText
+            id="speciality"
+            value={formik.values.speciality}
+            onChange={(e) =>
+              formik.setFieldValue('speciality', e.target.value)
+            }
+          />
+          <small className="text-red-500">{formik.errors.speciality}</small>
+          <Button
+            type="submit"
+            label="Crear especialidad"
+            disabled={formik.errors.speciality !== undefined}
+          />
+        </form>
       </Card>
     </div>
   );

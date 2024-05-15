@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
@@ -34,11 +34,13 @@ const ListMedics = () => {
 
   const leftToolbarTemplate = () => {
     return (
-      <Button
-        label="Crear Médico"
-        icon="pi pi-plus"
-        severity="success"
-      />
+      <Link to='/medics/new'>
+        <Button
+          label="Crear Médico"
+          icon="pi pi-plus"
+          severity="success"
+        />
+      </Link>
     );
   };
 
@@ -51,7 +53,7 @@ const ListMedics = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:8000/doctor?" + urlParams)
+    fetch("http://4.203.106.91:8000/doctor?" + urlParams)
       .then((res) => res.json())
       .then((data) => {
         setMedics(data);
@@ -59,7 +61,7 @@ const ListMedics = () => {
         setLoading(false);
       });
 
-    fetch("http://localhost:8000/specialty")
+    fetch("http://4.203.106.91:8000/specialty")
       .then((res) => res.json())
       .then((data) => {
         setSpecialties(data);
