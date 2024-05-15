@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { InputText } from "primereact/inputtext";
 import { InputMask } from "primereact/inputmask";
+import { Card } from "primereact/card";
 
 const EditPersonalInfo = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const EditPersonalInfo = () => {
   });
 
   useEffect(() => {
-    axios.get(`localhost:8000/doctor/${id}`)
+    axios.get(`http://4.203.106.91:8000/doctor/${id}`)
     .then((res) => {
       setMedicData(res.data);
     })
@@ -60,80 +61,83 @@ const EditPersonalInfo = () => {
   };
 
   return(
-    <div className="editPersonalInfo">
-      <div>
-        <span>Nombre</span>
-        <InputText
-          key="name"
-          value={medicData.name}
-          onChange={(e) => {
-            handleChangeName(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <span>Apellido</span>
-        <InputText
-          key="lastname"
-          value={medicData.lastname}
-          onChange={(e) => {
-            handleChangeLastname(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <span>Rut</span>
-        <InputMask
-          key="rut"
-          value={medicData.rut}
-          mask="99.999.999-*"
-          onChange={(e) => {
-            handleChangeRut(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <span>Email</span>
-        <InputText
-          key="email"
-          value={medicData.email}
-          onChange={(e) => {
-            handleChangeEmail(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <span>Teléfono</span>
-        <InputText
-          key="phone"
-          value={medicData.phone}
-          onChange={(e) => {
-            handleChangePhone(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <span>Fecha de nacimiento</span>
-        <InputMask
-          key="birthdate"
-          value={medicData.birthdate}
-          onChange={(e) => {
-            handleChangeBirthdate(e.target.value);
-          }}
-          mask="99-99-9999"
-          placeholder="dd-mm-aaaa"
-        />
-      </div>
-      <div>
-        <span>Ciudad</span>
-        <InputText
-          key="city"
-          value={medicData.city}
-          onChange={(e) => {
-            handleChangeCity(e.target.value);
-          }}
-        />
-      </div>
+    <div className="editPersonalInfo pt-6">
+      <h2 className="text-left ml-5">Editar información personal</h2>
+      <Card className="mx-5">
+        <div className="text-left">
+          <div className="ml-6 my-3">
+            <span className="mr-5">Nombre:</span>
+            <InputText
+              key="name"
+              value={medicData.name}
+              onChange={(e) => {
+                handleChangeName(e.target.value);
+              }}
+            />
+          </div>
+          <div className="ml-6 my-3">
+            <span className="mr-5">Apellido:</span>
+            <InputText
+              key="lastname"
+              value={medicData.lastname}
+              onChange={(e) => {
+                handleChangeLastname(e.target.value);
+              }}
+            />
+          </div>
+          <div className="ml-6 my-3">
+            <span className="mr-5">Rut:</span>
+            <InputText
+              key="rut"
+              value={medicData.rut}
+              onChange={(e) => {
+                handleChangeRut(e.target.value);
+              }}
+            />
+          </div>
+          <div className="ml-6 my-3">
+            <span className="mr-5">Email:</span>
+            <InputText
+              key="email"
+              value={medicData.email}
+              onChange={(e) => {
+                handleChangeEmail(e.target.value);
+              }}
+            />
+          </div>
+          <div className="ml-6 my-3">
+            <span className="mr-5">Teléfono:</span>
+            <InputText
+              key="phone"
+              value={medicData.phone}
+              onChange={(e) => {
+                handleChangePhone(e.target.value);
+              }}
+            />
+          </div>
+          <div className="ml-6 my-3">
+            <span className="mr-5">Fecha de nacimiento:</span>
+            <InputText
+              key="birthdate"
+              value={medicData.birthdate}
+              onChange={(e) => {
+                handleChangeBirthdate(e.target.value);
+              }}
+              placeholder="dd-mm-aaaa"
+            />
+          </div>
+          <div className="ml-6 my-3">
+            <span className="mr-5">Ciudad</span>
+            <InputText
+              key="city"
+              value={medicData.city}
+              onChange={(e) => {
+                handleChangeCity(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+      </Card>
     </div>
   );
 };

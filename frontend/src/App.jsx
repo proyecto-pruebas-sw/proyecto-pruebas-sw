@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css'
 import MedicDetails from './pages/medicDetails';
 import ListMedics from './pages/listMedics';
+import EditPersonalInfo from './pages/editPersonalInfo';
 
 function App() {
 
@@ -14,6 +15,10 @@ function App() {
       {
         path: '/medics/search',
         element: <span>search</span>,
+      },
+      {
+        path: '/medics/:id/editPersonalInfo',
+        element: <EditPersonalInfo />
       },
       {
         path: '/medics/:id',
