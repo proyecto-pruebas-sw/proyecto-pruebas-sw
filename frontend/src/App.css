@@ -12,4 +12,5 @@
   width: 100vw;
   max-width: 100%;
   background-color: var(--surface-100);
+  color: black;
 }
