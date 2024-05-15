@@ -6,7 +6,7 @@ from .models import db_models
 from .config import db
 
 # Create tables on db
-db_models.Base.metadata.create_all(db.engine)
+db_models.Base.metadata.create_all(bind=db.engine)
 
 app = FastAPI()
 
