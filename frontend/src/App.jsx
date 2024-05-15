@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Index from './pages';
 import './App.css'
 import MedicDetails from './pages/medicDetails';
+import ListMedics from './pages/listMedics';
 import EditPersonalInfo from './pages/editPersonalInfo';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     [
       {
         path: '/',
-        element: <Index />,
+        element: < ListMedics/>,
       },
       {
         path: '/medics/search',
