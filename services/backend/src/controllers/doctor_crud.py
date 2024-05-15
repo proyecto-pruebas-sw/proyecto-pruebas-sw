@@ -104,8 +104,37 @@ def create_doctor(db: Session, doctor: schemas.DoctorCreate):
 
     return db_doctor
 
-def update_doctor():
-    pass
+def update_doctor(db: Session, doctor_id: int, doctor: schemas.DoctorBase):
+    '''
+    Update a doctor
+
+    Parameters:
+    - db: Session
+    - doctor_id: int
+    - doctor: schemas.DoctorBase
+
+    Returns:
+    - db_models.DoctorTable
+    '''
+
+    # Update doctor
+    db_doctor = db.get(db_models.DoctorTable, doctor_id)
+
+    if db_doctor is None:
+        raise Exception("Not found")
+    
+    db_doctor.name = doctor.name
+    db_doctor.lastname = doctor.lastname
+    db_doctor.rut = doctor.rut
+    db_doctor.email = doctor.email
+    db_doctor.phone = doctor.phone
+    db_doctor.birthdate = doctor.birthdate
+    db_doctor.city = doctor.city
+
+    db.commit()
+    db.refresh(db_doctor)
+
+    return db_doctor
 
 def delete_doctor(db: Session, doctor_id: int):
     '''
