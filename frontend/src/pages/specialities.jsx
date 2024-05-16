@@ -5,6 +5,7 @@ import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Toast } from 'primereact/toast';
+import { backendUrl } from "../config/backend-url";
 
 const Specialities = () => {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ const Specialities = () => {
 
   useEffect(() => {
     handleShowToast();
-    axios.get('http://localhost:8000/specialty')
+    axios.get(`${backendUrl}/specialty`)
       .then((res) => {
         if (Array.isArray(res.data)) {
           setSpecialities(res.data);

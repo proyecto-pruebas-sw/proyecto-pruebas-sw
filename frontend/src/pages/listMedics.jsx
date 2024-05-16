@@ -7,6 +7,7 @@ import { Toolbar } from "primereact/toolbar";
 import { useEffect } from "react";
 import { Toast } from "primereact/toast";
 import MedicTable from "../components/medicTable";
+import { backendUrl } from "../config/backend-url";
 
 const ListMedics = () => {
 
@@ -113,7 +114,7 @@ const ListMedics = () => {
   useEffect(() => {
     handleShowToast();
     setLoading(true);
-    fetch("http://localhost:8000/doctor?" + urlParams)
+    fetch(`${backendUrl}/doctor?` + urlParams)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
@@ -126,7 +127,7 @@ const ListMedics = () => {
         setLoading(false);
       });
 
-    fetch("http://localhost:8000/specialty")
+    fetch(`${backendUrl}/specialty`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
