@@ -15,11 +15,19 @@ const NewSpeciality = () => {
     })
     .then((res) => {
       console.log(res);
-      navigate('/specialities');
+      navigate('/specialities',{
+        state: {
+          response: 'created',
+        },
+      });
     })
     .catch((error) => {
       console.log({error});
-      navigate('/');
+      navigate('/specialities',{
+        state: {
+          response: 'error',
+        },
+      });
     });
   };
 

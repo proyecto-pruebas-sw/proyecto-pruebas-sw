@@ -19,11 +19,19 @@ const NewMedic = () => {
         if (Array.isArray(res.data)) {
           setSpecialities(res.data);
         } else {
-          navigate('/');
+          navigate('/', {
+            state: {
+              response: 'specialityError',
+            },
+          });
         }
       })
-      .catch((error) => {
-        navigate('/');
+      .catch(() => {
+        navigate('/', {
+          state: {
+            response: 'specialityError',
+          },
+        });
       });
   }, [navigate]);
 
@@ -43,10 +51,18 @@ const NewMedic = () => {
     })
     .then((res) => {
       console.log(res);
-      navigate('/');
+      navigate('/', {
+        state: {
+          response: 'created',
+        },
+      });
     })
     .catch(() => {
-      navigate('/');
+      navigate('/', {
+        state: {
+          response: 'error',
+        },
+      });
     })
   };
 

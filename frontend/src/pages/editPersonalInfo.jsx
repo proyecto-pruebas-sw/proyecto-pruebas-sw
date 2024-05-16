@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { InputText } from "primereact/inputtext";
 import { Card } from "primereact/card";
-import { useFormik } from "formik";
 import { Button } from "primereact/button";
 import { backendUrl } from "../config/backend-url";
 
@@ -30,7 +29,11 @@ const EditPersonalInfo = () => {
         setMedicData(res.data);
       })
       .catch(() => {
-        navigate('/');
+        navigate('/', {
+          state: {
+            response: 'notFound',
+          },
+        });
       });
   }, [id, navigate]);
 
@@ -75,11 +78,19 @@ const EditPersonalInfo = () => {
     })
     .then(() => {
       console.log("modified");
-      navigate(`/medics/${id}`);
+      navigate(`/medics/${id}`, {
+        state: {
+          response: 'modified',
+        },
+      });
     })
-    .catch((error) => {
+    .catch(() => {
       console.log("error");
-      navigate(`/medics/${id}`);
+      navigate(`/medics/${id}`, {
+        state: {
+          response: 'modifyError',
+        },
+      });
     });
   };
 
