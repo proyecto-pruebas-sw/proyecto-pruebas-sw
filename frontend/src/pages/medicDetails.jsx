@@ -6,6 +6,7 @@ import { Divider } from "primereact/divider";
 import { Chip } from 'primereact/chip';
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
+import { backendUrl } from "../config/backend-url";
 
 const MedicDetails = () => {
   const { id } = useParams();
@@ -58,7 +59,7 @@ const MedicDetails = () => {
 
   useEffect(() => {
     handleShowToast();
-    axios.get(`http://localhost:8000/doctor/${id}`)
+    axios.get(`${backendUrl}/doctor/${id}`)
     .then((res) => {
       if(!res.data.Error) {
         console.log(res);
