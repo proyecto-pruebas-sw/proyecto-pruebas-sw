@@ -5,6 +5,7 @@ import { TabMenu } from "primereact/tabmenu";
 import { Divider } from "primereact/divider";
 import { Chip } from 'primereact/chip';
 import { Button } from "primereact/button";
+import { backendUrl } from "../config/backend-url";
 
 const MedicDetails = () => {
   const { id } = useParams();
