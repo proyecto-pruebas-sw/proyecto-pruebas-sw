@@ -5,13 +5,11 @@ services:
       dockerfile: Dockerfile.prod
     container_name: frontend
     ports:
-      - '80:80'
+      - '3000:3000'
     volumes:
       - ./frontend/src:/usr/app/src
     stdin_open: true
     tty: true
-    depends_on:
-      - backend
   
   postgres:
     image: postgres

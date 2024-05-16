@@ -5,7 +5,6 @@ import { InputText } from "primereact/inputtext";
 import { Card } from "primereact/card";
 import { useFormik } from "formik";
 import { Button } from "primereact/button";
-import { backendUrl } from "../config/backend-url";
 
 const EditPersonalInfo = () => {
   const { id } = useParams();
@@ -25,7 +24,7 @@ const EditPersonalInfo = () => {
   });
 
   useEffect(() => {
-    axios.get(`${backendUrl}/doctor/${id}`)
+    axios.get(`http://localhost:8000/doctor/${id}`)
       .then((res) => {
         setMedicData(res.data);
       })

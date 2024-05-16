@@ -6,7 +6,6 @@ import { Dropdown } from "primereact/dropdown";
 import { Toolbar } from "primereact/toolbar";
 import { useEffect } from "react";
 import MedicTable from "../components/medicTable";
-import { backendUrl } from "../config/backend-url";
 
 const ListMedics = () => {
   const [medics, setMedics] = useState([]);
@@ -54,7 +53,7 @@ const ListMedics = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`${backendUrl}/doctor?` + urlParams)
+    fetch("http://localhost:8000/doctor?" + urlParams)
       .then((res) => res.json())
       .then((data) => {
         setMedics(data);
@@ -62,7 +61,7 @@ const ListMedics = () => {
         setLoading(false);
       });
 
-    fetch(`${backendUrl}/specialty`)
+    fetch("http://localhost:8000/specialty")
       .then((res) => res.json())
       .then((data) => {
         setSpecialties(data);
