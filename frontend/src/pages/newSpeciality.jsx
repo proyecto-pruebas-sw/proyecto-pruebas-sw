@@ -9,7 +9,7 @@ const NewSpeciality = () => {
   const navigate = useNavigate();
 
   const handleSpecialityCreate = (data) => {
-    axios.post('http://4.203.106.91:8000/specialty',{
+    axios.post('http://localhost:8000/specialty',{
       name: data.speciality
     })
     .then((res) => {

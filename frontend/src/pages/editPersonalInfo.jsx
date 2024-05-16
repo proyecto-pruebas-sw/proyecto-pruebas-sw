@@ -24,7 +24,7 @@ const EditPersonalInfo = () => {
   });
 
   useEffect(() => {
-    axios.get(`http://4.203.106.91:8000/doctor/${id}`)
+    axios.get(`http://localhost:8000/doctor/${id}`)
       .then((res) => {
         setMedicData(res.data);
       })
@@ -63,7 +63,7 @@ const EditPersonalInfo = () => {
 
   const handleModifyMedic = (e) => {
     e.preventDefault();
-    axios.put(`http://4.203.106.91:8000/doctor/${id}`,{
+    axios.put(`http://localhost:8000/doctor/${id}`,{
       name: medicData.name,
       lastname: medicData.lastname,
       rut: medicData.rut,

@@ -26,7 +26,7 @@ const MedicDetails = () => {
   const [medicTab, setUserTab] = useState(0);
 
   useEffect(() => {
-    axios.get(`http://4.203.106.91:8000/doctor/${id}`)
+    axios.get(`http://localhost:8000/doctor/${id}`)
     .then((res) => {
       if(!res.data.Error) {
         console.log(res);

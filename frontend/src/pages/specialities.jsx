@@ -13,7 +13,7 @@ const Specialities = () => {
   const [specialities, setSpecialities] = useState([]);
 
   useEffect(() => {
-    axios.get('http://4.203.106.91:8000/specialty')
+    axios.get('http://localhost:8000/specialty')
       .then((res) => {
         if (Array.isArray(res.data)) {
           setSpecialities(res.data);

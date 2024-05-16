@@ -13,7 +13,7 @@ const NewMedic = () => {
   const [specialities, setSpecialities] = useState([]);
 
   useEffect(() => {
-    axios.get('http://4.203.106.91:8000/specialty')
+    axios.get('http://localhost:8000/specialty')
       .then((res) => {
         if (Array.isArray(res.data)) {
           setSpecialities(res.data);
@@ -28,7 +28,7 @@ const NewMedic = () => {
 
   const handleMedicCreate = (data) => {
     const specialityList = data.specialities.map((item) =>  item.id);
-    axios.post('http://4.203.106.91:8000/doctor',{
+    axios.post('http://localhost:8000/doctor',{
       name: data.name,
       lastname: data.lastname,
       rut: data.rut,
