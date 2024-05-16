@@ -4,12 +4,13 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
+import { backendUrl } from "../config/backend-url";
 
 const NewSpeciality = () => {
   const navigate = useNavigate();
 
   const handleSpecialityCreate = (data) => {
-    axios.post('http://localhost:8000/specialty',{
+    axios.post(`${backendUrl}/specialty`,{
       name: data.speciality
     })
     .then((res) => {

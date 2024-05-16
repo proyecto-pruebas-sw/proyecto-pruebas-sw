@@ -6,6 +6,7 @@ import { InputText } from "primereact/inputtext";
 import { Card } from "primereact/card";
 import { MultiSelect } from "primereact/multiselect";
 import { Button } from "primereact/button";
+import { backendUrl } from "../config/backend-url";
 
 const NewMedic = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const NewMedic = () => {
   const [specialities, setSpecialities] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/specialty')
+    axios.get(`${backendUrl}/specialty`)
       .then((res) => {
         if (Array.isArray(res.data)) {
           setSpecialities(res.data);
@@ -28,7 +29,7 @@ const NewMedic = () => {
 
   const handleMedicCreate = (data) => {
     const specialityList = data.specialities.map((item) =>  item.id);
-    axios.post('http://localhost:8000/doctor',{
+    axios.post(`${backendUrl}/doctor`,{
       name: data.name,
       lastname: data.lastname,
       rut: data.rut,
