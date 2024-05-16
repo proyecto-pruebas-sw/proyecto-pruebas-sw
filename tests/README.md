@@ -20,28 +20,34 @@ pip3 install -r ./tests/requirements.txt
 ```
 
 ## 3. Ejecutar aplicación
-- Borrar contenedores anteriores (NECESARIO para resetear la BD)
-```
-docker compose -f .\docker-compose.dev.yml down
-```
 - Ejecutar contenedores
 ```
 docker compose -f .\docker-compose.dev.yml up
 ```
 
-## 4. Cargar datos iniciales a la BD
-- Entrar al directorio tests/backend/doctor
+# 4. Ejecutar tests
+- Entrar al directorio tests
 ```
-cd tests/backend/doctor
+cd tests
 ```
-- Ejecutar data.py
+- Resetar la BD
+```
+python3 reset_bd.py
+```
+- Agregar data inicial a la 
 ```
 python3 data.py
 ```
+## 4.1 Backend tests
+- Ejecutar tests
+```
+robot backend/doctor
+```
+- Si quieres ejecutar el test nuevamente o ejecutar otro test, es necesario resetear la BD y cargar los datos iniciales nuevamente (paso 4).
 
-## 5. Ejecutar tests
-- Ejecutar el siguiente comando
+## 5. System tests
+- Ejecutar tests
 ```
-robot .
+robot system/
 ```
-- Para volver a ejecutar los test debes volver al paso 3 (Ejecutar aplicación).
+- Si quieres ejecutar el test nuevamente o ejecutar otro test, es necesario resetear la BD y cargar los datos iniciales nuevamente (paso 4).

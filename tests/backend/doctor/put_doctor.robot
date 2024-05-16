@@ -2,7 +2,7 @@
 Library    REST    http://localhost:8000
 Library    DatabaseLibrary 
 Suite Setup    Connect To Database    psycopg2    ${db_name}    ${db_user}    ${db_password}    ${db_host}    ${db_port}
-Documentation     Test cases for the POST /doctor endpoint
+Documentation     Test cases for the PUT /doctor/id endpoint
 Variables    variables.py
 
 *** Variables ***
@@ -23,22 +23,31 @@ test-api-11 POST a valid doctor
     String    response body city    ${valid_doctor}[city]
     Check If Exists In Database    SELECT * FROM doctors WHERE rut = '${valid_doctor}[rut]'and name = '${valid_doctor}[name]' and lastname = '${valid_doctor}[lastname]' and city = '${valid_doctor}[city]';
 
-test-api-12 POST a doctor without name
-    POST   /doctor    ${doctor_without_name}
+test-api-33 PUT a doctor without name
+    PUT    /doctor/2    ${doctor_without_name}
     Integer    response status    422
 
-test-api-13 POST a doctor without lastname
-    POST   /doctor    ${doctor_without_lastname}
+test-api-34 PUT a doctor without lastname
+    PUT    /doctor/2    ${doctor_without_lastname}
     Integer    response status    422
 
-test-api-14 POST a doctor without rut
-    POST   /doctor    ${doctor_without_rut}
+test-api-35 PUT a doctor without rut
+    PUT    /doctor/2    ${doctor_without_rut}
     Integer    response status    422
 
-test-api-15 POST a doctor without city
-    POST   /doctor    ${doctor_without_city}
+test-api-36 PUT a doctor without city
+    PUT    /doctor/2    ${doctor_without_city}
     Integer    response status    422
 
-test-api-16 POST a doctor without specialties
-    POST   /doctor    ${doctor_without_specialties}
-    Integer    response status    422
+test-api-37 PUT a unexisting doctor
+    PUT    /doctor/9999    ${valid_doctor}
+    Integer    response status    404
+
+test-api-38 PUT a valid doctor
+    PUT    /doctor/2    ${valid_doctor}
+    Integer    response status    200
+    String    response body name    ${valid_doctor}[name]
+    String    response body lastname    ${valid_doctor}[lastname]
+    String    response body rut    ${valid_doctor}[rut]
+    String    response body city    ${valid_doctor}[city]
+    Check If Exists In Database    SELECT * FROM doctors WHERE rut = '${valid_doctor}[rut]'and name = '${valid_doctor}[name]' and lastname = '${valid_doctor}[lastname]' and city = '${valid_doctor}[city]';

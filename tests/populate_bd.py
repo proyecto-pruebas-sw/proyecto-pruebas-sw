@@ -11,7 +11,7 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
-with open('initial_data.json') as file:
+with open('backend/doctor/initial_data.json') as file:
     data = json.load(file)
 
 # Insert especialties

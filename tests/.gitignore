@@ -1,1 +1,5 @@
 env
+*.log
+*.html
+*.xml
+*.png

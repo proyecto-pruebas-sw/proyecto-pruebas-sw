@@ -23,10 +23,16 @@ with open('post_data.json') as file:
     doctor_without_specialties = post_data["doctors"][0].copy()
     doctor_without_specialties["specialties"] = []
 
-    '''
+    
     doctor_without_experience_job_title = post_data["doctors"][0].copy()
     doctor_without_experience_job_title["experiences"][0].pop("job_title")
+    
+    experience_copy = post_data["doctors"][0]["experiences"][0].copy()
 
+    '''
+    doctor_without_experience_institution = post_data["doctors"][0].copy()
+    doctor_without_experience_institution["experiences"] = [experience_copy.pop("institution")]
+    
     doctor_without_experience_institution = post_data["doctors"][0].copy()
     doctor_without_experience_institution["experiences"][0].pop("institution")
 
@@ -60,7 +66,7 @@ with open('post_data.json') as file:
     doctor_without_education_end_date = post_data["doctors"][0].copy()
     doctor_without_education_end_date["educations"][0].pop("end_date")
 '''
-'''
+
 # print all
 print(data)
 print(post_data)
@@ -72,6 +78,7 @@ print(doctor_without_specialties)
 
 print(doctor_without_experience_job_title)
 print(doctor_without_experience_institution)
+'''
 print(doctor_without_experience_city)
 print(doctor_without_experience_country)
 print(doctor_without_experience_start_date)
