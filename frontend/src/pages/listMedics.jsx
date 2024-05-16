@@ -1,13 +1,18 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
 import { Toolbar } from "primereact/toolbar";
 import { useEffect } from "react";
+import { Toast } from "primereact/toast";
 import MedicTable from "../components/medicTable";
 
 const ListMedics = () => {
+
+  const location = useLocation();
+  const toast = useRef(null);
+
   const [medics, setMedics] = useState([]);
   const [specialties, setSpecialties] = useState([]);
 
@@ -17,6 +22,51 @@ const ListMedics = () => {
 
   const [loading, setLoading] = useState(false);
   const [urlParams, setUrlParams] = useState("");
+
+  const handleShowToast = () => {
+    if (location.state !== null && location.state.response) {
+      switch (location.state.response) {
+        case 'created':
+          toast.current?.show({
+            severity: 'created',
+            summary: 'Médico creado',
+            detail: 'Médico ha sido creado correctamente.',
+            life: 5000,
+          });
+          location.state = null;
+          break;
+        case 'notFound':
+          toast.current?.show({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Médico no encontrado.',
+            life: 5000,
+          });
+          location.state = null;
+          break;
+        case 'specialityError':
+          toast.current?.show({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Ocurrió un error al intentar recuperar especialidad.',
+            life: 5000,
+          });
+          location.state = null;
+          break;
+        case 'error':
+          toast.current?.show({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Ocurrió un error al intentar crear médico.',
+            life: 5000,
+          });
+          location.state = null;
+          break;
+        default:
+          break;
+      }
+    }
+  };
 
   const handleSearch = () => {
     let params = "";
@@ -52,26 +102,38 @@ const ListMedics = () => {
   };
 
   useEffect(() => {
+    handleShowToast();
     setLoading(true);
     fetch("http://localhost:8000/doctor?" + urlParams)
       .then((res) => res.json())
       .then((data) => {
-        setMedics(data);
+        if (Array.isArray(data)) {
+          setMedics(data);
+        }
         console.log(data);
+        setLoading(false);
+      })
+      .catch(() => {
         setLoading(false);
       });
 
     fetch("http://localhost:8000/specialty")
       .then((res) => res.json())
       .then((data) => {
-        setSpecialties(data);
+        if (Array.isArray(data)) {
+          setSpecialties(data);
+        }
         console.log(data);
+        setLoading(false);
+      })
+      .catch(() => {
         setLoading(false);
       });
   }, [urlParams]);
 
   return (
     <div className="h-screen align-items-center align-content-center">
+      <Toast ref={toast} />
       <h1>Especialistas Médicos</h1>
       <div className="">
         <InputText
@@ -102,11 +164,11 @@ const ListMedics = () => {
           placeholder="Especialidad"
           filter
         />
-        
-        <Button label="Buscar" onClick={handleSearch} className="w-1 ml-2" loading={loading}/>
-        <Button label="Limpiar" onClick={handleClean}className="w-1 ml-2" loading={loading}/>
+
+        <Button label="Buscar" onClick={handleSearch} className="w-1 ml-2" loading={loading} />
+        <Button label="Limpiar" onClick={handleClean} className="w-1 ml-2" loading={loading} />
       </div>
-      
+
 
       <div className="" style={{ margin: "20px" }}>
         <Toolbar className="mb-4" left={leftToolbarTemplate}></Toolbar>

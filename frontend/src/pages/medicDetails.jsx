@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { TabMenu } from "primereact/tabmenu";
 import { Divider } from "primereact/divider";
 import { Chip } from 'primereact/chip';
 import { Button } from "primereact/button";
+import { Toast } from "primereact/toast";
 
 const MedicDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const toast = useRef(null);
 
   const [medicData, setMedicData] = useState({
     name: '',
@@ -25,7 +29,35 @@ const MedicDetails = () => {
 
   const [medicTab, setUserTab] = useState(0);
 
+  const handleShowToast = () => {
+    if (location.state !== null && location.state.response) {
+      switch (location.state.response) {
+        case 'modified':
+          toast.current?.show({
+            severity: 'success',
+            summary: 'Cambios guardados',
+            detail: 'Información personal de médico ha sido actualizada.',
+            life: 5000,
+          });
+          location.state = null;
+          break;
+        case 'modifyError':
+          toast.current?.show({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Ocurrió un error al intentar editar información personal de médico.',
+            life: 5000,
+          });
+          location.state = null;
+          break;
+        default:
+          break;
+      }
+    }
+  };
+
   useEffect(() => {
+    handleShowToast();
     axios.get(`http://localhost:8000/doctor/${id}`)
     .then((res) => {
       if(!res.data.Error) {
@@ -33,7 +65,11 @@ const MedicDetails = () => {
         setMedicData(res.data);
       }
       else {
-        navigate('/');  
+        navigate('/', {
+          state: {
+            response: 'notFound',
+          },
+        });  
       }
     })
     .catch(() => {
@@ -56,12 +92,13 @@ const MedicDetails = () => {
 
   return(
     <div className="medicDetails pt-5">
+      <Toast ref={toast} />
       <h2 className="text-left pl-8">{medicData.name} {medicData.lastname}</h2>
       <div className="text-left pl-8">
         <span>
           Especialista en:
           {medicData.specialties.map((speciality) => 
-            <Chip className="ml-2" label={speciality.name} />
+            <Chip key={speciality.id} className="ml-2" label={speciality.name} />
           )}
         </span>
       </div>
