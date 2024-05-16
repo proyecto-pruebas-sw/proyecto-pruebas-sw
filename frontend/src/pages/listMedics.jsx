@@ -44,6 +44,15 @@ const ListMedics = () => {
           });
           location.state = null;
           break;
+        case 'removed':
+          toast.current?.show({
+            severity: 'info',
+            summary: 'Removido',
+            detail: 'Médico ha sido removido del sistema.',
+            life: 5000,
+          });
+          location.state = null;
+          break;
         case 'specialityError':
           toast.current?.show({
             severity: 'error',

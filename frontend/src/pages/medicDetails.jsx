@@ -5,6 +5,7 @@ import { TabMenu } from "primereact/tabmenu";
 import { Divider } from "primereact/divider";
 import { Chip } from 'primereact/chip';
 import { Button } from "primereact/button";
+import { confirmDialog, ConfirmDialog } from 'primereact/confirmdialog'; // For confirmDialog method
 import { Toast } from "primereact/toast";
 
 const MedicDetails = () => {
@@ -28,6 +29,15 @@ const MedicDetails = () => {
   });
 
   const [medicTab, setUserTab] = useState(0);
+
+  const toastDeleteError = () => {
+    toast.current?.show({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Ocurrió un error al intentar eliminar médico.',
+      life: 5000,
+    });
+  };
 
   const handleShowToast = () => {
     if (location.state !== null && location.state.response) {
@@ -59,23 +69,51 @@ const MedicDetails = () => {
   useEffect(() => {
     handleShowToast();
     axios.get(`http://localhost:8000/doctor/${id}`)
-    .then((res) => {
-      if(!res.data.Error) {
-        console.log(res);
-        setMedicData(res.data);
-      }
-      else {
-        navigate('/', {
-          state: {
-            response: 'notFound',
-          },
-        });  
-      }
+      .then((res) => {
+        if (!res.data.Error) {
+          console.log(res);
+          setMedicData(res.data);
+        }
+        else {
+          navigate('/', {
+            state: {
+              response: 'notFound',
+            },
+          });
+        }
+      })
+      .catch(() => {
+        navigate('/');
+      });
+  }, [id, navigate]);
+
+  const handleRemoveMedic = () => {
+    axios.delete(`http://localhost:8000/doctor/${id}`)
+    .then(() => {
+      navigate('/',{
+        state: {
+          response: 'removed',
+        },
+      });
     })
     .catch(() => {
-      navigate('/');
+      toastDeleteError();
+    })
+  };
+
+  const confirmRemoval = () => {
+    confirmDialog({
+      message: 'Advertencia: esta operación no se puede deshacer.',
+      header: 'Eliminar médico',
+      icon: 'pi pi-exclamation-triangle',
+      defaultFocus: 'reject',
+      acceptLabel: 'Eliminar',
+      rejectLabel: 'Cancelar',
+      accept: () => {
+        handleRemoveMedic();
+      },
     });
-  },[id, navigate]);
+  };
 
   const tabItems = [
     {
@@ -90,33 +128,40 @@ const MedicDetails = () => {
     setUserTab(e.index);
   };
 
-  return(
+  return (
     <div className="medicDetails pt-5">
+      <ConfirmDialog />
       <Toast ref={toast} />
       <h2 className="text-left pl-8">{medicData.name} {medicData.lastname}</h2>
       <div className="text-left pl-8">
         <span>
           Especialista en:
-          {medicData.specialties.map((speciality) => 
+          {medicData.specialties.map((speciality) =>
             <Chip key={speciality.id} className="ml-2" label={speciality.name} />
           )}
         </span>
       </div>
       <div className="grid grid-nogutter mt-4">
         <div className="text-left col-12 pl-8 my-2">
-          <span className="pi pi-map-marker mr-3"/>{medicData.city}
+          <span className="pi pi-map-marker mr-3" />{medicData.city}
         </div>
         <div className="text-left col-12 pl-8 my-2">
-          <span className="pi pi-envelope mr-3"/>{medicData.email}
+          <span className="pi pi-envelope mr-3" />{medicData.email}
         </div>
         <div className="text-left col-12 pl-8 my-2">
-          <span className="pi pi-phone mr-3"/>{medicData.phone}
+          <span className="pi pi-phone mr-3" />{medicData.phone}
         </div>
       </div>
 
       <Link to='editPersonalInfo'>
-        <Button label="Editar información personal" className="flex ml-8 my-5"/>
+        <Button label="Editar información personal" className="flex ml-8 my-5" />
       </Link>
+
+      <Button
+        label="Eliminar médico"
+        severity="danger"
+        onClick={confirmRemoval}
+      />
 
       <TabMenu
         className="mt-3"
