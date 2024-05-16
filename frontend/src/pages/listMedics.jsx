@@ -76,6 +76,7 @@ const ListMedics = () => {
       <h1>Especialistas Médicos</h1>
       <div className="">
         <InputText
+          id="input_name"
           className="w-3 my-auto m-1"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -85,6 +86,7 @@ const ListMedics = () => {
           placeholder="Nombre"
         />
         <InputText
+          id="input_city"
           className="w-3 my-auto m-1"
           value={city}
           onChange={(e) => setCity(e.target.value)}
@@ -94,6 +96,7 @@ const ListMedics = () => {
           placeholder="Ciudad"
         />
         <Dropdown
+          id="dropdown_specialties"
           className="w-1 my-auto m-1"
           value={specialty}
           onChange={(e) => setSpecialty(e.target.value)}
@@ -109,7 +112,7 @@ const ListMedics = () => {
       </div>
       
 
-      <div className="" style={{ margin: "20px" }}>
+      <div className="" style={{ margin: "20px" }} id="doctors">
         <Toolbar className="mb-4" left={leftToolbarTemplate}></Toolbar>
         <MedicTable medics={medics} />
       </div>
