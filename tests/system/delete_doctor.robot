@@ -14,7 +14,7 @@ ${db_host}        localhost
 ${db_port}        5432 
 
 *** Test Cases ***
-test-system-36
+test-system-29 Delete a doctor
     Open Browser    ${index_url}/medics/5    ${browser}
     Click Button    Eliminar médico
     Click Button    Eliminar
