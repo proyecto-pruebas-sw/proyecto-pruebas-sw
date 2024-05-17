@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import axios, { Axios } from "axios";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 import { InputText } from "primereact/inputtext";
 import { Card } from "primereact/card";
-import { useFormik } from "formik";
 import { Button } from "primereact/button";
 import { backendUrl } from "../config/backend-url";
 
@@ -30,7 +29,11 @@ const EditPersonalInfo = () => {
         setMedicData(res.data);
       })
       .catch(() => {
-        navigate('/');
+        navigate('/', {
+          state: {
+            response: 'notFound',
+          },
+        });
       });
   }, [id, navigate]);
 
@@ -64,7 +67,7 @@ const EditPersonalInfo = () => {
 
   const handleModifyMedic = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:8000/doctor/${id}`,{
+    axios.put(`${backendUrl}/doctor/${id}`,{
       name: medicData.name,
       lastname: medicData.lastname,
       rut: medicData.rut,
@@ -75,16 +78,33 @@ const EditPersonalInfo = () => {
     })
     .then(() => {
       console.log("modified");
-      navigate(`/medics/${id}`);
+      navigate(`/medics/${id}`, {
+        state: {
+          response: 'modified',
+        },
+      });
     })
-    .catch((error) => {
+    .catch(() => {
       console.log("error");
-      navigate(`/medics/${id}`);
+      navigate(`/medics/${id}`, {
+        state: {
+          response: 'modifyError',
+        },
+      });
     });
   };
 
   return (
     <div className="editPersonalInfo pt-6">
+      <div className="home text-left mt-5 ml-8">
+        <Link to="/">
+          <Button
+            className="px-4 w-1"
+            icon="pi pi-home"
+            size="large"
+          />
+        </Link>
+      </div>
       <h2 className="text-left ml-5">Editar información personal</h2>
       <Card className="mx-5">
         <form onSubmit={handleModifyMedic}>

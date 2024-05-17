@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { InputText } from "primereact/inputtext";
 import { Card } from "primereact/card";
 import { MultiSelect } from "primereact/multiselect";
@@ -19,11 +19,19 @@ const NewMedic = () => {
         if (Array.isArray(res.data)) {
           setSpecialities(res.data);
         } else {
-          navigate('/');
+          navigate('/', {
+            state: {
+              response: 'specialityError',
+            },
+          });
         }
       })
-      .catch((error) => {
-        navigate('/');
+      .catch(() => {
+        navigate('/', {
+          state: {
+            response: 'specialityError',
+          },
+        });
       });
   }, [navigate]);
 
@@ -43,10 +51,18 @@ const NewMedic = () => {
     })
     .then((res) => {
       console.log(res);
-      navigate('/');
+      navigate('/', {
+        state: {
+          response: 'created',
+        },
+      });
     })
     .catch(() => {
-      navigate('/');
+      navigate('/', {
+        state: {
+          response: 'error',
+        },
+      });
     })
   };
 
@@ -108,6 +124,15 @@ const NewMedic = () => {
 
   return (
     <div className="newMedic">
+      <div className="home text-left mt-5 ml-8">
+        <Link to="/">
+          <Button
+            className="px-4 w-1"
+            icon="pi pi-home"
+            size="large"
+          />
+        </Link>
+      </div>
       <h2 className="mt-8 ml-5">Nuevo médico</h2>
       <Card>
         <form onSubmit={formik.handleSubmit}>
