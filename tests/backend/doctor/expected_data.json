@@ -1,0 +1,222 @@
+{
+  "get": [
+    {
+      "name": "JUAN CARLOS",
+      "lastname": "GONZALEZ PEREZ",
+      "rut": "11.111.111-1",
+      "email": "JUAN.CARLOS@EXAMPLE.COM",
+      "phone": "987654321",
+      "birthdate": "1975-08-12",
+      "city": "VALPARAISO",
+      "id": 1,
+      "specialties": [
+        {
+          "name": "MEDICINA GENERAL",
+          "id": 11
+        }
+      ]
+    },
+    {
+      "name": "MARIA ELENA",
+      "lastname": "SANCHEZ RUIZ",
+      "rut": "22.222.222-2",
+      "email": "MARIA.ELENA@EXAMPLE.COM",
+      "phone": "123456789",
+      "birthdate": "1980-05-25",
+      "city": "SANTIAGO",
+      "id": 2,
+      "specialties": [
+        {
+          "name": "CARDIOLOGIA",
+          "id": 1
+        },
+        {
+          "name": "OFTALMOLOGIA",
+          "id": 5
+        }
+      ]
+    },
+    {
+      "name": "CARLOS ANDRES",
+      "lastname": "MORALES TORO",
+      "rut": "33.333.333-3",
+      "email": "CARLOS.ANDRES@EXAMPLE.COM",
+      "phone": "456789123",
+      "birthdate": "1983-12-10",
+      "city": "CONCEPCION",
+      "id": 3,
+      "specialties": [
+        {
+          "name": "GINECOLOGIA",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "name": "ANA MARIA",
+      "lastname": "ROJAS ARAYA",
+      "rut": "44.444.444-4",
+      "email": "ANA.MARIA@EXAMPLE.COM",
+      "phone": "789123456",
+      "birthdate": "1985-04-20",
+      "city": "ARICA",
+      "id": 4,
+      "specialties": [
+        {
+          "name": "TRAUMATOLOGIA",
+          "id": 4
+        },
+        {
+          "name": "PSIQUIATRIA",
+          "id": 8
+        }
+      ]
+    },
+    {
+      "name": "FERNANDO JOSE",
+      "lastname": "LOZANO PACHECO",
+      "rut": "55.555.555-5",
+      "email": "FERNANDO.JOSE@EXAMPLE.COM",
+      "phone": "654987321",
+      "birthdate": "1978-11-15",
+      "city": "ANTOFAGASTA",
+      "id": 5,
+      "specialties": [
+        {
+          "name": "PEDIATRIA",
+          "id": 2
+        }
+      ]
+    }
+  ],
+  "get_by_specialty": [
+    {
+      "name": "MARIA ELENA",
+      "lastname": "SANCHEZ RUIZ",
+      "rut": "22.222.222-2",
+      "email": "MARIA.ELENA@EXAMPLE.COM",
+      "phone": "123456789",
+      "birthdate": "1980-05-25",
+      "city": "SANTIAGO",
+      "id": 2,
+      "specialties": [
+        {
+          "name": "CARDIOLOGIA",
+          "id": 1
+        },
+        {
+          "name": "OFTALMOLOGIA",
+          "id": 5
+        }
+      ]
+    }
+  ],
+  "get_by_name": [
+    {
+      "name": "JUAN CARLOS",
+      "lastname": "GONZALEZ PEREZ",
+      "rut": "11.111.111-1",
+      "email": "JUAN.CARLOS@EXAMPLE.COM",
+      "phone": "987654321",
+      "birthdate": "1975-08-12",
+      "city": "VALPARAISO",
+      "id": 1,
+      "specialties": [
+        {
+          "name": "MEDICINA GENERAL",
+          "id": 11
+        }
+      ]
+    }
+  ],
+  "get_by_city": [
+    {
+      "name": "JUAN CARLOS",
+      "lastname": "GONZALEZ PEREZ",
+      "rut": "11.111.111-1",
+      "email": "JUAN.CARLOS@EXAMPLE.COM",
+      "phone": "987654321",
+      "birthdate": "1975-08-12",
+      "city": "VALPARAISO",
+      "id": 1,
+      "specialties": [
+        {
+          "name": "MEDICINA GENERAL",
+          "id": 11
+        }
+      ]
+    }
+  ],
+  "get_by_specialty_name": [
+    {
+      "name": "JUAN CARLOS",
+      "lastname": "GONZALEZ PEREZ",
+      "rut": "11.111.111-1",
+      "email": "JUAN.CARLOS@EXAMPLE.COM",
+      "phone": "987654321",
+      "birthdate": "1975-08-12",
+      "city": "VALPARAISO",
+      "id": 1,
+      "specialties": [
+        {
+          "name": "MEDICINA GENERAL",
+          "id": 11
+        }
+      ]
+    }
+  ],
+  "get_by_specialty_city": [
+    {
+      "name": "JUAN CARLOS",
+      "lastname": "GONZALEZ PEREZ",
+      "rut": "11.111.111-1",
+      "email": "JUAN.CARLOS@EXAMPLE.COM",
+      "phone": "987654321",
+      "birthdate": "1975-08-12",
+      "city": "VALPARAISO",
+      "id": 1,
+      "specialties": [
+        {
+          "name": "MEDICINA GENERAL",
+          "id": 11
+        }
+      ]
+    }
+  ],
+  "get_by_name_city": [
+    {
+      "name": "JUAN CARLOS",
+      "lastname": "GONZALEZ PEREZ",
+      "rut": "11.111.111-1",
+      "email": "JUAN.CARLOS@EXAMPLE.COM",
+      "phone": "987654321",
+      "birthdate": "1975-08-12",
+      "city": "VALPARAISO",
+      "id": 1,
+      "specialties": [
+        {
+          "name": "MEDICINA GENERAL",
+          "id": 11
+        }
+      ]
+    }
+  ],
+  "get_by_specialty_name_city": [
+    {
+      "name": "JUAN CARLOS",
+      "lastname": "GONZALEZ PEREZ",
+      "rut": "11.111.111-1",
+      "email": "JUAN.CARLOS@EXAMPLE.COM",
+      "phone": "987654321",
+      "birthdate": "1975-08-12",
+      "city": "VALPARAISO",
+      "id": 1,
+      "specialties": [
+        {
+          "name": "MEDICINA GENERAL",
+          "id": 11
+        }
+      ]
+    }
+  ]
+}
