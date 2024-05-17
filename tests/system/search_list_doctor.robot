@@ -78,3 +78,11 @@ test-system-8 Search for a doctor by specialty, name and city
     Page Should Contain Element    xpath=//span[contains(@id,'_name') and contains(text(),'MARIA')]
     Page Should Contain Element    xpath=//span[contains(@id,'_city') and contains(text(),'SANTIAGO')]
     Close Browser
+
+test-system-9 Show doctor detail
+    Open Browser    ${index_url}    ${browser}
+    Page Should Contain Element    xpath=//*[contains(@id, '_name')]
+    Mouse Down    xpath=//*[contains(@id, '_phone')]
+    Click Element     xpath=//*[contains(@id, '_phone')]
+    Page Should Contain Element    id=link_edit_personal_info
+    Close Browser
