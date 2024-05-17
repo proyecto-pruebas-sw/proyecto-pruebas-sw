@@ -36,7 +36,7 @@ python3 reset_bd.py
 ```
 - Agregar data inicial a la 
 ```
-python3 data.py
+python3 populate_bd.py
 ```
 ## 4.1 Backend tests
 - Entrar al directorio backend/doctor
