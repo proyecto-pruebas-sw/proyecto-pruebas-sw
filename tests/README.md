@@ -39,15 +39,23 @@ python3 reset_bd.py
 python3 data.py
 ```
 ## 4.1 Backend tests
+- Entrar al directorio backend/doctor
+```
+cd backend/doctor
+```
 - Ejecutar tests
 ```
-robot backend/doctor
+robot .
 ```
 - Si quieres ejecutar el test nuevamente o ejecutar otro test, es necesario resetear la BD y cargar los datos iniciales nuevamente (paso 4).
 
-## 5. System tests
+## 4.2 System tests
+- Entrar al directorio system
+```
+cd system
+```
 - Ejecutar tests
 ```
-robot system/
+robot .
 ```
 - Si quieres ejecutar el test nuevamente o ejecutar otro test, es necesario resetear la BD y cargar los datos iniciales nuevamente (paso 4).
