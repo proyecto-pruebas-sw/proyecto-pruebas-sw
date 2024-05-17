@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { backendUrl } from "../config/backend-url";
 
 const NewSpeciality = () => {
@@ -54,6 +54,15 @@ const NewSpeciality = () => {
 
   return(
     <div className="newSpeciality">
+      <div className="home text-left mt-5 ml-8">
+        <Link to="/">
+          <Button
+            className="px-4 w-1"
+            icon="pi pi-home"
+            size="large"
+          />
+        </Link>
+      </div>
       <h2 className="mt-8 ml-5">Crear especialidad</h2>
       <Card>
         <form onSubmit={formik.handleSubmit}>

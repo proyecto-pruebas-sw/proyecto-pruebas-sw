@@ -60,6 +60,15 @@ const Specialities = () => {
   return (
     <div className="specialities">
       <Toast ref={toast} />
+      <div className="home text-left mt-5 ml-8">
+        <Link to="/">
+          <Button
+            className="px-4 w-1"
+            icon="pi pi-home"
+            size="large"
+          />
+        </Link>
+      </div>
       <Link to='new'>
         <Button label="Nueva especialidad" />
       </Link>
