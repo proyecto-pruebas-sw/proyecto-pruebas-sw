@@ -107,8 +107,8 @@ const ListMedics = () => {
           filter
         />
         
-        <Button label="Buscar" onClick={handleSearch} className="w-1 ml-2" loading={loading}/>
-        <Button label="Limpiar" onClick={handleClean}className="w-1 ml-2" loading={loading}/>
+        <Button id="search" label="Buscar" onClick={handleSearch} className="w-1 ml-2" loading={loading}/>
+        <Button id="clean" label="Limpiar" onClick={handleClean} className="w-1 ml-2" loading={loading}/>
       </div>
       
 

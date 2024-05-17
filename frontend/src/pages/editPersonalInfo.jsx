@@ -92,6 +92,7 @@ const EditPersonalInfo = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Nombre:</span>
               <InputText
+                id="input_name"
                 key="name"
                 value={medicData.name}
                 onChange={(e) => {
@@ -102,6 +103,7 @@ const EditPersonalInfo = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Apellido:</span>
               <InputText
+                id="input_lastname"
                 key="lastname"
                 value={medicData.lastname}
                 onChange={(e) => {
@@ -112,6 +114,7 @@ const EditPersonalInfo = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Rut:</span>
               <InputText
+                id="input_rut"
                 key="rut"
                 value={medicData.rut}
                 onChange={(e) => {
@@ -122,6 +125,7 @@ const EditPersonalInfo = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Email:</span>
               <InputText
+                id="input_email"
                 key="email"
                 value={medicData.email}
                 onChange={(e) => {
@@ -132,6 +136,7 @@ const EditPersonalInfo = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Teléfono:</span>
               <InputText
+                id="input_phone"
                 key="phone"
                 value={medicData.phone}
                 onChange={(e) => {
@@ -142,6 +147,7 @@ const EditPersonalInfo = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Fecha de nacimiento:</span>
               <InputText
+                id="input_birthdate"
                 key="birthdate"
                 value={medicData.birthdate}
                 onChange={(e) => {
@@ -153,6 +159,7 @@ const EditPersonalInfo = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Ciudad</span>
               <InputText
+                id="input_city"
                 key="city"
                 value={medicData.city}
                 onChange={(e) => {
@@ -162,6 +169,7 @@ const EditPersonalInfo = () => {
             </div>
           </div>
           <Button
+            id="save_changes"
             type="submit"
             label="Guardar cambios"
           />
