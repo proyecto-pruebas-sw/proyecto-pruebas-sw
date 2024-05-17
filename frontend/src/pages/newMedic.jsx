@@ -140,6 +140,7 @@ const NewMedic = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Nombre:</span>
               <InputText
+                id="input_name"
                 key="name"
                 value={formik.values.name}
                 onChange={(e) => {
@@ -150,6 +151,7 @@ const NewMedic = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Apellido:</span>
               <InputText
+                id="input_lastname"
                 key="lastname"
                 value={formik.values.lastname}
                 onChange={(e) => {
@@ -160,6 +162,7 @@ const NewMedic = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Rut:</span>
               <InputText
+                id="input_rut"
                 key="rut"
                 value={formik.values.rut}
                 onChange={(e) => {
@@ -170,6 +173,7 @@ const NewMedic = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Email:</span>
               <InputText
+                id="input_email"
                 key="email"
                 value={formik.values.email}
                 onChange={(e) => {
@@ -180,6 +184,7 @@ const NewMedic = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Teléfono:</span>
               <InputText
+                id="input_phone"
                 key="phone"
                 value={formik.values.phone}
                 onChange={(e) => {
@@ -190,6 +195,7 @@ const NewMedic = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Fecha de nacimiento:</span>
               <InputText
+                id="input_birthdate"
                 key="birthdate"
                 value={formik.values.birthdate}
                 onChange={(e) => {
@@ -201,6 +207,7 @@ const NewMedic = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Ciudad</span>
               <InputText
+                id="input_city"
                 key="city"
                 value={formik.values.city}
                 onChange={(e) => {
@@ -211,6 +218,7 @@ const NewMedic = () => {
             <div className="ml-6 my-3">
               <span className="mr-5">Especialidades</span>
               <MultiSelect
+                id="multiselect_specialities"
                 value={formik.values.specialities}
                 onChange={(e) => formik.setFieldValue('specialities', e.value)}
                 options={specialities}
@@ -221,6 +229,7 @@ const NewMedic = () => {
             </div>
           </div>
           <Button
+            id="medic_create"
             type="submit"
             label="Crear médico"
           />

@@ -1,0 +1,37 @@
+{
+    "doctors": [
+        {
+            "name": "MARÍA ISABEL",
+            "lastname": "LÓPEZ GÓMEZ",
+            "rut": "22.222.222-2",
+            "email": "MARIA.ISABEL@EXAMPLE.COM",
+            "phone": "123456789",
+            "birthdate": "1980-05-25",
+            "city": "SANTIAGO",
+            "specialties": [
+                1,
+                5
+            ],
+            "experiences": [
+                {
+                    "job_title": "CARDIÓLOGA",
+                    "institution": "CLÍNICA LOS ANDES",
+                    "city": "SANTIAGO",
+                    "country": "CHILE",
+                    "start_date": "2008-09-01",
+                    "end_date": "2015-06-30"
+                }
+            ],
+            "educations": [
+                {
+                    "degree": "MEDICINA",
+                    "institution": "UNIVERSIDAD DE CHILE",
+                    "city": "SANTIAGO",
+                    "country": "CHILE",
+                    "start_date": "1998-03-01",
+                    "end_date": "2005-12-31"
+                }
+            ]
+        }        
+    ]
+}

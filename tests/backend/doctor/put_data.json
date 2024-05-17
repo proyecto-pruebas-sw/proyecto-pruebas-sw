@@ -1,0 +1,53 @@
+{
+    "doctors": [
+        {
+            "name": "JUAN CARLOS",
+            "lastname": "RODRÍGUEZ MARTÍNEZ",
+            "rut": "11.111.111-1",
+            "email": "JUAN.CARLOS@EXAMPLE.COM",
+            "phone": "987654321",
+            "birthdate": "1975-10-15",
+            "city": "VALPARAÍSO",
+            "specialties": [
+                3,
+                6
+            ],
+            "experiences": [
+                {
+                    "job_title": "DERMATÓLOGO",
+                    "institution": "HOSPITAL DE VALPARAÍSO",
+                    "city": "VALPARAÍSO",
+                    "country": "CHILE",
+                    "start_date": "2003-07-01",
+                    "end_date": "2010-12-31"
+                },
+                {
+                    "job_title": "ONCÓLOGO",
+                    "institution": "INSTITUTO NACIONAL DEL CÁNCER",
+                    "city": "SANTIAGO",
+                    "country": "CHILE",
+                    "start_date": "2011-03-01",
+                    "end_date": "2018-06-30"
+                }
+            ],
+            "educations": [
+                {
+                    "degree": "MEDICINA",
+                    "institution": "PONTIFICIA UNIVERSIDAD CATÓLICA DE VALPARAÍSO",
+                    "city": "VALPARAÍSO",
+                    "country": "CHILE",
+                    "start_date": "1994-03-01",
+                    "end_date": "2001-12-31"
+                },
+                {
+                    "degree": "ESPECIALIZACIÓN EN ONCOLOGÍA",
+                    "institution": "UNIVERSIDAD DE CHILE",
+                    "city": "SANTIAGO",
+                    "country": "CHILE",
+                    "start_date": "2006-01-01",
+                    "end_date": "2010-06-30"
+                }
+            ]
+        }
+    ]
+}
