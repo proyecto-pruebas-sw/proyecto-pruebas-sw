@@ -114,7 +114,7 @@ const ListMedics = () => {
   useEffect(() => {
     handleShowToast();
     setLoading(true);
-    fetch(`${backendUrl}/doctor?` + urlParams)
+    fetch(`${backendUrl}/doctor?${urlParams}`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
@@ -142,9 +142,18 @@ const ListMedics = () => {
   }, [urlParams]);
 
   return (
-    <div className="h-screen align-items-center align-content-center">
+    <div className="min-h-screen align-items-center align-content-center">
       <Toast ref={toast} />
-      <h1>Especialistas Médicos</h1>
+      <div className="home text-left mt-5 ml-8">
+        <Link to="/">
+          <Button
+            className="px-4 w-1"
+            icon="pi pi-home"
+            size="large"
+          />
+        </Link>
+      </div>
+      <h2>Especialistas Médicos</h2>
       <div className="">
         <InputText
           className="w-3 my-auto m-1"

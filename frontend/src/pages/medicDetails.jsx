@@ -130,8 +130,17 @@ const MedicDetails = () => {
   };
 
   return (
-    <div className="medicDetails pt-5">
+    <div className="medicDetails">
       <ConfirmDialog />
+      <div className="home text-left mt-5 ml-8">
+        <Link to="/">
+          <Button
+            className="px-4 w-1"
+            icon="pi pi-home"
+            size="large"
+          />
+        </Link>
+      </div>
       <Toast ref={toast} />
       <h2 className="text-left pl-8">{medicData.name} {medicData.lastname}</h2>
       <div className="text-left pl-8">

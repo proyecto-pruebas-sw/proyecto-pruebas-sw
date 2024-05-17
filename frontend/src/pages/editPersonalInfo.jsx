@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { InputText } from "primereact/inputtext";
 import { Card } from "primereact/card";
@@ -67,7 +67,7 @@ const EditPersonalInfo = () => {
 
   const handleModifyMedic = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:8000/doctor/${id}`,{
+    axios.put(`${backendUrl}/doctor/${id}`,{
       name: medicData.name,
       lastname: medicData.lastname,
       rut: medicData.rut,
@@ -96,6 +96,15 @@ const EditPersonalInfo = () => {
 
   return (
     <div className="editPersonalInfo pt-6">
+      <div className="home text-left mt-5 ml-8">
+        <Link to="/">
+          <Button
+            className="px-4 w-1"
+            icon="pi pi-home"
+            size="large"
+          />
+        </Link>
+      </div>
       <h2 className="text-left ml-5">Editar información personal</h2>
       <Card className="mx-5">
         <form onSubmit={handleModifyMedic}>
