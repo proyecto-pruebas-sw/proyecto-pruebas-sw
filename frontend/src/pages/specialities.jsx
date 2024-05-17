@@ -28,7 +28,7 @@ const Specialities = () => {
   return (
     <div className="specialities">
       <Link to='new'>
-        <Button label="Nueva especialidad" />
+        <Button id="link_new_speciality" label="Nueva especialidad" />
       </Link>
       <DataTable
         className="p-datatable-striped"
