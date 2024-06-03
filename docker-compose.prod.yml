@@ -1,0 +1,43 @@
+services:
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    container_name: frontend
+    ports:
+      - '80:80'
+    volumes:
+      - ./frontend/src:/usr/app/src
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+  
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Pruebas12345
+      - POSTGRES_DB=medical_directory
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  
+  backend:
+    build: 
+      context: ./services/backend
+      dockerfile: Dockerfile.dev
+    container_name: backend
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./services/backend/src:/app/src
+    depends_on:
+      postgres:
+        condition: service_healthy
