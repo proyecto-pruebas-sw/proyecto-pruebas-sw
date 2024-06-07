@@ -241,6 +241,7 @@ const NewMedic = () => {
           <div className="specialties my-5 mx-8">
             <div className="px-8">
               <MultiSelect
+                id="multiselect_specialities"
                 value={formik.values.specialities}
                 onChange={(e) => formik.setFieldValue('specialities', e.value)}
                 options={specialities}

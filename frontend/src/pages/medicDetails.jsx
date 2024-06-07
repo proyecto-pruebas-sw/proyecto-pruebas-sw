@@ -164,10 +164,11 @@ const MedicDetails = () => {
       </div>
 
       <Link to='editPersonalInfo'>
-        <Button label="Editar información personal" className="flex ml-8 my-5" />
+        <Button id="link_edit_personal_info" label="Editar información personal" className="flex ml-8 my-5" />
       </Link>
 
       <Button
+        id="remove_medic"
         label="Eliminar médico"
         severity="danger"
         onClick={confirmRemoval}

@@ -1,0 +1,217 @@
+{
+    "specialties": [
+        {
+            "name": "CARDIOLOGIA"
+        },
+        {
+            "name": "PEDIATRIA"
+        },
+        {
+            "name": "GINECOLOGIA"
+        },
+        {
+            "name": "TRAUMATOLOGIA"
+        },
+        {
+            "name": "OFTALMOLOGIA"
+        },
+        {
+            "name": "DERMATOLOGIA"
+        },
+        {
+            "name": "NEUROLOGIA"
+        },
+        {
+            "name": "PSIQUIATRIA"
+        },
+        {
+            "name": "OTORRINOLARINGOLOGIA"
+        },
+        {
+            "name": "ENDOCRINOLOGIA"
+        },
+        {
+            "name": "MEDICINA GENERAL"
+        }
+    ],
+    "doctors": [
+        {
+            "name": "JUAN CARLOS",
+            "lastname": "GONZALEZ PEREZ",
+            "rut": "11.111.111-1",
+            "email": "JUAN.CARLOS@EXAMPLE.COM",
+            "phone": "987654321",
+            "birthdate": "1975-08-12",
+            "city": "VALPARAISO",
+            "specialties": [
+                11
+            ],
+            "experiences": [
+                {
+                    "job_title": "MEDICO GENERAL",
+                    "institution": "CONSULTORIO MEDICO DEL MAR",
+                    "city": "VALPARAISO",
+                    "country": "CHILE",
+                    "start_date": "2005-03-01",
+                    "end_date": "2010-12-31"
+                },
+                {
+                    "job_title": "MEDICO GENERAL",
+                    "institution": "HOSPITAL CARLOS VAN BUREN",
+                    "city": "VALPARAISO",
+                    "country": "CHILE",
+                    "start_date": "2011-01-01",
+                    "end_date": "2015-12-31"
+                }
+            ],
+            "educations": [
+                {
+                    "degree": "MEDICINA",
+                    "institution": "UNIVERSIDAD DE VALPARAISO",
+                    "city": "VALPARAISO",
+                    "country": "CHILE",
+                    "start_date": "1995-03-01",
+                    "end_date": "2001-12-31"
+                }
+            ]
+        },
+        {
+            "name": "MARIA ELENA",
+            "lastname": "SANCHEZ RUIZ",
+            "rut": "22.222.222-2",
+            "email": "MARIA.ELENA@EXAMPLE.COM",
+            "phone": "123456789",
+            "birthdate": "1980-05-25",
+            "city": "SANTIAGO",
+            "specialties": [
+                1,
+                5
+            ],
+            "experiences": [
+                {
+                    "job_title": "CARDIOLOGO",
+                    "institution": "CLINICA SANTA MARIA",
+                    "city": "SANTIAGO",
+                    "country": "CHILE",
+                    "start_date": "2008-09-01",
+                    "end_date": "2015-06-30"
+                },
+                {
+                    "job_title": "OFTALMOLOGO",
+                    "institution": "CLINICA LOS COLORES",
+                    "city": "SANTIAGO",
+                    "country": "CHILE",
+                    "start_date": "2015-07-01",
+                    "end_date": "2020-12-31"
+                }
+            ],
+            "educations": [
+                {
+                    "degree": "MEDICINA",
+                    "institution": "UNIVERSIDAD DE CHILE",
+                    "city": "SANTIAGO",
+                    "country": "CHILE",
+                    "start_date": "1998-03-01",
+                    "end_date": "2005-12-31"
+                }
+            ]
+        },
+        {
+            "name": "CARLOS ANDRES",
+            "lastname": "MORALES TORO",
+            "rut": "33.333.333-3",
+            "email": "CARLOS.ANDRES@EXAMPLE.COM",
+            "phone": "456789123",
+            "birthdate": "1983-12-10",
+            "city": "CONCEPCION",
+            "specialties": [
+                3
+            ],
+            "experiences": [
+                {
+                    "job_title": "GINECOLOGO",
+                    "institution": "HOSPITAL REGIONAL",
+                    "city": "CONCEPCION",
+                    "country": "CHILE",
+                    "start_date": "2010-02-01",
+                    "end_date": "2018-11-30"
+                }
+            ],
+            "educations": [
+                {
+                    "degree": "MEDICINA",
+                    "institution": "UNIVERSIDAD DE CONCEPCION",
+                    "city": "CONCEPCION",
+                    "country": "CHILE",
+                    "start_date": "2001-08-01",
+                    "end_date": "2008-07-31"
+                }
+            ]
+        },
+        {
+            "name": "ANA MARIA",
+            "lastname": "ROJAS ARAYA",
+            "rut": "44.444.444-4",
+            "email": "ANA.MARIA@EXAMPLE.COM",
+            "phone": "789123456",
+            "birthdate": "1985-04-20",
+            "city": "ARICA",
+            "specialties": [
+                4,
+                8
+            ],
+            "experiences": [
+                {
+                    "job_title": "TRAUMATOLOGA",
+                    "institution": "HOSPITAL REGIONAL",
+                    "city": "ARICA",
+                    "country": "CHILE",
+                    "start_date": "2010-10-01",
+                    "end_date": "2017-09-30"
+                },
+                {
+                    "job_title": "OTORRINOLARINGOLOGA",
+                    "institution": "CLINICA LOS ANDES",
+                    "city": "ARICA",
+                    "country": "CHILE",
+                    "start_date": "2017-10-01",
+                    "end_date": "2023-09-30"
+                }
+            ],
+            "educations": [
+                {
+                    "degree": "MEDICINA",
+                    "institution": "UNIVERSIDAD DE TARAPACA",
+                    "city": "ARICA",
+                    "country": "CHILE",
+                    "start_date": "2003-03-01",
+                    "end_date": "2010-07-31"
+                }
+            ]
+        },
+        {
+            "name": "FERNANDO JOSE",
+            "lastname": "LOZANO PACHECO",
+            "rut": "55.555.555-5",
+            "email": "FERNANDO.JOSE@EXAMPLE.COM",
+            "phone": "654987321",
+            "birthdate": "1978-11-15",
+            "city": "ANTOFAGASTA",
+            "specialties": [
+                2
+            ],
+            "experiences": [
+            ],
+            "educations": [
+                {
+                    "degree": "MEDICINA",
+                    "institution": "UNIVERSIDAD CATOLICA DEL NORTE",
+                    "city": "ANTOFAGASTA",
+                    "country": "CHILE",
+                    "start_date": "1996-03-01",
+                    "end_date": "2003-12-31"
+                }
+            ]
+        }
+    ]
+}

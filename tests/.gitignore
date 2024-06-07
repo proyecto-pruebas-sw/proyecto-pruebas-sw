@@ -1,0 +1,7 @@
+env
+*.log
+*.html
+*.xml
+*.png
+__pycache__
+*.pyc
