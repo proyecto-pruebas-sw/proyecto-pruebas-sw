@@ -8,7 +8,7 @@ class DoctorTable(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, nullable=False)
     lastname = Column(String, nullable=False)
-    rut = Column(String, nullable=False)
+    rut = Column(String, nullable=False, unique=True)
     email = Column(String)
     phone = Column(String)
     birthdate = Column(Date)
