@@ -1,6 +1,7 @@
 from src.config.db import Base
 from sqlalchemy import Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import validates, relationship
+from rut_chile import rut_chile
 
 class DoctorTable(Base):
     __tablename__ = 'doctors'
@@ -17,11 +18,19 @@ class DoctorTable(Base):
     experiences = relationship('ExperienceTable', back_populates='doctor', cascade='all, delete')
     educations = relationship('EducationTable', back_populates='doctor', cascade='all, delete')
 
-    @validates('name', 'lastname', 'rut', 'email', 'city')
+    @validates('name', 'lastname', 'email', 'city')
     def convert_upper(self, key, value):
         if value is None:
             return value
         return value.upper()
+    
+    @validates('rut')
+    def convert_rut(self, key, value):
+        if value is None:
+            return value
+        elif not rut_chile.is_valid_rut(value):
+            raise ValueError('Invalid RUT')
+        return rut_chile.format_rut_without_dots(value)
 
 class SpecialtyTable(Base):
     __tablename__ = 'specialties'
