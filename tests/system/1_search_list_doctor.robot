@@ -4,7 +4,7 @@ Documentation     Test cases for the search and list doctors functionality
 
 *** Variables ***
 ${index_url}            http://localhost:3000
-${browser}             Firefox    
+${browser}             headlessfirefox    
 
 *** Test Cases ***
 test-system-1 List all doctors
