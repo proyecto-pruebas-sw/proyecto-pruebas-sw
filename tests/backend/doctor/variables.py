@@ -3,17 +3,21 @@ import json
 with open('put_data.json') as file:
     put_data = json.load(file)
     valid_doctor_put = put_data["doctors"][0]
+    file.close()
 
 with open('initial_data.json') as file:
     data = json.load(file)
+    file.close()
 
 with open('expected_data.json') as file:
     expected_data = json.load(file)
+    file.close()
 
 with open('post_data.json') as file:
     post_data = json.load(file)
     valid_doctor = post_data["doctors"][0]
-
+    file.close()
+    
 with open('post_data.json') as file:
     post_data = json.load(file)
     doctor_without_name = post_data["doctors"][0].copy()

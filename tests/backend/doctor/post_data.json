@@ -1,9 +1,9 @@
 {
     "doctors": [
         {
-            "name": "MARÍA ISABEL",
-            "lastname": "LÓPEZ GÓMEZ",
-            "rut": "22.222.222-2",
+            "name": "MARIA ISABEL",
+            "lastname": "LOPEZ GOMEZ",
+            "rut": "20202202-2",
             "email": "MARIA.ISABEL@EXAMPLE.COM",
             "phone": "123456789",
             "birthdate": "1980-05-25",
@@ -14,8 +14,8 @@
             ],
             "experiences": [
                 {
-                    "job_title": "CARDIÓLOGA",
-                    "institution": "CLÍNICA LOS ANDES",
+                    "job_title": "CARDIOLOGA",
+                    "institution": "CLINICA LOS ANDES",
                     "city": "SANTIAGO",
                     "country": "CHILE",
                     "start_date": "2008-09-01",

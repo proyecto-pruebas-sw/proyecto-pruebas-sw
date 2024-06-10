@@ -3,7 +3,7 @@
     {
       "name": "JUAN CARLOS",
       "lastname": "GONZALEZ PEREZ",
-      "rut": "11.111.111-1",
+      "rut": "11111111-1",
       "email": "JUAN.CARLOS@EXAMPLE.COM",
       "phone": "987654321",
       "birthdate": "1975-08-12",
@@ -19,7 +19,7 @@
     {
       "name": "MARIA ELENA",
       "lastname": "SANCHEZ RUIZ",
-      "rut": "22.222.222-2",
+      "rut": "22222222-2",
       "email": "MARIA.ELENA@EXAMPLE.COM",
       "phone": "123456789",
       "birthdate": "1980-05-25",
@@ -39,7 +39,7 @@
     {
       "name": "CARLOS ANDRES",
       "lastname": "MORALES TORO",
-      "rut": "33.333.333-3",
+      "rut": "33333333-3",
       "email": "CARLOS.ANDRES@EXAMPLE.COM",
       "phone": "456789123",
       "birthdate": "1983-12-10",
@@ -55,7 +55,7 @@
     {
       "name": "ANA MARIA",
       "lastname": "ROJAS ARAYA",
-      "rut": "44.444.444-4",
+      "rut": "44444444-4",
       "email": "ANA.MARIA@EXAMPLE.COM",
       "phone": "789123456",
       "birthdate": "1985-04-20",
@@ -75,7 +75,7 @@
     {
       "name": "FERNANDO JOSE",
       "lastname": "LOZANO PACHECO",
-      "rut": "55.555.555-5",
+      "rut": "55555555-5",
       "email": "FERNANDO.JOSE@EXAMPLE.COM",
       "phone": "654987321",
       "birthdate": "1978-11-15",
@@ -93,7 +93,7 @@
     {
       "name": "MARIA ELENA",
       "lastname": "SANCHEZ RUIZ",
-      "rut": "22.222.222-2",
+      "rut": "22222222-2",
       "email": "MARIA.ELENA@EXAMPLE.COM",
       "phone": "123456789",
       "birthdate": "1980-05-25",
@@ -115,7 +115,7 @@
     {
       "name": "JUAN CARLOS",
       "lastname": "GONZALEZ PEREZ",
-      "rut": "11.111.111-1",
+      "rut": "11111111-1",
       "email": "JUAN.CARLOS@EXAMPLE.COM",
       "phone": "987654321",
       "birthdate": "1975-08-12",
@@ -133,7 +133,7 @@
     {
       "name": "JUAN CARLOS",
       "lastname": "GONZALEZ PEREZ",
-      "rut": "11.111.111-1",
+      "rut": "11111111-1",
       "email": "JUAN.CARLOS@EXAMPLE.COM",
       "phone": "987654321",
       "birthdate": "1975-08-12",
@@ -151,7 +151,7 @@
     {
       "name": "JUAN CARLOS",
       "lastname": "GONZALEZ PEREZ",
-      "rut": "11.111.111-1",
+      "rut": "11111111-1",
       "email": "JUAN.CARLOS@EXAMPLE.COM",
       "phone": "987654321",
       "birthdate": "1975-08-12",
@@ -169,7 +169,7 @@
     {
       "name": "JUAN CARLOS",
       "lastname": "GONZALEZ PEREZ",
-      "rut": "11.111.111-1",
+      "rut": "11111111-1",
       "email": "JUAN.CARLOS@EXAMPLE.COM",
       "phone": "987654321",
       "birthdate": "1975-08-12",
@@ -187,7 +187,7 @@
     {
       "name": "JUAN CARLOS",
       "lastname": "GONZALEZ PEREZ",
-      "rut": "11.111.111-1",
+      "rut": "11111111-1",
       "email": "JUAN.CARLOS@EXAMPLE.COM",
       "phone": "987654321",
       "birthdate": "1975-08-12",
@@ -205,7 +205,7 @@
     {
       "name": "JUAN CARLOS",
       "lastname": "GONZALEZ PEREZ",
-      "rut": "11.111.111-1",
+      "rut": "11111111-1",
       "email": "JUAN.CARLOS@EXAMPLE.COM",
       "phone": "987654321",
       "birthdate": "1975-08-12",
