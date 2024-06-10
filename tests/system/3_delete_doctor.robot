@@ -6,7 +6,7 @@ Documentation     Test cases for the delete functionality
 
 *** Variables ***
 ${index_url}            http://localhost:3000
-${browser}             Firefox   
+${browser}             headlessfirefox   
 ${db_name}        medical_directory
 ${db_user}        postgres
 ${db_password}    Pruebas12345
