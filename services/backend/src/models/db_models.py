@@ -1,13 +1,15 @@
 from src.config.db import Base
 from sqlalchemy import Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import validates, relationship
+from rut_chile import rut_chile
+import re
 
 class DoctorTable(Base):
     __tablename__ = 'doctors'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, nullable=False)
     lastname = Column(String, nullable=False)
-    rut = Column(String, nullable=False)
+    rut = Column(String, nullable=False, unique=True)
     email = Column(String)
     phone = Column(String)
     birthdate = Column(Date)
@@ -17,11 +19,30 @@ class DoctorTable(Base):
     experiences = relationship('ExperienceTable', back_populates='doctor', cascade='all, delete')
     educations = relationship('EducationTable', back_populates='doctor', cascade='all, delete')
 
-    @validates('name', 'lastname', 'rut', 'email', 'city')
+    @validates('name', 'lastname', 'city')
     def convert_upper(self, key, value):
         if value is None:
             return value
         return value.upper()
+    
+    @validates('rut')
+    def convert_rut(self, key, value):
+        if value is None:
+            return value
+        elif not rut_chile.is_valid_rut(value):
+            raise ValueError('Invalid RUT')
+        return rut_chile.format_rut_without_dots(value)
+    
+    @validates('email')
+    def validate_email(self, key, value):
+        if value is None:
+            return value
+        
+        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+        if not re.fullmatch(regex, value):
+            raise ValueError('Invalid email')
+        
+        return value.lower()
 
 class SpecialtyTable(Base):
     __tablename__ = 'specialties'

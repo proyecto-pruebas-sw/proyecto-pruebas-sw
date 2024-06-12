@@ -1,4 +1,5 @@
 from pydantic import BaseModel, constr, validator
+from pydantic.fields import Field
 from typing import List, Optional
 from datetime import date
 
@@ -36,13 +37,13 @@ class DoctorBase(BaseModel):
     email: Optional[constr(max_length=100)] = None
     phone: Optional[constr(max_length=20)] = None
     birthdate: Optional[date] = None
-    city: Optional[constr(max_length=100)] = None
+    city: constr(max_length=100)
 
 class DoctorCreate(DoctorBase):
     '''
     Schema to create a new doctor
     '''
-    specialties: List[int]
+    specialties: List[int] = Field(..., min_length=1)
     experiences: List[ExperienceBase]
     educations: List[EducationBase]
 

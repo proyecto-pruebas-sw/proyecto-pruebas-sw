@@ -1,6 +1,6 @@
 FROM python:3.11.9
 
-ENV DATABASE_URL=postgresql://postgres:Pruebas12345@postgres:5432/medical_directory
+ENV DATABASE_URL=postgresql://postgres:Pruebas12345@postgres-test:5432/medical_directory
 
 WORKDIR /app
 
