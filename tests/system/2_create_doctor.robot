@@ -13,8 +13,8 @@ test-system-11 Create doctor
     Page Should Contain Element    id=medic_create
     Input Text    id=input_name    some_name
     Input Text    id=input_lastname    some_lastname
-    Input Text    id=input_rut    11.111.111-1
-    Input Text    id=input_email    some_email@gmailcom
+    Input Text    id=input_rut    29.115.451-4
+    Input Text    id=input_email    some_email@gmail.com
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
     Input Text    id=input_city    some_city
@@ -30,8 +30,8 @@ test-system-12 Create doctor without name
     Click Button    Crear Médico
     Page Should Contain Element    id=medic_create
     Input Text    id=input_lastname    some_lastname
-    Input Text    id=input_rut    11.111.111-1
-    Input Text    id=input_email    some_email@gmailcom
+    Input Text    id=input_rut    8.756.190-9
+    Input Text    id=input_email    some_email@gmail.com
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
     Input Text    id=input_city    some_city
@@ -47,8 +47,8 @@ test-system-13 Create doctor without lastname
     Click Button    Crear Médico
     Page Should Contain Element    id=medic_create
     Input Text    id=input_name    some_name
-    Input Text    id=input_rut    11.111.111-1
-    Input Text    id=input_email    some_email@gmailcom
+    Input Text    id=input_rut    73.448.837-2
+    Input Text    id=input_email    some_email@gmail.com
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
     Input Text    id=input_city    some_city
@@ -65,7 +65,7 @@ test-system-14 Create doctor without rut
     Page Should Contain Element    id=medic_create
     Input Text    id=input_name    some_name
     Input Text    id=input_lastname    some_lastname
-    Input Text    id=input_email    some_email@gmailcom
+    Input Text    id=input_email    some_email@gmail.com
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
     Input Text    id=input_city    some_city
@@ -82,8 +82,8 @@ test-system-27 Create doctor without specialty
     Page Should Contain Element    id=medic_create
     Input Text    id=input_name    some_name
     Input Text    id=input_lastname    some_lastname
-    Input Text    id=input_rut    11.111.111-1
-    Input Text    id=input_email    some_email@gmailcom
+    Input Text    id=input_rut    77.261.639-2
+    Input Text    id=input_email    some_email@gmail.com
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
     Input Text    id=input_city    some_city
@@ -97,8 +97,8 @@ test-system-28 Create doctor without city
     Page Should Contain Element    id=medic_create
     Input Text    id=input_name    some_name
     Input Text    id=input_lastname    some_lastname
-    Input Text    id=input_rut    11.111.111-1
-    Input Text    id=input_email    some_email@gmailcom
+    Input Text    id=input_rut    60.134.558-7
+    Input Text    id=input_email    some_email@gmail.com
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
     Click Element    id=multiselect_specialities
