@@ -1,16 +1,13 @@
 @import "primeicons/primeicons.css";
 
-#root {
-  min-height: 100vh;
-  width: 100vw;
-  max-width: 100%;
-  text-align: center;
-}
-
 .App {
+  text-align: center;
   min-height: 100vh;
   width: 100vw;
   max-width: 100%;
   background-color: var(--surface-100);
-  color: black;
+}
+
+body {
+  margin: 0;
 }
