@@ -145,7 +145,7 @@ const NewMedic = () => {
             <div className="col-4 px-8">
               <FloatLabel>
                 <InputText
-                  id="name"
+                  id="input_name"
                   key="name"
                   className="w-full"
                   value={formik.values.name}
@@ -159,7 +159,7 @@ const NewMedic = () => {
             <div className="col-4 px-8">
               <FloatLabel>
                 <InputText
-                  id="lastname"
+                  id="input_lastname"
                   key="lastname"
                   className="w-full"
                   value={formik.values.lastname}
@@ -173,7 +173,7 @@ const NewMedic = () => {
             <div className="col-4 px-8">
               <FloatLabel>
                 <InputText
-                  id="rut"
+                  id="input_rut"
                   key="rut"
                   className="w-full"
                   value={formik.values.rut}
@@ -181,18 +181,18 @@ const NewMedic = () => {
                     formik.setFieldValue('rut', e.target.value);
                   }}
                 />
-                <label htmlFor="rut">RUT</label>
+                <label htmlFor="rut">RUT (con puntos y guión)</label>
               </FloatLabel>
             </div>
             <div className="col-6 px-8 mt-6">
-              <Calendar id="birthdate" key="birthdate" value={formik.values.birthdate} onChange={(e) => {
-                formik.setFieldValue('birthdate', e.target.value);
+              <Calendar id="input_birthdate" key="birthdate" dateFormat="yy-mm-dd" value={formik.values.birthdate} onChange={(e) => {
+                formik.setFieldValue('birthdate', e.target.value.toISOString().split('T')[0]);
               }} placeholder="Fecha de nacimiento" />
             </div>
             <div className="col-6 px-8 mt-6">
               <FloatLabel>
                 <InputText
-                  id="city"
+                  id="input_city"
                   key="city"
                   className="w-full"
                   value={formik.values.city}
@@ -209,7 +209,7 @@ const NewMedic = () => {
             <div className="col-6 px-8">
               <FloatLabel>
                 <InputText
-                  id="email"
+                  id="input_email"
                   key="email"
                   className="w-full"
                   value={formik.values.email}
@@ -226,7 +226,7 @@ const NewMedic = () => {
                   +56
                 </span>
                 <InputText
-                  id="phone"
+                  id="input_phone"
                   key="phone"
                   placeholder="Teléfono"
                   value={formik.values.phone}

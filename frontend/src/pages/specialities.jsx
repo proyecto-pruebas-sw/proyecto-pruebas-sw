@@ -43,6 +43,7 @@ const Specialities = () => {
   };
 
   useEffect(() => {
+    console.log(backendUrl);
     handleShowToast();
     axios.get(`${backendUrl}/specialty`)
       .then((res) => {
@@ -66,6 +67,8 @@ const Specialities = () => {
             className="px-4 w-1"
             icon="pi pi-home"
             size="large"
+            text
+            plain
           />
         </Link>
       </div>

@@ -3,6 +3,8 @@ from sqlalchemy import select
 from src.schemas import schemas
 from src.models import db_models
 
+import re
+
 def get_doctors(db: Session, specialty_id: int = None, doctor_name: str = None, doctor_city: str = None):
     '''
     Get all doctors
@@ -72,6 +74,23 @@ def create_doctor(db: Session, doctor: schemas.DoctorCreate):
     Returns:
     - db_models.DoctorTable
     '''
+
+    emailRegex = r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+
+    if(doctor.name == None or doctor.name == ''):
+        raise Exception("Invalid name")
+    if(doctor.lastname == None or doctor.lastname == ''):
+        raise Exception("Invalid lastname")
+    if(doctor.rut == None or doctor.rut == '' or not re.search("^(\d{1,3}(?:\.\d{1,3}){2}-[\dkK])$", doctor.rut)):
+        raise Exception("Invalid rut")
+    if(doctor.email == None or doctor.email == '' or not re.search(emailRegex, doctor.email)):
+        raise Exception("Invalid email")
+    if(doctor.phone == None or doctor.phone == '' or not re.search("^\d{9}$", doctor.phone)):
+        raise Exception("Invalid phone")
+    if(doctor.birthdate == None or doctor.birthdate == ''):
+        raise Exception("Invalid birthdate")
+    if(doctor.city == None or doctor.city == ''):
+        raise Exception("Invalid city")
 
     # Create doctor
     db_doctor = db_models.DoctorTable(
