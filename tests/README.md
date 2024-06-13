@@ -22,7 +22,7 @@ pip3 install -r ./tests/requirements.txt
 ## 3. Ejecutar aplicación
 - Ejecutar contenedores
 ```
-docker compose -f .\docker-compose.dev.yml up
+docker compose -f .\docker-compose.test.yml up --build --remove-orphans
 ```
 
 # 4. Ejecutar tests
