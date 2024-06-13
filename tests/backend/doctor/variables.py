@@ -97,4 +97,7 @@ with open('post_data.json') as file:
     doctor_with_invalid_rut = post_data["doctors"][0].copy()
     doctor_with_invalid_rut["rut"] = "123456789"
 
+    doctor_with_invalid_email = post_data["doctors"][0].copy()
+    doctor_with_invalid_email["email"] = "invalid_email.com"
+
     file.close()
