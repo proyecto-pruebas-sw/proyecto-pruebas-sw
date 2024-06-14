@@ -14,6 +14,11 @@ def get_experiences(db: Session, doctor_id: int = None):
     Returns:
     - List[db_models.ExperienceTable]
     '''
+    # Verify if doctor exists
+    doctor = db.get(db_models.DoctorTable, doctor_id)
+
+    if doctor is None:
+        raise Exception("Doctor not found")
     
     # Get experiences
     statement = select(db_models.ExperienceTable)
@@ -36,6 +41,11 @@ def create_experience(db: Session, experience: schemas.ExperienceBase, doctor_id
     Returns:
     - db_models.ExperienceTable
     '''
+    # Verify if doctor exists
+    doctor = db.get(db_models.DoctorTable, doctor_id)
+
+    if doctor is None:
+        raise Exception("Doctor not found")
 
     # Create experience
     new_experience = db_models.ExperienceTable(

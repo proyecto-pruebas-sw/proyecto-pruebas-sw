@@ -25,8 +25,12 @@ async def get_experiences(response: Response, doctor_id: int = None, db: Session
         return experiences
     
     except Exception as e:
-        response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return {"error": str(e)}
+        if str(e) == "Doctor not found":
+            response.status_code = status.HTTP_404_NOT_FOUND
+            return {"error": "Doctor not found"}
+        else:
+            response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            return {"error": str(e)}
 
 @experience_routes.post('/experience/{doctor_id}')
 async def post_experience(response: Response, experience: schemas.ExperienceBase, doctor_id: int = None, db: Session = Depends(get_db)):
@@ -48,8 +52,12 @@ async def post_experience(response: Response, experience: schemas.ExperienceBase
         return new_experience
 
     except Exception as e:
-        response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return {"error": str(e)}
+        if str(e) == "Doctor not found":
+            response.status_code = status.HTTP_404_NOT_FOUND
+            return {"error": "Doctor not found"}
+        else:
+            response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            return {"error": str(e)}
 
 @experience_routes.put('/experience/{experience_id}')
 async def update_experience(response: Response, experience_id: int, experience: schemas.ExperienceBase, db: Session = Depends(get_db)):
