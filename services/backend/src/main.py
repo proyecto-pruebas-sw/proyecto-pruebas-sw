@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .routes.doctor_routes import doctor_routes
 from .routes.specialties_routes import specialty_routes
+from .routes.experience_routes import experience_routes
 from .models import db_models
 from .config import db
 
@@ -27,5 +28,6 @@ app.add_middleware(
 # Include routes
 app.include_router(doctor_routes)
 app.include_router(specialty_routes)
+app.include_router(experience_routes)
 
 
