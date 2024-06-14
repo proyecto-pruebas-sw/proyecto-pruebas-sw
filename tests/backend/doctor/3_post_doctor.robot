@@ -93,8 +93,8 @@ test-api-28 POST an invalid doctor with an education without end_date
 
 test-api-37 POST a doctor with an invalid rut
     POST    /doctor     ${doctor_with_invalid_rut}
-    Integer     response status     500
+    Integer     response status     422
 
 test-api-38 POST a doctor with an invalid email
     POST    /doctor    ${doctor_with_invalid_email}
-    Integer     response status     500
+    Integer     response status     422

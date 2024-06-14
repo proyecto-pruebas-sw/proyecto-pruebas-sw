@@ -70,6 +70,10 @@ async def create_doctor(response: Response, doctor: schemas.DoctorCreate, db: Se
         response.status_code = status.HTTP_201_CREATED
         return db_doctor
     
+    except ValueError as e:
+        response.status_code = status.HTTP_422_UNPROCESSABLE_ENTITY
+        return {"error": str(e)}
+    
     except Exception as e:
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
         return {"error": str(e)}
@@ -90,6 +94,10 @@ async def update_doctor(response: Response, doctor_id: int, doctor: schemas.Doct
     try:
         db_doctor = doctor_crud.update_doctor(db, doctor_id, doctor)
         return db_doctor
+    
+    except ValueError as e:
+        response.status_code = status.HTTP_422_UNPROCESSABLE_ENTITY
+        return {"error": str(e)}
     
     except Exception as e:
         if str(e) == "Not found":
