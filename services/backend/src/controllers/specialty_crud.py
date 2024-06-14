@@ -3,8 +3,6 @@ from sqlalchemy import select
 from src.schemas import schemas
 from src.models import db_models
 
-import re
-
 def get_specialties(db: Session):
     '''
     Get all specialties
