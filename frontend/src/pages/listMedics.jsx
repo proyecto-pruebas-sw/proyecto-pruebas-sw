@@ -1,10 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
 import { Toolbar } from "primereact/toolbar";
-import { useEffect } from "react";
 import { Toast } from "primereact/toast";
 import MedicTable from "../components/medicTable";
 import { backendUrl } from "../config/backend-url";
@@ -94,13 +93,22 @@ const ListMedics = () => {
 
   const leftToolbarTemplate = () => {
     return (
-      <Link to='/medics/new'>
-        <Button
-          label="Crear Médico"
-          icon="pi pi-plus"
-          severity="success"
-        />
-      </Link>
+      <>
+        <Link to='/medics/new'>
+          <Button
+            label="Crear Médico"
+            icon="pi pi-plus"
+            severity="success"
+          />
+        </Link>
+        <Link  to='/specialities'>
+          <Button
+            className="ml-3"
+            label="Especialidades"
+            severity="success"
+          />
+        </Link>
+      </>
     );
   };
 
@@ -144,12 +152,14 @@ const ListMedics = () => {
   return (
     <div className="min-h-screen align-items-center align-content-center">
       <Toast ref={toast} />
-      <div className="home text-left mt-5 ml-8">
+      <div className="home text-left ml-5">
         <Link to="/">
           <Button
-            className="px-4 w-1"
-            icon="pi pi-home"
+            icon="pi pi-plus"
+            label="Salud Integral"
             size="large"
+            text
+            plain
           />
         </Link>
       </div>

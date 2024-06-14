@@ -26,6 +26,7 @@ def create_specialty(db: Session, specialty: schemas.SpecialtyBase):
     Returns:
     - db_models.SpecialtyTable
     '''
+
     new_specialty = db_models.SpecialtyTable(name=specialty.name)
     db.add(new_specialty)
     db.commit()
