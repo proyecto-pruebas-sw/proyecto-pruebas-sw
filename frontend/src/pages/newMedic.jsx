@@ -82,33 +82,36 @@ const NewMedic = () => {
     },
     validate: (values) => {
       const errors = {};
+      const nameRegex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
+      const emailRegex = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
-      if (values.name === '') {
-        errors.name = 'Nombre no puede estar vacío';
+
+      if(!nameRegex.test(values.name)) {
+        errors.nameInvalid = 'Nombre no válido';
       }
 
-      if (values.lastname === '') {
-        errors.lastname = 'Apellido no puede estar vacío';
+      if(!nameRegex.test(values.lastname)) {
+        errors.lastnameInvalid = 'Apellido no válido';
       }
 
-      if (values.rut === '') {
-        errors.rut = 'Rut no puede estar vacío';
+      if(!/^(\d{1,3}(?:\d{1,3}){2}-[\dkK])$/.test(values.rut)) {
+        errors.rutInvalid = 'Rut no válido'
       }
 
-      if (values.email === '') {
-        errors.email = 'Email no puede estar vacío';
+      if (!emailRegex.test(values.email)) {
+        errors.emailInvalid = 'Email no válido';
       }
 
-      if (values.phone === '') {
-        errors.phone = 'Teléfono no puede estar vacío';
+      if (!/^\d{9}$/.test(values.phone)) {
+        errors.phoneInvalid = 'Teléfono no válido';
       }
 
-      if (values.birthdate === '') {
-        errors.birthdate = 'Fecha de nacimiento no puede estar vacía';
+      if (!/^\d{4}-\d{1,2}-\d{1,2}$/.test(values.birthdate)) {
+        errors.birthdateInvalid = 'Fecha de nacimiento no válida';
       }
 
-      if (values.city === '') {
-        errors.city = 'Ciudad no puede estar vacía';
+      if (!nameRegex.test(values.city)) {
+        errors.cityInvalid = 'Ciudad no válida';
       }
 
       if (values.specialities.length === 0) {
@@ -155,6 +158,7 @@ const NewMedic = () => {
                 />
                 <label htmlFor="name">Nombre</label>
               </FloatLabel>
+              <small className="text-red-500">{formik.errors.nameInvalid}</small>
             </div>
             <div className="col-4 px-8">
               <FloatLabel>
@@ -169,6 +173,7 @@ const NewMedic = () => {
                 />
                 <label htmlFor="lastname">Apellido</label>
               </FloatLabel>
+              <small className="text-red-500">{formik.errors.lastnameInvalid}</small>
             </div>
             <div className="col-4 px-8">
               <FloatLabel>
@@ -181,13 +186,17 @@ const NewMedic = () => {
                     formik.setFieldValue('rut', e.target.value);
                   }}
                 />
-                <label htmlFor="rut">RUT (con puntos y guión)</label>
+                <label htmlFor="rut">RUT (sin puntos y con guión)</label>
               </FloatLabel>
+              <small className="text-red-500">{formik.errors.rutInvalid}</small>
             </div>
             <div className="col-6 px-8 mt-6">
-              <Calendar id="input_birthdate" key="birthdate" dateFormat="yy-mm-dd" value={formik.values.birthdate} onChange={(e) => {
-                formik.setFieldValue('birthdate', e.target.value.toISOString().split('T')[0]);
-              }} placeholder="Fecha de nacimiento" />
+              <div>
+                <Calendar id="input_birthdate" key="birthdate" dateFormat="yy-mm-dd" value={formik.values.birthdate} onChange={(e) => {
+                  formik.setFieldValue('birthdate', e.target.value.toISOString().split('T')[0]);
+                }} placeholder="Fecha de nacimiento" />
+              </div>
+              <small className="text-red-500">{formik.errors.birthdateInvalid}</small>
             </div>
             <div className="col-6 px-8 mt-6">
               <FloatLabel>
@@ -202,6 +211,7 @@ const NewMedic = () => {
                 />
                 <label htmlFor="city">Ciudad</label>
               </FloatLabel>
+              <small className="text-red-500">{formik.errors.cityInvalid}</small>
             </div>
           </div>
           <h3 className="text-left ml-8">Datos de contacto</h3>
@@ -219,6 +229,7 @@ const NewMedic = () => {
                 />
                 <label htmlFor="email">Email</label>
               </FloatLabel>
+              <small className="text-red-500">{formik.errors.emailInvalid}</small>
             </div>
             <div className="col-6 px-8">
               <div className="p-inputgroup flex-1 w-full">
@@ -235,6 +246,7 @@ const NewMedic = () => {
                   }}
                 />
               </div>
+              <small className="text-red-500">{formik.errors.phoneInvalid}</small>
             </div>
           </div>
           <h3 className="text-left ml-8">Especialidades</h3>
@@ -250,11 +262,13 @@ const NewMedic = () => {
                 placeholder="Seleccione especialidad"
               />
             </div>
+            <small className="text-red-500">{formik.errors.specialities}</small>
           </div>
           <div className="flex flex-row-reverse gap-3 mr-8">
             <Button
               type="submit"
               label="Crear médico"
+              disabled={Object.keys(formik.errors).length !== 0}
             />
             <Link to="/">
               <Button

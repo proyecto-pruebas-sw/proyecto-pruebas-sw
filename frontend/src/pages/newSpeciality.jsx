@@ -44,6 +44,10 @@ const NewSpeciality = () => {
         errors.speciality = 'Especialidad no puede estar vacía'; 
       }
 
+      if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(values.speciality)) {
+        errors.specialityInvalid = 'Especialidad no válida';
+      }
+
       return errors;
     },
     onSubmit: (data) => {
@@ -82,7 +86,7 @@ const NewSpeciality = () => {
             />
             <label htmlFor="speciality">Ingrese especialidad</label>
           </FloatLabel>
-          <small className="text-red-500 block text-left mt-2 ml-2">{formik.errors.speciality}</small>
+          <small className="text-red-500 block text-left mt-2 ml-2">{formik.errors.speciality}{formik.errors.specialityInvalid}</small>
           <Button
             type="submit"
             label="Crear especialidad"

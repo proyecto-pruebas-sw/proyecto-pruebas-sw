@@ -29,12 +29,9 @@ def create_specialty(db: Session, specialty: schemas.SpecialtyBase):
     - db_models.SpecialtyTable
     '''
 
-    if(re.search("^[a-zA-Z]+$", specialty.name)):
-        new_specialty = db_models.SpecialtyTable(name=specialty.name)
-        db.add(new_specialty)
-        db.commit()
-        db.refresh(new_specialty)
+    new_specialty = db_models.SpecialtyTable(name=specialty.name)
+    db.add(new_specialty)
+    db.commit()
+    db.refresh(new_specialty)
 
-        return new_specialty
-    else:
-        raise Exception("Invalid name")
+    return new_specialty
