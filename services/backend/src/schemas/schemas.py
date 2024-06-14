@@ -67,3 +67,8 @@ class DoctorDetail(DoctorBase):
 
     class Config:
         from_attributes = True
+        
+class ExperienceList(ExperienceBase):
+    id: int
+    class Config:
+        from_attributes = True
