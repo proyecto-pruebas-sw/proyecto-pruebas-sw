@@ -72,3 +72,9 @@ class ExperienceList(ExperienceBase):
     id: int
     class Config:
         from_attributes = True
+
+class EducationList(EducationBase):
+    id: int
+
+    class Config:
+        from_attributes = True
