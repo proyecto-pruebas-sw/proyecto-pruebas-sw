@@ -73,6 +73,7 @@ def create_doctor(db: Session, doctor: schemas.DoctorCreate):
     - db_models.DoctorTable
     '''
 
+
     # Create doctor
     db_doctor = db_models.DoctorTable(
         name=doctor.name,
