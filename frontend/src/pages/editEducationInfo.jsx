@@ -28,7 +28,6 @@ const EditEducationInfo = () => {
   });
 
   const [education, setEducation] = useState({
-    doctor_id: '',
     degree: '',
     description: '',
     institution: '',
@@ -50,9 +49,12 @@ const EditEducationInfo = () => {
           },
         });
       });
-    axios.get(`${backendUrl}/educations/${educationId}`)
+    axios.get(`${backendUrl}/educations/${doctorId}`)
       .then((res) => {
-        setEducation(res.data);
+        const educationObj = res.data.find((education) => 
+          education.id === Number(educationId)
+        );
+        if(educationObj !== undefined) setEducation(educationObj);
       })
       .catch(() => {
         navigate('/', {

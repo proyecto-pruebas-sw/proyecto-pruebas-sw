@@ -29,6 +29,9 @@ const MedicDetails = () => {
     educations: [],
   });
 
+  const [educations, setEducations] = useState([]);
+  const [experiences, setExperiences] = useState([]);
+
   const [medicTab, setMedicTab] = useState(0);
 
   const toastDeleteError = () => {
@@ -76,12 +79,42 @@ const MedicDetails = () => {
     }
   };
 
+  const getEducation = () => {
+    axios.get(`${backendUrl}/educations/${id}`)
+      .then((res) => {
+        setEducations(res.data);
+      })
+      .catch(() => {
+        navigate('/', {
+          state: {
+            response: 'notFound',
+          },
+        });
+      });
+  };
+
+  const getExperience = () => {
+    axios.get(`${backendUrl}/experiences/${id}`)
+      .then((res) => {
+        setExperiences(res.data);
+      })
+      .catch(() => {
+        navigate('/', {
+          state: {
+            response: 'notFound',
+          },
+        });
+      });
+  };
+
   useEffect(() => {
     handleShowToast();
     axios.get(`${backendUrl}/doctor/${id}`)
       .then((res) => {
         if (!res.data.Error) {
           setMedicData(res.data);
+          getEducation();
+          getExperience();
         }
         else {
           navigate('/', {
@@ -93,34 +126,6 @@ const MedicDetails = () => {
       })
       .catch(() => {
         navigate('/');
-      });
-    axios.get(`${backendUrl}/educations/${id}`)
-      .then((res) => {
-        setMedicData({
-          ...medicData,
-          educations: res.data,
-        });
-      })
-      .catch(() => {
-        navigate('/', {
-          state: {
-            response: 'notFound',
-          },
-        });
-      });
-    axios.get(`${backendUrl}/experiences/${id}`)
-      .then((res) => {
-        setMedicData({
-          ...medicData,
-          experiences: res.data,
-        });
-      })
-      .catch(() => {
-        navigate('/', {
-          state: {
-            response: 'notFound',
-          },
-        });
       });
   }, [id, navigate]);
 
@@ -253,6 +258,9 @@ const MedicDetails = () => {
       <Link to='addEducationInfo'>
         <Button id="link_add_education_info" label="Añadir antecedentes académicos" className="flex ml-8 my-5" />
       </Link>
+      <Link to='addExperienceInfo'>
+        <Button id="link_add_education_info" label="Añadir antecedentes laborales" className="flex ml-8 my-5" />
+      </Link>
 
       <Button
         id="remove_medic"
@@ -270,7 +278,7 @@ const MedicDetails = () => {
 
       {medicTab === 0 && (
         <div>
-          {medicData.educations.map((education) => (
+          {educations.map((education) => (
             <>
               <h4>{education.degree}</h4>
               <span className="block">{education.institution}</span>
@@ -288,7 +296,7 @@ const MedicDetails = () => {
 
       {medicTab === 1 && (
         <div>
-          {medicData.experiences.map((experience) => (
+          {experiences.map((experience) => (
             <>
               <h4>{experience.job_title}</h4>
               <span className="block">{experience.institution}</span>

@@ -28,7 +28,6 @@ const EditExperienceInfo = () => {
   });
 
   const [experience, setExperience] = useState({
-    doctor_id: '',
     job_title: '',
     description: '',
     institution: '',
@@ -50,9 +49,12 @@ const EditExperienceInfo = () => {
           },
         });
       });
-    axios.get(`${backendUrl}/experiences/${experienceId}`)
+    axios.get(`${backendUrl}/experiences/${doctorId}`)
       .then((res) => {
-        setExperience(res.data);
+        const experienceObj = res.data.find((experience) => 
+          experience.id === Number(experienceId)
+        );
+        if(experienceObj !== undefined) setExperience(experienceObj);
       })
       .catch(() => {
         navigate('/', {
@@ -61,7 +63,7 @@ const EditExperienceInfo = () => {
           },
         });
       });
-  }, [doctorId, navigate]);
+  }, [doctorId, experienceId, navigate]);
 
   const handleExperienceEdit = (data) => {
     axios.post(`${backendUrl}/experiences/${experienceId}`, {
