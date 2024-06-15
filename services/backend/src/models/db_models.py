@@ -14,6 +14,7 @@ class DoctorTable(Base):
     phone = Column(String)
     birthdate = Column(Date)
     city = Column(String)
+    image_url = Column(String)
 
     specialties = relationship('SpecialtyTable', secondary='doctor_specialties', back_populates='doctors')
     experiences = relationship('ExperienceTable', back_populates='doctor', cascade='all, delete')

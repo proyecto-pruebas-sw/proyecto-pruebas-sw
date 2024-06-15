@@ -38,6 +38,7 @@ class DoctorBase(BaseModel):
     phone: Optional[constr(max_length=20)] = None
     birthdate: Optional[date] = None
     city: constr(max_length=100)
+    image_url: Optional[constr(max_length=255)] = None
 
 class DoctorCreate(DoctorBase):
     '''
