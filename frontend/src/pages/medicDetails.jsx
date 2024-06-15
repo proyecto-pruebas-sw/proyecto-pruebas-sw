@@ -29,13 +29,22 @@ const MedicDetails = () => {
     educations: [],
   });
 
-  const [medicTab, setUserTab] = useState(0);
+  const [medicTab, setMedicTab] = useState(0);
 
   const toastDeleteError = () => {
     toast.current?.show({
       severity: 'error',
       summary: 'Error',
-      detail: 'Ocurrió un error al intentar eliminar médico.',
+      detail: 'Ocurrió un error al intentar eliminar elemento.',
+      life: 5000,
+    });
+  };
+
+  const toastRemoved = () => {
+    toast.current?.show({
+      severity: 'info',
+      summary: 'Eliminado',
+      detail: 'Se eliminó antecedente.',
       life: 5000,
     });
   };
@@ -72,7 +81,6 @@ const MedicDetails = () => {
     axios.get(`${backendUrl}/doctor/${id}`)
       .then((res) => {
         if (!res.data.Error) {
-          console.log(res);
           setMedicData(res.data);
         }
         else {
@@ -86,20 +94,68 @@ const MedicDetails = () => {
       .catch(() => {
         navigate('/');
       });
+    axios.get(`${backendUrl}/educations/${id}`)
+      .then((res) => {
+        setMedicData({
+          ...medicData,
+          educations: res.data,
+        });
+      })
+      .catch(() => {
+        navigate('/', {
+          state: {
+            response: 'notFound',
+          },
+        });
+      });
+    axios.get(`${backendUrl}/experiences/${id}`)
+      .then((res) => {
+        setMedicData({
+          ...medicData,
+          experiences: res.data,
+        });
+      })
+      .catch(() => {
+        navigate('/', {
+          state: {
+            response: 'notFound',
+          },
+        });
+      });
   }, [id, navigate]);
 
   const handleRemoveMedic = () => {
     axios.delete(`${backendUrl}/doctor/${id}`)
+      .then(() => {
+        navigate('/', {
+          state: {
+            response: 'removed',
+          },
+        });
+      })
+      .catch(() => {
+        toastDeleteError();
+      })
+  };
+
+  const handleRemoveEducation = (id) => {
+    axios.delete(`${backendUrl}/education/${id}`)
     .then(() => {
-      navigate('/',{
-        state: {
-          response: 'removed',
-        },
-      });
+      toastRemoved();
     })
     .catch(() => {
       toastDeleteError();
+    });
+  };
+
+  const handleRemoveExperience = (id) => {
+    axios.delete(`${backendUrl}/experience/${id}`)
+    .then(() => {
+      toastRemoved();
     })
+    .catch(() => {
+      toastDeleteError();
+    });
   };
 
   const confirmRemoval = () => {
@@ -116,6 +172,34 @@ const MedicDetails = () => {
     });
   };
 
+  const confirmEducationRemove = (id) => {
+    confirmDialog({
+      message: 'Advertencia: esta operación no se puede deshacer.',
+      header: 'Eliminar antecedente académico',
+      icon: 'pi pi-exclamation-triangle',
+      defaultFocus: 'reject',
+      acceptLabel: 'Eliminar',
+      rejectLabel: 'Cancelar',
+      accept: () => {
+        handleRemoveEducation(id);
+      },
+    });
+  };
+
+  const confirmExperienceRemove = (id) => {
+    confirmDialog({
+      message: 'Advertencia: esta operación no se puede deshacer.',
+      header: 'Eliminar antecedente laboral',
+      icon: 'pi pi-exclamation-triangle',
+      defaultFocus: 'reject',
+      acceptLabel: 'Eliminar',
+      rejectLabel: 'Cancelar',
+      accept: () => {
+        handleRemoveExperience(id);
+      },
+    });
+  };
+
   const tabItems = [
     {
       label: 'Educación',
@@ -126,7 +210,7 @@ const MedicDetails = () => {
   ];
 
   const handleMedicTab = (e) => {
-    setUserTab(e.index);
+    setMedicTab(e.index);
   };
 
   return (
@@ -166,6 +250,9 @@ const MedicDetails = () => {
       <Link to='editPersonalInfo'>
         <Button id="link_edit_personal_info" label="Editar información personal" className="flex ml-8 my-5" />
       </Link>
+      <Link to='addEducationInfo'>
+        <Button id="link_add_education_info" label="Añadir antecedentes académicos" className="flex ml-8 my-5" />
+      </Link>
 
       <Button
         id="remove_medic"
@@ -189,6 +276,10 @@ const MedicDetails = () => {
               <span className="block">{education.institution}</span>
               <span className="block">{education.city}, {education.country}</span>
               <span className="block">Fecha de egreso: {education.end_date}</span>
+              <Link to={`${education.id}/edit`}>
+                <Button label="Editar" /> 
+              </Link>
+              <Button label="Eliminar" severity="danger" onClick={() => confirmEducationRemove(education.id)} />
               <Divider />
             </>
           ))}
@@ -204,6 +295,10 @@ const MedicDetails = () => {
               <span className="block">{experience.city}, {experience.country}</span>
               <span className="block">Fecha inicio: {experience.start_date}</span>
               <span className="block">Fecha término: {experience.end_date}</span>
+              <Link to={`${experience.id}/edit`}>
+                <Button label="Editar" /> 
+              </Link>
+              <Button label="Eliminar" severity="danger" onClick={() => confirmExperienceRemove(experience.id)} />
               <Divider />
             </>
           ))}
