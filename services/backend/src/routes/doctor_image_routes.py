@@ -51,12 +51,12 @@ async def upload_doctor_image(response: Response, doctor_id: int, db: Session = 
     - doctor_id: int
 
     Returns:
-    - db_models.DoctorTable
+    - Message confirming the deletion
     '''
 
     try:
-        doctor_image = doctor_image_crud.delete_doctor_image(db, doctor_id)
-        return doctor_image
+        message = doctor_image_crud.delete_doctor_image(db, doctor_id)
+        return message
     
     except Exception as e:
         if str(e) == "Not found":
