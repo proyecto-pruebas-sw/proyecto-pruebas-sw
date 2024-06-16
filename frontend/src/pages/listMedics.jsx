@@ -53,7 +53,7 @@ const ListMedics = () => {
           });
           location.state = null;
           break;
-        case 'specialityError':
+        case 'specialtyError':
           toast.current?.show({
             severity: 'error',
             summary: 'Error',
@@ -101,7 +101,7 @@ const ListMedics = () => {
             severity="success"
           />
         </Link>
-        <Link  to='/specialities'>
+        <Link  to='/specialties'>
           <Button
             className="ml-3"
             label="Especialidades"

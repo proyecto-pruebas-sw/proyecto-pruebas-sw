@@ -16,7 +16,7 @@ const NewSpeciality = () => {
     })
     .then((res) => {
       console.log(res);
-      navigate('/specialities',{
+      navigate('/specialties',{
         state: {
           response: 'created',
         },
@@ -24,7 +24,7 @@ const NewSpeciality = () => {
     })
     .catch((error) => {
       console.log({error});
-      navigate('/specialities',{
+      navigate('/specialties',{
         state: {
           response: 'error',
         },
@@ -94,7 +94,7 @@ const NewSpeciality = () => {
               severity="success"
               icon="pi pi-plus"
             />
-            <Link to="/specialities">
+            <Link to="/specialties">
               <Button
                 label="Cancelar"
                 severity="danger"

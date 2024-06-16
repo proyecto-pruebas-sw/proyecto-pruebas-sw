@@ -3,8 +3,8 @@ import './App.css'
 import MedicDetails from './pages/medicDetails';
 import ListMedics from './pages/listMedics';
 import EditPersonalInfo from './pages/editPersonalInfo';
-import NewSpeciality from './pages/newSpeciality';
-import Specialities from './pages/specialities';
+import NewSpecialty from './pages/newSpeciality';
+import Specialties from './pages/specialities';
 import NewMedic from './pages/newMedic';
 import AddEducationInfo from './pages/addEducationInfo';
 import AddExperienceInfo from './pages/addExperienceInfo';
@@ -44,12 +44,12 @@ function App() {
         element: <NewMedic />,
       },
       {
-        path: '/specialities/new',
-        element: <NewSpeciality />,
+        path: '/specialties/new',
+        element: <NewSpecialty />,
       },
       {
-        path: '/specialities',
-        element: <Specialities />
+        path: '/specialties',
+        element: <Specialties />
       },
       {
         path: '/',
