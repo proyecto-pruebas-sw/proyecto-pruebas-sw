@@ -128,20 +128,19 @@ const AddEducationInfo = () => {
   });
 
   return (
-    <div className="AddEducationInfo">
-      <div className="home text-left pt-5 ml-5">
-        <Link to="/">
-          <Button
-            className="px-4 w-1"
-            icon="pi pi-home"
-            size="large"
-            text
-            plain
-          />
-        </Link>
-      </div>
-      <Card>
-        <h2 className="mt-3 mb-5">Agregar antecedente académico a {medicData.name} {medicData.lastname}</h2>
+    <div className="AddEducationInfo min-h-screen align-items-center align-content-center">
+      
+      <Card style={{margin: "100px"}}>
+        <div className="home text-left pt-5 ml-5">
+          <Link to="/">
+            <Button
+              className="px-4 w-1"
+              icon="pi pi-home"
+              size="large"
+            />
+          </Link>
+        </div>
+        <h2 className="mt-3 mb-5">Crear Antecedente Académico de {medicData.name} {medicData.lastname}</h2>
         <form onSubmit={formik.handleSubmit}>
           <h3 className="text-left ml-8">Grado</h3>
           <div className="degreeInfo grid grid-nogutter my-5 mx-8">
@@ -240,13 +239,16 @@ const AddEducationInfo = () => {
           <div className="flex flex-row-reverse gap-3 mr-8">
             <Button
               type="submit"
-              label="Añadir antecedente"
+              label="Crear antecedente"
               disabled={Object.keys(formik.errors).length !== 0}
+              severity="success"
+              icon="pi pi-plus"
             />
-            <Link to="/">
+            <Link to={`/medics/${id}`}>
               <Button
                 label="Cancelar"
-                text
+                severity="danger"
+                icon="pi pi-times"
               />
             </Link>
           </div>

@@ -124,7 +124,9 @@ const EditPersonalInfo = () => {
   };
 
   return (
-    <div className="editPersonalInfo pt-6">
+    <div className="editPersonalInfo min-h-screen align-items-center align-content-center">
+      
+      <Card style={{margin: "100px"}}>
       <div className="home text-left mt-5 ml-8">
         <Link to="/">
           <Button
@@ -134,8 +136,7 @@ const EditPersonalInfo = () => {
           />
         </Link>
       </div>
-      <Card>
-      <h2 className="text-left ml-5">Editar información personal</h2>
+      <h2 className="mb-8">Editar información personal</h2>
         <form onSubmit={formik.handleSubmit}>
         <div className="personalInfo grid grid-nogutter my-5 mx-8">
             <div className="col-4 px-8">
@@ -247,11 +248,14 @@ const EditPersonalInfo = () => {
               type="submit"
               label="Guardar cambios"
               disabled={Object.keys(formik.errors).length !== 0}
+              severity="success"
+              icon="pi pi-save"
             />
-            <Link to="/">
+            <Link to={`/medics/${id}`}>
               <Button
                 label="Cancelar"
-                text
+                severity="danger"
+                icon="pi pi-times"
               />
             </Link>
           </div>

@@ -197,13 +197,11 @@ const ListMedics = () => {
           filter
         />
 
-        <Button id="search" label="Buscar" onClick={handleSearch} className="w-1 ml-2" loading={loading}/>
-        <Button id="clean" label="Limpiar" onClick={handleClean} className="w-1 ml-2" loading={loading}/>
-
+        <Button id="search" label="Buscar" icon="pi pi-search" onClick={handleSearch} className="w-1 ml-2" loading={loading}/>
+        <Button id="clean" label="Limpiar" icon="pi pi-times" onClick={handleClean} className="w-1 ml-2" loading={loading}/>
       </div>
 
-
-      <div className="" style={{ margin: "20px" }} id="doctors">
+      <div className="" style={{ margin: "50px" }} id="doctors">
         <Toolbar className="mb-4" left={leftToolbarTemplate}></Toolbar>
         <MedicTable medics={medics} />
       </div>
