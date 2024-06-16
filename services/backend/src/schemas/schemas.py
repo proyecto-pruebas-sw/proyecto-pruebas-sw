@@ -79,3 +79,6 @@ class EducationList(EducationBase):
 
     class Config:
         from_attributes = True
+
+class DoctorImage(BaseModel):
+    image_url: constr(max_length=255)

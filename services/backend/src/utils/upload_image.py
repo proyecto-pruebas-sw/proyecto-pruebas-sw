@@ -15,3 +15,10 @@ def upload_image(file: bytes, doctor_id: int) -> str:
         return upload['secure_url']
     except Exception as e:
         return None
+    
+def delete_image(public_id: str) -> bool:
+    try:
+        cloudinary.uploader.destroy(f'proyecto-pruebas-sw/doctors/{public_id}')
+        return True
+    except Exception as e:
+        return False

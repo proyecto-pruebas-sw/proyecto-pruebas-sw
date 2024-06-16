@@ -9,15 +9,14 @@ doctor_image_routes = APIRouter()
 @doctor_image_routes.post("/doctor/image/{doctor_id}")
 async def upload_doctor_image(response: Response, doctor_id: int, file: UploadFile = File(..., media_type=["image/jpg", "image/jpeg", "image/png"]), db: Session = Depends(get_db)):
     '''
-    Endpoint to upload a doctor image
+    Upload a doctor image
 
     Parameters:
-    - response: Response
     - doctor_id: int
     - file: UploadFile
 
     Returns:
-    - dict
+    - db_models.DoctorTable
     '''
 
     ext = file.filename.split(".")[-1]
@@ -29,8 +28,8 @@ async def upload_doctor_image(response: Response, doctor_id: int, file: UploadFi
     image = await file.read()
 
     try:
-        doctor = doctor_image_crud.uptade_doctor_image(db, doctor_id, image)
-        return doctor
+        doctor_image = doctor_image_crud.uptade_doctor_image(db, doctor_id, image)
+        return doctor_image
     
     except Exception as e:
         if str(e) == "Not found":
@@ -39,6 +38,33 @@ async def upload_doctor_image(response: Response, doctor_id: int, file: UploadFi
         elif str(e) == "Cloudinary error":
             response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
             return {"error": "Upload failed"}
+        else:
+            response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            return {"error": str(e)}
+        
+@doctor_image_routes.delete("/doctor/image/{doctor_id}")
+async def upload_doctor_image(response: Response, doctor_id: int, db: Session = Depends(get_db)):
+    '''
+    Delete a doctor image
+
+    Parameters:
+    - doctor_id: int
+
+    Returns:
+    - db_models.DoctorTable
+    '''
+
+    try:
+        doctor_image = doctor_image_crud.delete_doctor_image(db, doctor_id)
+        return doctor_image
+    
+    except Exception as e:
+        if str(e) == "Not found":
+            response.status_code = status.HTTP_404_NOT_FOUND
+            return {"error": "Doctor not found"}
+        elif str(e) == "Cloudinary error":
+            response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            return {"error": "Delete failed"}
         else:
             response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
             return {"error": str(e)}
