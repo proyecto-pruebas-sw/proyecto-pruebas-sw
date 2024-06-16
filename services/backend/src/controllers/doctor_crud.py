@@ -54,6 +54,7 @@ def get_doctor(db: Session, doctor_id: int):
         phone=doctor.phone,
         birthdate=doctor.birthdate,
         city=doctor.city,
+        image_url=doctor.image_url,
         specialties=[schemas.SpecialtyList(id=specialty.id, name=specialty.name) for specialty in doctor.specialties],
         experiences=[schemas.ExperienceBase(id=experience.id, job_title=experience.job_title, description=experience.description, institution=experience.institution, city=experience.city, country=experience.country, start_date=experience.start_date, end_date=experience.end_date) for experience in doctor.experiences],
         educations=[schemas.EducationBase(id=education.id, degree=education.degree, description=education.description, institution=education.institution, city=education.city, country=education.country, start_date=education.start_date, end_date=education.end_date) for education in doctor.educations]
