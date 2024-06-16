@@ -43,7 +43,7 @@ async def upload_doctor_image(response: Response, doctor_id: int, file: UploadFi
             return {"error": str(e)}
         
 @doctor_image_routes.delete("/doctor/image/{doctor_id}")
-async def upload_doctor_image(response: Response, doctor_id: int, db: Session = Depends(get_db)):
+async def delete_doctor_image(response: Response, doctor_id: int, db: Session = Depends(get_db)):
     '''
     Delete a doctor image
 
