@@ -323,9 +323,10 @@ const MedicDetails = () => {
           uploadHandler={(e) => {
             uploadPfp(e);
           }}
-          chooseLabel="seleccionar"
-          uploadLabel="subir"
-          cancelLabel="cancelar"
+          chooseLabel="Seleccionar"
+
+          uploadLabel="Subir"
+          cancelLabel="Cancelar"
           accept="image/*"
           maxFileSize={2000000}
           emptyTemplate={
