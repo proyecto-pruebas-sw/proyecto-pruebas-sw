@@ -25,6 +25,7 @@ const MedicDetails = () => {
     phone: '',
     birthdate: '',
     city: '',
+    image_url: '',
     specialties: [],
     experiences: [],
     educations: [],
@@ -233,8 +234,15 @@ const MedicDetails = () => {
         </Link>
       </div>
       <Toast ref={toast} />
-      <h2 className="pl-8">{medicData.name} {medicData.lastname}</h2>
-      <div className="pl-8">
+      <h2 className="text-left pl-8">{medicData.name} {medicData.lastname}</h2>
+      <div class="grid grid-nogutter pl-8 my-2">
+        <img 
+          src={medicData.image_url !== '' ? medicData.image_url : '../../public/empty_profile.png'} 
+          alt="Profile image" 
+          width="250"
+        />
+      </div>
+      <div className="text-left pl-8">
         <span>
           Especialista en:
           {medicData.specialties.map((speciality) =>
