@@ -152,19 +152,18 @@ const EditExperienceInfo = () => {
   });
 
   return (
-    <div className="AddExperienceInfo">
-      <div className="home text-left pt-5 ml-5">
-        <Link to="/">
-          <Button
-            className="px-4 w-1"
-            icon="pi pi-home"
-            size="large"
-            text
-            plain
-          />
-        </Link>
-      </div>
-      <Card>
+    <div className="editExperienceInfo min-h-screen align-items-center align-content-center">
+      
+      <Card style={{margin: "100px"}}>
+        <div className="home text-left pt-5 ml-5">
+          <Link to="/">
+            <Button
+              className="px-4 w-1"
+              icon="pi pi-home"
+              size="large"
+            />
+          </Link>
+        </div>
         <h2 className="mt-3 mb-5">Editar experiencia laboral a {medicData.name} {medicData.lastname}</h2>
         <form onSubmit={formik.handleSubmit}>
           <h3 className="text-left ml-8">Experiencia</h3>
@@ -266,11 +265,14 @@ const EditExperienceInfo = () => {
               type="submit"
               label="Añadir antecedente"
               disabled={Object.keys(formik.errors).length !== 0}
+              severity="success"
+              icon="pi pi-plus"
             />
-            <Link to="/">
+            <Link to={`/medics/${doctorId}`}>
               <Button
                 label="Cancelar"
-                text
+                severity="danger"
+                icon="pi pi-times"
               />
             </Link>
           </div>

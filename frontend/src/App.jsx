@@ -20,11 +20,11 @@ function App() {
         element: <EditPersonalInfo />,
       },
       {
-        path: '/medics/:doctorId/:educationId/edit',
+        path: '/medics/:doctorId/:educationId/edit-education',
         element: <EditEducationInfo />,
       },
       {
-        path: '/medics/:doctorId/:experienceId/edit',
+        path: '/medics/:doctorId/:experienceId/edit-experience',
         element: <EditExperienceInfo />,
       },
       {

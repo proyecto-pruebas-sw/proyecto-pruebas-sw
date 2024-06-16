@@ -128,20 +128,18 @@ const NewMedic = () => {
   });
 
   return (
-    <div className="newMedic">
-      <div className="home text-left pt-5 ml-5">
-        <Link to="/">
-          <Button
-            className="px-4 w-1"
-            icon="pi pi-home"
-            size="large"
-            text
-            plain
-          />
-        </Link>
-      </div>
-      <Card>
-        <h2 className="mt-3 mb-5">Nuevo médico</h2>
+    <div className="newMedic min-h-screen align-items-center align-content-center" >
+      <Card style={{margin: "100px"}}>
+        <div className="home text-left pt-5 ml-5">
+          <Link to="/">
+            <Button
+              className="px-4 w-1"
+              icon="pi pi-home"
+              size="large"
+            />
+          </Link>
+        </div>
+        <h2 className="mt-3 mb-5">Crear Médico</h2>
         <form onSubmit={formik.handleSubmit}>
           <h3 className="text-left ml-8">Datos personales</h3>
           <div className="personalInfo grid grid-nogutter my-5 mx-8">
