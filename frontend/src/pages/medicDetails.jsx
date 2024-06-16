@@ -9,6 +9,9 @@ import { confirmDialog, ConfirmDialog } from 'primereact/confirmdialog'; // For 
 import { Toast } from "primereact/toast";
 import { backendUrl } from "../config/backend-url";
 import { Card } from "primereact/card";
+import { Image } from "primereact/image";
+import { Dialog } from "primereact/dialog";
+import { FileUpload } from "primereact/fileupload";
 import emptyProfileImage from "../assets/empty_profile.png";
 
 const MedicDetails = () => {
@@ -35,6 +38,8 @@ const MedicDetails = () => {
   const [educations, setEducations] = useState([]);
   const [experiences, setExperiences] = useState([]);
 
+  const [dialogPhoto, setDialogPhoto] = useState(false);
+
   const [medicTab, setMedicTab] = useState(0);
 
   const toastDeleteError = () => {
@@ -51,6 +56,33 @@ const MedicDetails = () => {
       severity: 'info',
       summary: 'Eliminado',
       detail: 'Se eliminó antecedente.',
+      life: 5000,
+    });
+  };
+
+  const toastPfpChanged = () => {
+    toast.current?.show({
+      severity: 'success',
+      summary: 'Foto cambiada',
+      detail: 'Foto de perfil cambiada exitosamente.',
+      life: 5000,
+    });
+  };
+
+  const toastPfpRemoved = () => {
+    toast.current?.show({
+      severity: 'info',
+      summary: 'Foto eliminada',
+      detail: 'Foto de perfil ha sido eliminada.',
+      life: 5000,
+    });
+  };
+
+  const toastPfpError = () => {
+    toast.current?.show({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Ocurrió un error al cambiar la imagen de perfil.',
       life: 5000,
     });
   };
@@ -166,6 +198,43 @@ const MedicDetails = () => {
     });
   };
 
+  const uploadPfp = (e) => {
+    console.log(e);
+    const formData = new FormData();
+    formData.append('file', e.files[0]);
+
+    axios.post(`${backendUrl}/doctor/image/${id}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+    }})
+    .then((res) => {
+      setMedicData({
+        ...medicData,
+        image_url: res.data.image_url
+      });
+      setDialogPhoto(false);
+      toastPfpChanged();
+    })
+    .catch(() => {
+      setDialogPhoto(false);
+      toastPfpError();
+    })
+  };
+
+  const handlePfpRemove = () => {
+    axios.delete(`${backendUrl}/doctor/image/${id}`)
+    .then(() => {
+      setMedicData({
+        ...medicData,
+        image_url: null,
+      });
+      toastPfpRemoved();
+    })
+    .catch(() => {
+      toastPfpError();
+    })
+  };
+
   const confirmRemoval = () => {
     confirmDialog({
       message: 'Advertencia: esta operación no se puede deshacer.',
@@ -208,6 +277,20 @@ const MedicDetails = () => {
     });
   };
 
+  const confirmPfpRemove = () => {
+    confirmDialog({
+      message: 'Advertencia: esta operación no se puede deshacer.',
+      header: 'Eliminar foto de perfil',
+      icon: 'pi pi-exclamation-triangle',
+      defaultFocus: 'reject',
+      acceptLabel: 'Eliminar',
+      rejectLabel: 'Cancelar',
+      accept: () => {
+        handlePfpRemove();
+      },
+    });
+  };
+
   const tabItems = [
     {
       label: 'Educación',
@@ -225,6 +308,31 @@ const MedicDetails = () => {
     <div className="medicDetails min-h-screen align-items-center align-content-center" >
     <Card className="" style={{margin: "50px"}}>
       <ConfirmDialog />
+      <Dialog
+        header="Cambiar foto de perfil"
+        visible={dialogPhoto}
+        style={{ width: '60vw' }}
+        dismissableMask
+        onHide={() => {
+          if (!dialogPhoto) return;
+          setDialogPhoto(false);
+        }}
+      >
+        <FileUpload
+          customUpload
+          uploadHandler={(e) => {
+            uploadPfp(e);
+          }}
+          chooseLabel="seleccionar"
+          uploadLabel="subir"
+          cancelLabel="cancelar"
+          accept="image/*"
+          maxFileSize={2000000}
+          emptyTemplate={
+            <p className="m-0">Arrastra aquí una foto para subir.</p>
+          }
+        />
+      </Dialog>
       <div className="home text-left mt-5 ml-8">
         <Link to="/">
           <Button
@@ -237,13 +345,15 @@ const MedicDetails = () => {
       <Toast ref={toast} />
       <h2 className="">{medicData.name} {medicData.lastname}</h2>
       <div>
-        <img 
+        <Image
           src={medicData.image_url !== null ? medicData.image_url : emptyProfileImage} 
-          alt="Profile image" 
+          alt="Profile" 
           width="250"
         />
       </div>
-      <div className="">
+      <Button icon="pi pi-image" label="Cambiar foto" severity="success" onClick={() => setDialogPhoto(true)} />
+      <Button icon="pi pi-times" label="Eliminar foto" severity="danger" onClick={confirmPfpRemove} />
+      <div className="mt-3">
         <span>
           Especialista en:
           {medicData.specialties.map((speciality) =>

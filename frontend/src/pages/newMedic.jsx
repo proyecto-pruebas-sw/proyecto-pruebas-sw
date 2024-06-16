@@ -13,13 +13,13 @@ import { backendUrl } from "../config/backend-url";
 const NewMedic = () => {
   const navigate = useNavigate();
 
-  const [specialities, setSpecialities] = useState([]);
+  const [specialties, setSpecialties] = useState([]);
 
   useEffect(() => {
     axios.get(`${backendUrl}/specialty`)
       .then((res) => {
         if (Array.isArray(res.data)) {
-          setSpecialities(res.data);
+          setSpecialties(res.data);
         } else {
           navigate('/', {
             state: {
@@ -31,14 +31,14 @@ const NewMedic = () => {
       .catch(() => {
         navigate('/', {
           state: {
-            response: 'specialityError',
+            response: 'specialtyError',
           },
         });
       });
   }, [navigate]);
 
   const handleMedicCreate = (data) => {
-    const specialityList = data.specialities.map((item) => item.id);
+    const specialtyList = data.specialties.map((item) => item.id);
     axios.post(`${backendUrl}/doctor`, {
       name: data.name,
       lastname: data.lastname,
@@ -47,7 +47,7 @@ const NewMedic = () => {
       phone: data.phone,
       birthdate: data.birthdate,
       city: data.city,
-      specialties: specialityList,
+      specialties: specialtyList,
       educations: [],
       experiences: [],
     })
@@ -78,7 +78,7 @@ const NewMedic = () => {
       phone: '',
       birthdate: '',
       city: '',
-      specialities: [],
+      specialties: [],
     },
     validate: (values) => {
       const errors = {};
@@ -114,8 +114,8 @@ const NewMedic = () => {
         errors.cityInvalid = 'Ciudad no válida';
       }
 
-      if (values.specialities.length === 0) {
-        errors.specialities = 'Debe tener al menos una especialidad';
+      if (values.specialties.length === 0) {
+        errors.specialties = 'Debe tener al menos una especialidad';
       }
 
       return errors;
@@ -251,16 +251,16 @@ const NewMedic = () => {
           <div className="specialties my-5 mx-8">
             <div className="px-8">
               <MultiSelect
-                id="multiselect_specialities"
-                value={formik.values.specialities}
-                onChange={(e) => formik.setFieldValue('specialities', e.value)}
-                options={specialities}
+                id="multiselect_specialties"
+                value={formik.values.specialties}
+                onChange={(e) => formik.setFieldValue('specialties', e.value)}
+                options={specialties}
                 display="chip"
                 optionLabel="name"
                 placeholder="Seleccione especialidad"
               />
             </div>
-            <small className="text-red-500">{formik.errors.specialities}</small>
+            <small className="text-red-500">{formik.errors.specialties}</small>
           </div>
           <div className="flex flex-row-reverse gap-3 mr-8">
             <Button
