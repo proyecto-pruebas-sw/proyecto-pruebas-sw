@@ -1,6 +1,7 @@
 FROM python:3.11.9
 
 ENV DATABASE_URL=postgresql://postgres:Pruebas12345@postgres:5432/medical_directory
+ENV CLOUDINARY_URL=cloudinary://285242777984949:bklXZHccgFu5010Cn-optdfMEhg@drlvyvjzi
 
 WORKDIR /app
 

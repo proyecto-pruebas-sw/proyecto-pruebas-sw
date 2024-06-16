@@ -9,6 +9,7 @@ import { confirmDialog, ConfirmDialog } from 'primereact/confirmdialog'; // For 
 import { Toast } from "primereact/toast";
 import { backendUrl } from "../config/backend-url";
 import { Card } from "primereact/card";
+import emptyProfileImage from "../assets/empty_profile.png";
 
 const MedicDetails = () => {
   const { id } = useParams();
@@ -25,6 +26,7 @@ const MedicDetails = () => {
     phone: '',
     birthdate: '',
     city: '',
+    image_url: '',
     specialties: [],
     experiences: [],
     educations: [],
@@ -233,8 +235,15 @@ const MedicDetails = () => {
         </Link>
       </div>
       <Toast ref={toast} />
-      <h2 className="pl-8">{medicData.name} {medicData.lastname}</h2>
-      <div className="pl-8">
+      <h2 className="">{medicData.name} {medicData.lastname}</h2>
+      <div>
+        <img 
+          src={medicData.image_url !== null ? medicData.image_url : emptyProfileImage} 
+          alt="Profile image" 
+          width="250"
+        />
+      </div>
+      <div className="">
         <span>
           Especialista en:
           {medicData.specialties.map((speciality) =>
@@ -243,13 +252,13 @@ const MedicDetails = () => {
         </span>
       </div>
       <div className="grid grid-nogutter mt-4">
-        <div className="col-12 pl-8 my-2">
+        <div className="col-12 my-2">
           <span className="pi pi-map-marker mr-3" />{medicData.city}
         </div>
-        <div className="col-12 pl-8 my-2">
+        <div className="col-12 my-2">
           <span className="pi pi-envelope mr-3" />{medicData.email}
         </div>
-        <div className="col-12 pl-8 my-2">
+        <div className="col-12 my-2">
           <span className="pi pi-phone mr-3" />{medicData.phone}
         </div>
       </div>
