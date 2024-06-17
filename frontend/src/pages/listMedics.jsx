@@ -98,6 +98,7 @@ const ListMedics = () => {
           <Button
             label="Crear Médico"
             icon="pi pi-plus"
+            id="medic_create"
             severity="success"
           />
         </Link>

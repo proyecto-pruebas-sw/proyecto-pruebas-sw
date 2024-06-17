@@ -17,7 +17,8 @@ ${db_port}        5432
 test-system-29 Delete a doctor
     Open Browser    ${index_url}/medics/5    ${browser}
     Click Button    Eliminar médico
-    Click Button    Eliminar
+    Sleep    1s
+    Click Button    xpath=/html/body/div[2]/div/div[3]/button[2]
     Sleep    1s
     Check If Not Exists In Database    SELECT * FROM doctors WHERE id = 5;
     Close Browser
