@@ -1,0 +1,48 @@
+{
+    "get": [
+        {
+        "name": "CARDIOLOGIA",
+        "id": 1
+        },
+        {
+        "name": "PEDIATRIA",
+        "id": 2
+        },
+        {
+        "name": "GINECOLOGIA",
+        "id": 3
+        },
+        {
+        "name": "TRAUMATOLOGIA",
+        "id": 4
+        },
+        {
+        "name": "OFTALMOLOGIA",
+        "id": 5
+        },
+        {
+        "name": "DERMATOLOGIA",
+        "id": 6
+        },
+        {
+        "name": "NEUROLOGIA",
+        "id": 7
+        },
+        {
+        "name": "PSIQUIATRIA",
+        "id": 8
+        },
+        {
+        "name": "OTORRINOLARINGOLOGIA",
+        "id": 9
+        },
+        {
+        "name": "ENDOCRINOLOGIA",
+        "id": 10
+        },
+        {
+        "name": "MEDICINA GENERAL",
+        "id": 11
+        }
+    ]
+}
