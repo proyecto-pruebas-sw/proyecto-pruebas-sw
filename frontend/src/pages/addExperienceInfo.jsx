@@ -42,7 +42,7 @@ const AddExperienceInfo = () => {
   }, [id, navigate]);
 
   const handleExperienceCreate = (data) => {
-    axios.post(`${backendUrl}/experiences/${id}`, {
+    axios.post(`${backendUrl}/experience/${id}`, {
       job_title: data.jobTitle,
       description: data.description,
       institution: data.institution,
