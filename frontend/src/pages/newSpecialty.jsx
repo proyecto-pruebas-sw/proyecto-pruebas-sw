@@ -5,14 +5,13 @@ import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
 import { Link, useNavigate } from "react-router-dom";
 import { backendUrl } from "../config/backend-url";
-import { FloatLabel } from "primereact/floatlabel";
 
-const NewSpeciality = () => {
+const NewSpecialty = () => {
   const navigate = useNavigate();
 
-  const handleSpecialityCreate = (data) => {
+  const handleSpecialtyCreate = (data) => {
     axios.post(`${backendUrl}/specialty`,{
-      name: data.speciality
+      name: data.specialty
     })
     .then((res) => {
       console.log(res);
@@ -35,30 +34,30 @@ const NewSpeciality = () => {
   const formik = useFormik({
     validateOnMount: true,
     initialValues: {
-      speciality: '',
+      specialty: '',
     },
     validate: (values) => {
       const errors = {};
 
-      if (values.speciality === '') {
-        errors.speciality = 'Especialidad no puede estar vacía'; 
+      if (values.specialty === '') {
+        errors.specialty = 'Especialidad no puede estar vacía'; 
       }
 
-      if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(values.speciality)) {
-        errors.specialityInvalid = 'Especialidad no válida';
+      if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(values.specialty)) {
+        errors.specialtyInvalid = 'Especialidad no válida';
       }
 
       return errors;
     },
     onSubmit: (data) => {
       console.log("submit");
-      handleSpecialityCreate(data);
+      handleSpecialtyCreate(data);
       formik.resetForm();
     },
   });
 
   return(
-    <div className="newSpeciality min-h-screen align-items-center align-content-center">
+    <div className="newSpecialty min-h-screen align-items-center align-content-center">
       <Card className="" style={{margin: "100px"}}>
       <div className="home text-left mt-5 ml-8">
         <Link to="/">
@@ -74,23 +73,23 @@ const NewSpeciality = () => {
         <form onSubmit={formik.handleSubmit}>
           
             <InputText
-              id="speciality"
-              key="speciality"
+              id="specialty"
+              key="specialty"
               className=""
-              value={formik.values.speciality}
+              value={formik.values.specialty}
               onChange={(e) =>
-                formik.setFieldValue('speciality', e.target.value)
+                formik.setFieldValue('specialty', e.target.value)
               }
               placeholder="Ingrese Especialidad"
             />
             <p></p>
-          <small className="text-red-500 text-left mt-2 ml-2">{formik.errors.speciality}{formik.errors.specialityInvalid}</small>
+          <small className="text-red-500 text-left mt-2 ml-2">{formik.errors.specialty}{formik.errors.specialtyInvalid}</small>
           
            <div className="flex flex-row-reverse gap-3 mr-8">
             <Button
               type="submit"
               label="Crear Especialidad"
-              disabled={formik.errors.speciality !== undefined}
+              disabled={formik.errors.specialty !== undefined}
               severity="success"
               icon="pi pi-plus"
             />
@@ -108,4 +107,4 @@ const NewSpeciality = () => {
   );
 };
 
-export default NewSpeciality;
+export default NewSpecialty;

@@ -3,8 +3,8 @@ import './App.css'
 import MedicDetails from './pages/medicDetails';
 import ListMedics from './pages/listMedics';
 import EditPersonalInfo from './pages/editPersonalInfo';
-import NewSpecialty from './pages/newSpeciality';
-import Specialties from './pages/specialities';
+import NewSpecialty from './pages/newSpecialty';
+import Specialties from './pages/specialties';
 import NewMedic from './pages/newMedic';
 import AddEducationInfo from './pages/addEducationInfo';
 import AddExperienceInfo from './pages/addExperienceInfo';

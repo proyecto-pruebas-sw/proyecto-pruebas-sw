@@ -18,7 +18,7 @@ test-system-11 Create doctor
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
     Input Text    id=input_city    some_city
-    Click Element    id=multiselect_specialities
+    Click Element    id=multiselect_specialties
     Mouse Down    xpath=//li/span[text()="CARDIOLOGIA"]
     Click Element     xpath=//li/span[text()="CARDIOLOGIA"]
     Click Button    id=medic_create
@@ -35,7 +35,7 @@ test-system-12 Create doctor without name
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
     Input Text    id=input_city    some_city
-    Click Element    id=multiselect_specialities
+    Click Element    id=multiselect_specialties
     Mouse Down    xpath=//li/span[text()="CARDIOLOGIA"]
     Click Element     xpath=//li/span[text()="CARDIOLOGIA"]
     Click Button    id=medic_create
@@ -52,7 +52,7 @@ test-system-13 Create doctor without lastname
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
     Input Text    id=input_city    some_city
-    Click Element    id=multiselect_specialities
+    Click Element    id=multiselect_specialties
     Mouse Down    xpath=//li/span[text()="CARDIOLOGIA"]
     Click Element     xpath=//li/span[text()="CARDIOLOGIA"]
     Click Button    id=medic_create
@@ -69,7 +69,7 @@ test-system-14 Create doctor without rut
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
     Input Text    id=input_city    some_city
-    Click Element    id=multiselect_specialities
+    Click Element    id=multiselect_specialties
     Mouse Down    xpath=//li/span[text()="CARDIOLOGIA"]
     Click Element     xpath=//li/span[text()="CARDIOLOGIA"]
     Click Button    id=medic_create
@@ -101,7 +101,7 @@ test-system-28 Create doctor without city
     Input Text    id=input_email    some_email@gmail.com
     Input Text    id=input_phone    +56912345678
     Input Text    id=input_birthdate    2000-01-01
-    Click Element    id=multiselect_specialities
+    Click Element    id=multiselect_specialties
     Mouse Down    xpath=//li/span[text()="CARDIOLOGIA"]
     Click Element     xpath=//li/span[text()="CARDIOLOGIA"]
     Click Button    id=medic_create

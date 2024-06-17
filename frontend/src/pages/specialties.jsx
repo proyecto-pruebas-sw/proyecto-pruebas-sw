@@ -74,7 +74,7 @@ const Specialties = () => {
   }, [navigate]);
 
   return (
-    <div className="specialities min-h-screen align-items-center align-content-center">
+    <div className="specialties min-h-screen align-items-center align-content-center">
       <Toast ref={toast} />
       <div style={{ margin: "50px" }}>
         <div className="home text-left mt-5 mb-4 ml-4">
