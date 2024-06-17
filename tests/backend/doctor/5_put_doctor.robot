@@ -42,3 +42,11 @@ test-api-35 PUT an invalid doctor without city
 test-api-36 PUT a unexisting doctor
     PUT    /doctor/9999    ${valid_doctor_put}
     Integer    response status    404
+
+test-api-39 PUT a doctor with invalid rut
+    PUT    /doctor/2    ${doctor_with_invalid_rut}
+    Integer    response status    422
+
+test-api-40 PUT a doctor with invalid email
+    PUT    /doctor/2    ${doctor_with_invalid_email}
+    Integer    response status    422
