@@ -31,10 +31,10 @@ const MedicTable = ({ medics }) => {
 
   const ConstructSpecialty = (rowData) => {
     return (
-      <span id={`r${rowData.id}_specialities`}>
+      <span id={`r${rowData.id}_specialties`}>
         {
           rowData.specialties.map((specialty, index) =>
-            <div key={index} id={`r${rowData.id}_speciality_${index}`}>
+            <div key={index} id={`r${rowData.id}_specialty_${index}`}>
               {specialty.name}
             </div>
           )

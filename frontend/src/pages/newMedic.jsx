@@ -23,7 +23,7 @@ const NewMedic = () => {
         } else {
           navigate('/', {
             state: {
-              response: 'specialityError',
+              response: 'specialtyError',
             },
           });
         }

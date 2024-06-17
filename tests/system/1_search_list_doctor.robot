@@ -18,7 +18,7 @@ test-system-2 Search for a doctor by specialty
     Mouse Down    xpath=//li[@aria-label="CARDIOLOGIA"]
     Click Element     xpath=//li[@aria-label="CARDIOLOGIA"]
     Click Button    Buscar
-    Page Should Contain Element    xpath=//span[contains(@id,'_specialities')]//div[contains(text(),"CARDIOLOGIA")]
+    Page Should Contain Element    xpath=//span[contains(@id,'_specialties')]//div[contains(text(),"CARDIOLOGIA")]
     Close Browser
 
 test-system-3 Search for a doctor by name
@@ -51,7 +51,7 @@ test-system-6 Search for a doctor by specialty and city
     Click Element     xpath=//li[@aria-label="CARDIOLOGIA"]
     Input Text    id=input_city    SANTIAGO
     Click Button    Buscar
-    Page Should Contain Element    xpath=//span[contains(@id,'_specialities')]//div[contains(text(),"CARDIOLOGIA")]
+    Page Should Contain Element    xpath=//span[contains(@id,'_specialties')]//div[contains(text(),"CARDIOLOGIA")]
     Page Should Contain Element    xpath=//span[contains(@id,'_city') and contains(text(),'SANTIAGO')]
     Close Browser
 
@@ -62,7 +62,7 @@ test-system-5 Search for a doctor by specialty and name
     Click Element     xpath=//li[@aria-label="CARDIOLOGIA"]
     Input Text    id=input_name    MARIA
     Click Button    Buscar
-    Page Should Contain Element    xpath=//span[contains(@id,'_specialities')]//div[contains(text(),"CARDIOLOGIA")]
+    Page Should Contain Element    xpath=//span[contains(@id,'_specialties')]//div[contains(text(),"CARDIOLOGIA")]
     Page Should Contain Element    xpath=//span[contains(@id,'_name') and contains(text(),'MARIA')]
     Close Browser
 
@@ -74,7 +74,7 @@ test-system-8 Search for a doctor by specialty, name and city
     Input Text    id=input_name    MARIA
     Input Text    id=input_city    SANTIAGO
     Click Button    Buscar
-    Page Should Contain Element    xpath=//span[contains(@id,'_specialities')]//div[contains(text(),"CARDIOLOGIA")]
+    Page Should Contain Element    xpath=//span[contains(@id,'_specialties')]//div[contains(text(),"CARDIOLOGIA")]
     Page Should Contain Element    xpath=//span[contains(@id,'_name') and contains(text(),'MARIA')]
     Page Should Contain Element    xpath=//span[contains(@id,'_city') and contains(text(),'SANTIAGO')]
     Close Browser

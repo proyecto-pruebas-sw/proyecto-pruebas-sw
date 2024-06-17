@@ -357,8 +357,8 @@ const MedicDetails = () => {
       <div className="mt-3">
         <span>
           Especialista en:
-          {medicData.specialties.map((speciality) =>
-            <Chip key={speciality.id} className="ml-2" label={speciality.name} />
+          {medicData.specialties.map((specialty) =>
+            <Chip key={specialty.id} className="ml-2" label={specialty.name} />
           )}
         </span>
       </div>
