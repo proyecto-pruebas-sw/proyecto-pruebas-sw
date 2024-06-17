@@ -42,7 +42,7 @@ const AddEducationInfo = () => {
   }, [id, navigate]);
 
   const handleEducationCreate = (data) => {
-    axios.post(`${backendUrl}/educations/${id}`, {
+    axios.post(`${backendUrl}/education/${id}`, {
       degree: data.degree,
       description: data.description,
       institution: data.institution,
