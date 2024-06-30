@@ -1,20 +1,21 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+import unittest
 
-def test_list_doctors():
-    print("selenium-1 test_list_doctors()")
+class DoctorSearch(unittest.TestCase):
 
-    driver = webdriver.Firefox()
-    driver.get("http://localhost:3000")
-    try:
-        assert "Vite + React" in driver.title
-        print("Pass")
-        return True
-    except AssertionError:
-        print("Fail: Title does not match")
-        return False
-    finally:
-        driver.quit()
-        print()
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+
+    def test_list_all_doctors(self):
+        driver = self.driver
+        driver.get("http://localhost:3000")
+        self.assertIn("Vite + React", driver.title)
+
+    def tearDown(self):
+        self.driver.close()
+
     
 
 
