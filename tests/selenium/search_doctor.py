@@ -14,6 +14,9 @@ class DoctorSearch(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
 
+    def tearDown(self):
+        self.driver.close()
+
     def test_list_all_doctors(self):
         driver = self.driver
         driver.get("http://localhost:3000")
@@ -177,9 +180,6 @@ class DoctorSearch(unittest.TestCase):
                 self.assertEqual(doctor["city"], driver.find_element(By.ID, 'r' + str(self.expected_data["get"].index(doctor) + 1) + '_city').text)
                 self.assertEqual(doctor["email"], driver.find_element(By.ID, 'r' + str(self.expected_data["get"].index(doctor) + 1) + '_email').text)
                 self.assertEqual(doctor["phone"], driver.find_element(By.ID, 'r' + str(self.expected_data["get"].index(doctor) + 1) + '_phone').text)
-    
-    def tearDown(self):
-        self.driver.close()
 
     
 
