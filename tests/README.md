@@ -61,7 +61,7 @@ robot .
 ```
 - Si quieres ejecutar el test nuevamente o ejecutar otro test, es necesario resetear la BD y cargar los datos iniciales nuevamente (paso 4).
 
-## 4.2 Selenium tests
+## 4.3 Selenium tests
 - Resetear la BD y cargar los datos iniciales (paso 4).
 - Ejecutar tests
 ```
