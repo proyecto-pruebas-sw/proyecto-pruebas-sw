@@ -7,9 +7,7 @@ import { Card } from "primereact/card";
 import { MultiSelect } from "primereact/multiselect";
 import { Button } from "primereact/button";
 import { FloatLabel } from 'primereact/floatlabel';
-import { Calendar } from 'primereact/calendar';
 import { backendUrl } from "../config/backend-url";
-import { InputMask } from "primereact/inputmask";
 
 const NewMedic = () => {
   const navigate = useNavigate();
