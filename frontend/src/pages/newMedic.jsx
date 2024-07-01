@@ -9,6 +9,7 @@ import { Button } from "primereact/button";
 import { FloatLabel } from 'primereact/floatlabel';
 import { Calendar } from 'primereact/calendar';
 import { backendUrl } from "../config/backend-url";
+import { InputMask } from "primereact/inputmask";
 
 const NewMedic = () => {
   const navigate = useNavigate();
@@ -107,7 +108,7 @@ const NewMedic = () => {
       }
 
       if (!/^\d{4}-\d{1,2}-\d{1,2}$/.test(values.birthdate)) {
-        errors.birthdateInvalid = 'Fecha de nacimiento no válida';
+        errors.birthdateInvalid = 'Fecha no válida';
       }
 
       if (!nameRegex.test(values.city)) {
@@ -190,9 +191,16 @@ const NewMedic = () => {
             </div>
             <div className="col-6 px-8 mt-6">
               <div>
-                <Calendar id="input_birthdate" key="birthdate" dateFormat="yy-mm-dd" value={formik.values.birthdate} onChange={(e) => {
-                  formik.setFieldValue('birthdate', e.target.value.toISOString().split('T')[0]);
-                }} placeholder="Fecha de nacimiento" />
+              <FloatLabel>
+                <InputText 
+                  id="input_birthdate" 
+                  key="birthdate" 
+                  className="w-full"
+                  placeholder="yyyy-mm-dd" 
+                  value={formik.values.birthdate} 
+                  onChange={(e) => formik.setFieldValue('birthdate', e.target.value)} />
+                <label htmlFor="birthdate">Fecha de nacimiento</label>
+              </FloatLabel>
               </div>
               <small className="text-red-500">{formik.errors.birthdateInvalid}</small>
             </div>
@@ -264,12 +272,14 @@ const NewMedic = () => {
           </div>
           <div className="flex flex-row-reverse gap-3 mr-8">
             <Button
+              id="create_button"
               type="submit"
               label="Crear médico"
               disabled={Object.keys(formik.errors).length !== 0}
             />
             <Link to="/">
               <Button
+                id="cancel_button"
                 label="Cancelar"
                 text
               />
