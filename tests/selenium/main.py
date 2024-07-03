@@ -3,6 +3,7 @@ from search_doctor import DoctorSearch
 from list_specialty import SpecialtyList
 from create_specialty import SpecialtyCreate
 from create_doctor import DoctorCreate
+from edit_doctor_personal import EditPersonalInfo
 from upload_delete_image import UploadDeleteImage
 
 if __name__ == "__main__":
@@ -14,6 +15,7 @@ if __name__ == "__main__":
     suite.addTests(loader.loadTestsFromTestCase(SpecialtyList))
     suite.addTests(loader.loadTestsFromTestCase(SpecialtyCreate))
     suite.addTests(loader.loadTestsFromTestCase(DoctorCreate))
+    suite.addTests(loader.loadTestsFromTestCase(EditPersonalInfo))
     suite.addTests(loader.loadTestsFromTestCase(UploadDeleteImage))
 
     runner = unittest.TextTestRunner()
