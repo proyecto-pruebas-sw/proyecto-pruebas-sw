@@ -6,6 +6,7 @@ from create_doctor import DoctorCreate
 from create_job_info import CreateJobInfo
 from edit_doctor_personal import EditPersonalInfo
 from upload_delete_image import UploadDeleteImage
+from create_academic_info import CreateAcademicInfo
 from detail_doctor import DetailDoctor
 
 if __name__ == "__main__":
@@ -20,6 +21,7 @@ if __name__ == "__main__":
     suite.addTests(loader.loadTestsFromTestCase(CreateJobInfo))
     suite.addTests(loader.loadTestsFromTestCase(EditPersonalInfo))
     suite.addTests(loader.loadTestsFromTestCase(UploadDeleteImage))
+    suite.addTests(loader.loadTestsFromTestCase(CreateAcademicInfo))
     suite.addTests(loader.loadTestsFromTestCase(DetailDoctor))
 
     runner = unittest.TextTestRunner()
