@@ -5,6 +5,7 @@ from create_specialty import SpecialtyCreate
 from create_doctor import DoctorCreate
 from edit_doctor_personal import EditPersonalInfo
 from upload_delete_image import UploadDeleteImage
+from create_academic_info import CreateAcademicInfo
 
 if __name__ == "__main__":
     suite = unittest.TestSuite()
@@ -17,6 +18,7 @@ if __name__ == "__main__":
     suite.addTests(loader.loadTestsFromTestCase(DoctorCreate))
     suite.addTests(loader.loadTestsFromTestCase(EditPersonalInfo))
     suite.addTests(loader.loadTestsFromTestCase(UploadDeleteImage))
+    suite.addTests(loader.loadTestsFromTestCase(CreateAcademicInfo))
 
     runner = unittest.TextTestRunner()
     runner.run(suite)
