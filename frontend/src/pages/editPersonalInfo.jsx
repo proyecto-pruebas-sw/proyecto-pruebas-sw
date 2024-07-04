@@ -253,6 +253,7 @@ const EditPersonalInfo = () => {
             />
             <Link to={`/medics/${id}`}>
               <Button
+                id="cancel_button"
                 label="Cancelar"
                 severity="danger"
                 icon="pi pi-times"

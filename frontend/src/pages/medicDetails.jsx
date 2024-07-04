@@ -403,7 +403,7 @@ const MedicDetails = () => {
       {medicTab === 0 && (
         <div>
           {educations.map((education) => (
-            <>
+            <div className="education-detail">
               <h4>{education.degree}</h4>
               <span className="block">{education.institution}</span>
               <span className="block">{education.city}, {education.country}</span>
@@ -413,7 +413,7 @@ const MedicDetails = () => {
               </Link>
               <Button label="Eliminar" icon="pi pi-times" severity="danger" className="m-2" onClick={() => confirmEducationRemove(education.id)} />
               <Divider />
-            </>
+            </div>
           ))}
         </div>
       )}
@@ -421,7 +421,7 @@ const MedicDetails = () => {
       {medicTab === 1 && (
         <div>
           {experiences.map((experience) => (
-            <>
+            <div className="experience-detail">
               <h4>{experience.job_title}</h4>
               <span className="block">{experience.institution}</span>
               <span className="block">{experience.city}, {experience.country}</span>
@@ -432,7 +432,7 @@ const MedicDetails = () => {
               </Link>
               <Button label="Eliminar" icon="pi pi-times" severity="danger" className="m-2" onClick={() => confirmExperienceRemove(experience.id)} />
               <Divider />
-            </>
+            </div>
           ))}
         </div>
       )}
