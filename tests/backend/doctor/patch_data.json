@@ -1,7 +1,6 @@
 {
     "doctors": [
         {
-            "id": 1,
             "name": "JOHNNIE",
             "lastname": "DOEY",
             "rut": "13456789-9",

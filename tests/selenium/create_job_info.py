@@ -21,7 +21,7 @@ class CreateJobInfo(unittest.TestCase):
     def test_requires_job_title(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addExperienceInfo")
+        driver.get(f"http://localhost:3000/medics/1/addExperienceInfo")
 
         input_lastname = driver.find_element(By.ID, "input_job_title")
         input_lastname.send_keys(doctor["experiences"][0]["job_title"])
@@ -47,7 +47,7 @@ class CreateJobInfo(unittest.TestCase):
     def test_requires_description(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addExperienceInfo")
+        driver.get(f"http://localhost:3000/medics/1/addExperienceInfo")
 
         input_lastname = driver.find_element(By.ID, "input_job_title")
         input_lastname.send_keys(doctor["experiences"][0]["job_title"])
@@ -73,7 +73,7 @@ class CreateJobInfo(unittest.TestCase):
     def test_requires_institution(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addExperienceInfo")
+        driver.get(f"http://localhost:3000/medics/1/addExperienceInfo")
 
         input_lastname = driver.find_element(By.ID, "input_job_title")
         input_lastname.send_keys(doctor["experiences"][0]["job_title"])
@@ -99,7 +99,7 @@ class CreateJobInfo(unittest.TestCase):
     def test_requires_city(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addExperienceInfo")
+        driver.get(f"http://localhost:3000/medics/1/addExperienceInfo")
 
         input_lastname = driver.find_element(By.ID, "input_job_title")
         input_lastname.send_keys(doctor["experiences"][0]["job_title"])
@@ -125,7 +125,7 @@ class CreateJobInfo(unittest.TestCase):
     def test_requires_country(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addExperienceInfo")
+        driver.get(f"http://localhost:3000/medics/1/addExperienceInfo")
 
         input_lastname = driver.find_element(By.ID, "input_job_title")
         input_lastname.send_keys(doctor["experiences"][0]["job_title"])
@@ -151,7 +151,7 @@ class CreateJobInfo(unittest.TestCase):
     def test_requires_start(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addExperienceInfo")
+        driver.get(f"http://localhost:3000/medics/1/addExperienceInfo")
 
         input_lastname = driver.find_element(By.ID, "input_job_title")
         input_lastname.send_keys(doctor["experiences"][0]["job_title"])
@@ -177,7 +177,7 @@ class CreateJobInfo(unittest.TestCase):
     def test_requires_end(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addExperienceInfo")
+        driver.get(f"http://localhost:3000/medics/1/addExperienceInfo")
 
         input_lastname = driver.find_element(By.ID, "input_job_title")
         input_lastname.send_keys(doctor["experiences"][0]["job_title"])
@@ -204,7 +204,7 @@ class CreateJobInfo(unittest.TestCase):
     def test_create_experience(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addExperienceInfo")
+        driver.get(f"http://localhost:3000/medics/1/addExperienceInfo")
 
         input_lastname = driver.find_element(By.ID, "input_job_title")
         input_lastname.send_keys(doctor["experiences"][0]["job_title"])
@@ -230,4 +230,4 @@ class CreateJobInfo(unittest.TestCase):
         submit_button = driver.find_element(By.ID, "create_button")
         submit_button.click()
 
-        self.assertEqual(driver.current_url, f"http://localhost:3000/medics/{doctor["id"]}")
+        self.assertEqual(driver.current_url, f"http://localhost:3000/medics/1")
