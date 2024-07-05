@@ -7,7 +7,7 @@ import json
 class SpecialtyCreate(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with open("selenium_tests/data/expected_data.json") as file:
+        with open("data/expected_data.json") as file:
             cls.expected_data = json.load(file)
             file.close()
 

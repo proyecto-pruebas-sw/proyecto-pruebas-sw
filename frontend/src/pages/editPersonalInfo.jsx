@@ -70,7 +70,7 @@ const EditPersonalInfo = () => {
         errors.rutInvalid = 'Rut no válido'
       }
 
-      if (!emailRegex.test(values.email)) {
+      if (!emailRegex.test(values.email.toLowerCase())) {
         errors.emailInvalid = 'Email no válido';
       }
 
@@ -186,9 +186,16 @@ const EditPersonalInfo = () => {
             </div>
             <div className="col-6 px-8 mt-6">
               <div>
-                <Calendar id="input_birthdate" key="birthdate" dateFormat="yy-mm-dd" value={formik.values.birthdate} onChange={(e) => {
-                  formik.setFieldValue('birthdate', e.target.value.toISOString().split('T')[0]);
-                }} placeholder="Fecha de nacimiento" />
+                <FloatLabel>
+                  <InputText 
+                    id="input_birthdate" 
+                    key="birthdate" 
+                    className="w-full"
+                    placeholder="yyyy-mm-dd" 
+                    value={formik.values.birthdate} 
+                    onChange={(e) => formik.setFieldValue('birthdate', e.target.value)} />
+                  <label htmlFor="birthdate">Fecha de nacimiento</label>
+                </FloatLabel>
               </div>
               <small className="text-red-500">{formik.errors.birthdateInvalid}</small>
             </div>
@@ -246,6 +253,7 @@ const EditPersonalInfo = () => {
           <div className="flex flex-row-reverse gap-3 mr-8">
             <Button
               type="submit"
+              id="save_changes"
               label="Guardar cambios"
               disabled={Object.keys(formik.errors).length !== 0}
               severity="success"
