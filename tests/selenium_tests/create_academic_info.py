@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 class CreateAcademicInfo(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with open("selenium_tests/data/patch_data.json") as file:
+        with open("data/patch_data.json") as file:
             cls.data = json.load(file)
             cls.data = cls.data["doctors"][0]
             file.close()
