@@ -63,8 +63,12 @@ robot .
 
 ## 4.3 Selenium tests
 - Resetear la BD y cargar los datos iniciales (paso 4).
+- Entrar al directorio selenium_tests
+```
+cd selenium_tests
+```
 - Ejecutar tests
 ```
-python3 -m unittest -v selenium_tests/main.py
+python3 main.py
 ```
 - Si quieres ejecutar el test nuevamente o ejecutar otro test, es necesario resetear la BD y cargar los datos iniciales nuevamente (paso 4).
