@@ -23,8 +23,8 @@ class CreateJobInfo(unittest.TestCase):
         driver = self.driver
         driver.get("http://localhost:3000/medics/1/addExperienceInfo")
 
-        input_lastname = driver.find_element(By.ID, "input_job_title")
-        input_lastname.send_keys(doctor["experiences"][0]["job_title"])
+        input_lastname = driver.find_element(By.ID, "input_description")
+        input_lastname.send_keys(doctor["experiences"][0]["description"])
 
         input_lastname = driver.find_element(By.ID, "input_institution")
         input_lastname.send_keys(doctor["experiences"][0]["institution"])
