@@ -229,7 +229,7 @@ const AddExperienceInfo = () => {
                 placeholder="yyyy-mm-dd" 
                 value={formik.values.startDate} 
                 onChange={(e) => {
-                  formik.setFieldValue('startDate', e.target.value.toISOString().split('T')[0]);
+                  formik.setFieldValue('startDate', e.target.value);
                 }}
               />
             </div>
@@ -245,7 +245,7 @@ const AddExperienceInfo = () => {
                 placeholder="yyyy-mm-dd" 
                 value={formik.values.endDate} 
                 onChange={(e) => {
-                  formik.setFieldValue('endDate', e.target.value.toISOString().split('T')[0]);
+                  formik.setFieldValue('endDate', e.target.value);
                 }}
               />
             </div>

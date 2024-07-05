@@ -35,10 +35,10 @@ class CreateJobInfo(unittest.TestCase):
         input_lastname = driver.find_element(By.ID, "input_country")
         input_lastname.send_keys(doctor["experiences"][0]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[2]/div/span/input")
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
         input_start.send_keys(doctor["experiences"][0]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[3]/div/span/input")
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
         input_end.send_keys(doctor["experiences"][0]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
@@ -61,10 +61,10 @@ class CreateJobInfo(unittest.TestCase):
         input_lastname = driver.find_element(By.ID, "input_country")
         input_lastname.send_keys(doctor["experiences"][0]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[2]/div/span/input")
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
         input_start.send_keys(doctor["experiences"][0]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[3]/div/span/input")
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
         input_end.send_keys(doctor["experiences"][0]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
@@ -87,10 +87,10 @@ class CreateJobInfo(unittest.TestCase):
         input_lastname = driver.find_element(By.ID, "input_country")
         input_lastname.send_keys(doctor["experiences"][0]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[2]/div/span/input")
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
         input_start.send_keys(doctor["experiences"][0]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[3]/div/span/input")
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
         input_end.send_keys(doctor["experiences"][0]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
@@ -113,10 +113,10 @@ class CreateJobInfo(unittest.TestCase):
         input_lastname = driver.find_element(By.ID, "input_country")
         input_lastname.send_keys(doctor["experiences"][0]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[2]/div/span/input")
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
         input_start.send_keys(doctor["experiences"][0]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[3]/div/span/input")
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
         input_end.send_keys(doctor["experiences"][0]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
@@ -139,10 +139,10 @@ class CreateJobInfo(unittest.TestCase):
         input_lastname = driver.find_element(By.ID, "input_city")
         input_lastname.send_keys(doctor["experiences"][0]["city"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[2]/div/span/input")
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
         input_start.send_keys(doctor["experiences"][0]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[3]/div/span/input")
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
         input_end.send_keys(doctor["experiences"][0]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
@@ -168,7 +168,7 @@ class CreateJobInfo(unittest.TestCase):
         input_lastname = driver.find_element(By.ID, "input_country")
         input_lastname.send_keys(doctor["experiences"][0]["country"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[3]/div/span/input")
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
         input_end.send_keys(doctor["experiences"][0]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
@@ -194,7 +194,7 @@ class CreateJobInfo(unittest.TestCase):
         input_lastname = driver.find_element(By.ID, "input_country")
         input_lastname.send_keys(doctor["experiences"][0]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[2]/div/span/input")
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
         input_start.send_keys(doctor["experiences"][0]["start_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
@@ -221,10 +221,10 @@ class CreateJobInfo(unittest.TestCase):
         input_lastname = driver.find_element(By.ID, "input_country")
         input_lastname.send_keys(doctor["experiences"][0]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[2]/div/span/input")
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
         input_start.send_keys(doctor["experiences"][0]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div/form/div[3]/div/span/input")
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
         input_end.send_keys(doctor["experiences"][0]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")

@@ -186,9 +186,16 @@ const EditPersonalInfo = () => {
             </div>
             <div className="col-6 px-8 mt-6">
               <div>
-                <Calendar id="input_birthdate" key="birthdate" dateFormat="yy-mm-dd" value={formik.values.birthdate} onChange={(e) => {
-                  formik.setFieldValue('birthdate', e.target.value.toISOString().split('T')[0]);
-                }} placeholder="Fecha de nacimiento" />
+                <FloatLabel>
+                  <InputText 
+                    id="input_birthdate" 
+                    key="birthdate" 
+                    className="w-full"
+                    placeholder="yyyy-mm-dd" 
+                    value={formik.values.birthdate} 
+                    onChange={(e) => formik.setFieldValue('birthdate', e.target.value)} />
+                  <label htmlFor="birthdate">Fecha de nacimiento</label>
+                </FloatLabel>
               </div>
               <small className="text-red-500">{formik.errors.birthdateInvalid}</small>
             </div>
