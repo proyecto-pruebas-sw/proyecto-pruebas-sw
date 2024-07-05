@@ -37,7 +37,7 @@ class UploadDeleteImage(unittest.TestCase):
         select_button3.click()
 
         # Delay to upload the image to Cloudinary
-        time.sleep(3)
+        time.sleep(5)
 
         # Verify if the image was uploaded
         image_url = driver.find_element(By.CSS_SELECTOR, "img").get_attribute("src")

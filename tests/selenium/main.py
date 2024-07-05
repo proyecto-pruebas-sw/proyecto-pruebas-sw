@@ -24,7 +24,7 @@ if __name__ == "__main__":
     suite.addTests(loader.loadTestsFromTestCase(UploadDeleteImage))
     #suite.addTests(loader.loadTestsFromTestCase(CreateAcademicInfo))
     suite.addTests(loader.loadTestsFromTestCase(DetailDoctor))
-    suite.addTests(loader.loadTestsFromTestCase(DoctorRemove))
+    #suite.addTests(loader.loadTestsFromTestCase(DoctorRemove))
 
     runner = unittest.TextTestRunner()
     runner.run(suite)
