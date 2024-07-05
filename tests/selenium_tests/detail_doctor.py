@@ -8,7 +8,7 @@ import re
 class DetailDoctor(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with open("selenium_tests/data/initial_data.json") as file:
+        with open("data/initial_data.json") as file:
             cls.detail_data = json.load(file)
             file.close()
     

@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 class CreateAcademicInfo(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with open("selenium_tests/data/patch_data.json") as file:
+        with open("data/patch_data.json") as file:
             cls.data = json.load(file)
             cls.data = cls.data["doctors"][0]
             file.close()
@@ -23,25 +23,25 @@ class CreateAcademicInfo(unittest.TestCase):
     def test_requires_degree(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addEducationInfo")
+        driver.get("http://localhost:3000/medics/1/addEducationInfo")
 
         input_lastname = driver.find_element(By.ID, "input_description")
-        input_lastname.send_keys(doctor["educations"][0]["description"])
+        input_lastname.send_keys(doctor["educations"][1]["description"])
 
         input_lastname = driver.find_element(By.ID, "input_institution")
-        input_lastname.send_keys(doctor["educations"][0]["institution"])
+        input_lastname.send_keys(doctor["educations"][1]["institution"])
 
         input_lastname = driver.find_element(By.ID, "input_city")
-        input_lastname.send_keys(doctor["educations"][0]["city"])
+        input_lastname.send_keys(doctor["educations"][1]["city"])
 
         input_lastname = driver.find_element(By.ID, "input_country")
-        input_lastname.send_keys(doctor["educations"][0]["country"])
+        input_lastname.send_keys(doctor["educations"][1]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[1]/div/span/input")
-        input_start.send_keys(doctor["educations"][0]["start_date"])
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
+        input_start.send_keys(doctor["educations"][1]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[2]/div/span/input")
-        input_end.send_keys(doctor["educations"][0]["end_date"])
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
+        input_end.send_keys(doctor["educations"][1]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -49,25 +49,25 @@ class CreateAcademicInfo(unittest.TestCase):
     def test_requires_description(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addEducationInfo")
+        driver.get("http://localhost:3000/medics/1/addEducationInfo")
 
         input_lastname = driver.find_element(By.ID, "input_degree")
-        input_lastname.send_keys(doctor["educations"][0]["degree"])
+        input_lastname.send_keys(doctor["educations"][1]["degree"])
 
         input_lastname = driver.find_element(By.ID, "input_institution")
-        input_lastname.send_keys(doctor["educations"][0]["institution"])
+        input_lastname.send_keys(doctor["educations"][1]["institution"])
 
         input_lastname = driver.find_element(By.ID, "input_city")
-        input_lastname.send_keys(doctor["educations"][0]["city"])
+        input_lastname.send_keys(doctor["educations"][1]["city"])
 
         input_lastname = driver.find_element(By.ID, "input_country")
-        input_lastname.send_keys(doctor["educations"][0]["country"])
+        input_lastname.send_keys(doctor["educations"][1]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[1]/div/span/input")
-        input_start.send_keys(doctor["educations"][0]["start_date"])
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
+        input_start.send_keys(doctor["educations"][1]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[2]/div/span/input")
-        input_end.send_keys(doctor["educations"][0]["end_date"])
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
+        input_end.send_keys(doctor["educations"][1]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -75,25 +75,25 @@ class CreateAcademicInfo(unittest.TestCase):
     def test_requires_institution(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addEducationInfo")
+        driver.get("http://localhost:3000/medics/1/addEducationInfo")
 
         input_lastname = driver.find_element(By.ID, "input_degree")
-        input_lastname.send_keys(doctor["educations"][0]["degree"])
+        input_lastname.send_keys(doctor["educations"][1]["degree"])
 
         input_lastname = driver.find_element(By.ID, "input_description")
-        input_lastname.send_keys(doctor["educations"][0]["description"])
+        input_lastname.send_keys(doctor["educations"][1]["description"])
 
         input_lastname = driver.find_element(By.ID, "input_city")
-        input_lastname.send_keys(doctor["educations"][0]["city"])
+        input_lastname.send_keys(doctor["educations"][1]["city"])
 
         input_lastname = driver.find_element(By.ID, "input_country")
-        input_lastname.send_keys(doctor["educations"][0]["country"])
+        input_lastname.send_keys(doctor["educations"][1]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[1]/div/span/input")
-        input_start.send_keys(doctor["educations"][0]["start_date"])
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
+        input_start.send_keys(doctor["educations"][1]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[2]/div/span/input")
-        input_end.send_keys(doctor["educations"][0]["end_date"])
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
+        input_end.send_keys(doctor["educations"][1]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -101,25 +101,25 @@ class CreateAcademicInfo(unittest.TestCase):
     def test_requires_city(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addEducationInfo")
+        driver.get("http://localhost:3000/medics/1/addEducationInfo")
 
         input_lastname = driver.find_element(By.ID, "input_degree")
-        input_lastname.send_keys(doctor["educations"][0]["degree"])
+        input_lastname.send_keys(doctor["educations"][1]["degree"])
 
         input_lastname = driver.find_element(By.ID, "input_description")
-        input_lastname.send_keys(doctor["educations"][0]["description"])
+        input_lastname.send_keys(doctor["educations"][1]["description"])
 
         input_lastname = driver.find_element(By.ID, "input_institution")
-        input_lastname.send_keys(doctor["educations"][0]["institution"])
+        input_lastname.send_keys(doctor["educations"][1]["institution"])
 
         input_lastname = driver.find_element(By.ID, "input_country")
-        input_lastname.send_keys(doctor["educations"][0]["country"])
+        input_lastname.send_keys(doctor["educations"][1]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[1]/div/span/input")
-        input_start.send_keys(doctor["educations"][0]["start_date"])
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
+        input_start.send_keys(doctor["educations"][1]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[2]/div/span/input")
-        input_end.send_keys(doctor["educations"][0]["end_date"])
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
+        input_end.send_keys(doctor["educations"][1]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -127,25 +127,25 @@ class CreateAcademicInfo(unittest.TestCase):
     def test_requires_country(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addEducationInfo")
+        driver.get("http://localhost:3000/medics/1/addEducationInfo")
 
         input_lastname = driver.find_element(By.ID, "input_degree")
-        input_lastname.send_keys(doctor["educations"][0]["degree"])
+        input_lastname.send_keys(doctor["educations"][1]["degree"])
 
         input_lastname = driver.find_element(By.ID, "input_description")
-        input_lastname.send_keys(doctor["educations"][0]["description"])
+        input_lastname.send_keys(doctor["educations"][1]["description"])
 
         input_lastname = driver.find_element(By.ID, "input_institution")
-        input_lastname.send_keys(doctor["educations"][0]["institution"])
+        input_lastname.send_keys(doctor["educations"][1]["institution"])
 
         input_lastname = driver.find_element(By.ID, "input_city")
-        input_lastname.send_keys(doctor["educations"][0]["city"])
+        input_lastname.send_keys(doctor["educations"][1]["city"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[1]/div/span/input")
-        input_start.send_keys(doctor["educations"][0]["start_date"])
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
+        input_start.send_keys(doctor["educations"][1]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[2]/div/span/input")
-        input_end.send_keys(doctor["educations"][0]["end_date"])
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
+        input_end.send_keys(doctor["educations"][1]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -153,25 +153,25 @@ class CreateAcademicInfo(unittest.TestCase):
     def test_requires_start(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addEducationInfo")
+        driver.get("http://localhost:3000/medics/1/addEducationInfo")
 
         input_lastname = driver.find_element(By.ID, "input_degree")
-        input_lastname.send_keys(doctor["educations"][0]["degree"])
+        input_lastname.send_keys(doctor["educations"][1]["degree"])
 
         input_lastname = driver.find_element(By.ID, "input_description")
-        input_lastname.send_keys(doctor["educations"][0]["description"])
+        input_lastname.send_keys(doctor["educations"][1]["description"])
 
         input_lastname = driver.find_element(By.ID, "input_institution")
-        input_lastname.send_keys(doctor["educations"][0]["institution"])
+        input_lastname.send_keys(doctor["educations"][1]["institution"])
 
         input_lastname = driver.find_element(By.ID, "input_city")
-        input_lastname.send_keys(doctor["educations"][0]["city"])
+        input_lastname.send_keys(doctor["educations"][1]["city"])
 
         input_lastname = driver.find_element(By.ID, "input_country")
-        input_lastname.send_keys(doctor["educations"][0]["country"])
+        input_lastname.send_keys(doctor["educations"][1]["country"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[2]/div/span/input")
-        input_end.send_keys(doctor["educations"][0]["end_date"])
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
+        input_end.send_keys(doctor["educations"][1]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -179,25 +179,25 @@ class CreateAcademicInfo(unittest.TestCase):
     def test_requires_end(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addEducationInfo")
+        driver.get("http://localhost:3000/medics/1/addEducationInfo")
 
         input_lastname = driver.find_element(By.ID, "input_degree")
-        input_lastname.send_keys(doctor["educations"][0]["degree"])
+        input_lastname.send_keys(doctor["educations"][1]["degree"])
 
         input_lastname = driver.find_element(By.ID, "input_description")
-        input_lastname.send_keys(doctor["educations"][0]["description"])
+        input_lastname.send_keys(doctor["educations"][1]["description"])
 
         input_lastname = driver.find_element(By.ID, "input_institution")
-        input_lastname.send_keys(doctor["educations"][0]["institution"])
+        input_lastname.send_keys(doctor["educations"][1]["institution"])
 
         input_lastname = driver.find_element(By.ID, "input_city")
-        input_lastname.send_keys(doctor["educations"][0]["city"])
+        input_lastname.send_keys(doctor["educations"][1]["city"])
 
         input_lastname = driver.find_element(By.ID, "input_country")
-        input_lastname.send_keys(doctor["educations"][0]["country"])
+        input_lastname.send_keys(doctor["educations"][1]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[1]/div/span/input")
-        input_start.send_keys(doctor["educations"][0]["start_date"])
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
+        input_start.send_keys(doctor["educations"][1]["start_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -206,30 +206,30 @@ class CreateAcademicInfo(unittest.TestCase):
     def test_create_academic(self):
         doctor = self.data
         driver = self.driver
-        driver.get(f"http://localhost:3000/medics/{doctor["id"]}/addEducationInfo")
+        driver.get("http://localhost:3000/medics/1/addEducationInfo")
 
         input_lastname = driver.find_element(By.ID, "input_degree")
-        input_lastname.send_keys(doctor["educations"][0]["degree"])
+        input_lastname.send_keys(doctor["educations"][1]["degree"])
 
         input_lastname = driver.find_element(By.ID, "input_description")
-        input_lastname.send_keys(doctor["educations"][0]["description"])
+        input_lastname.send_keys(doctor["educations"][1]["description"])
 
         input_lastname = driver.find_element(By.ID, "input_institution")
-        input_lastname.send_keys(doctor["educations"][0]["institution"])
+        input_lastname.send_keys(doctor["educations"][1]["institution"])
 
         input_lastname = driver.find_element(By.ID, "input_city")
-        input_lastname.send_keys(doctor["educations"][0]["city"])
+        input_lastname.send_keys(doctor["educations"][1]["city"])
 
         input_lastname = driver.find_element(By.ID, "input_country")
-        input_lastname.send_keys(doctor["educations"][0]["country"])
+        input_lastname.send_keys(doctor["educations"][1]["country"])
 
-        input_start = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[1]/div/span/input")
-        input_start.send_keys(doctor["educations"][0]["start_date"])
+        input_start = driver.find_element(By.XPATH, "//*[@id='input_start']")
+        input_start.send_keys(doctor["educations"][1]["start_date"])
 
-        input_end = driver.find_element(By.XPATH, "/html/body/div/div/div/div[2]/form/div[2]/div[2]/div/span/input")
-        input_end.send_keys(doctor["educations"][0]["end_date"])
+        input_end = driver.find_element(By.XPATH, "//*[@id='input_end']")
+        input_end.send_keys(doctor["educations"][1]["end_date"])
 
         submit_button = driver.find_element(By.ID, "create_button")
         submit_button.click()
 
-        self.assertEqual(driver.current_url, f"http://localhost:3000/medics/{doctor["id"]}")
+        self.assertEqual(driver.current_url, "http://localhost:3000/medics/1")
