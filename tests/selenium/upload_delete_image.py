@@ -10,7 +10,9 @@ class UploadDeleteImage(unittest.TestCase):
         cls.image_path = os.path.abspath("backend/doctor/profile-picture.jpg")
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        options = webdriver.FirefoxOptions()
+        options.add_argument("--headless")
+        self.driver = webdriver.Firefox(options=options)
 
     def tearDown(self):
         self.driver.close()

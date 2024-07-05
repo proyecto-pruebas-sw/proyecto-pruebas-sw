@@ -13,7 +13,9 @@ class CreateJobInfo(unittest.TestCase):
             file.close()
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        options = webdriver.FirefoxOptions()
+        options.add_argument("--headless")
+        self.driver = webdriver.Firefox(options=options)
 
     def tearDown(self):
         self.driver.close()

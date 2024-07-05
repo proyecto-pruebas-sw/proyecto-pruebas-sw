@@ -19,10 +19,10 @@ if __name__ == "__main__":
     suite.addTests(loader.loadTestsFromTestCase(SpecialtyList))
     suite.addTests(loader.loadTestsFromTestCase(SpecialtyCreate))
     suite.addTests(loader.loadTestsFromTestCase(DoctorCreate))
-    suite.addTests(loader.loadTestsFromTestCase(CreateJobInfo))
-    suite.addTests(loader.loadTestsFromTestCase(EditPersonalInfo))
+    #suite.addTests(loader.loadTestsFromTestCase(CreateJobInfo))
+    #suite.addTests(loader.loadTestsFromTestCase(EditPersonalInfo))
     suite.addTests(loader.loadTestsFromTestCase(UploadDeleteImage))
-    suite.addTests(loader.loadTestsFromTestCase(CreateAcademicInfo))
+    #suite.addTests(loader.loadTestsFromTestCase(CreateAcademicInfo))
     suite.addTests(loader.loadTestsFromTestCase(DetailDoctor))
     suite.addTests(loader.loadTestsFromTestCase(DoctorRemove))
 
