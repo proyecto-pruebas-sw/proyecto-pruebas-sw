@@ -70,7 +70,7 @@ const EditPersonalInfo = () => {
         errors.rutInvalid = 'Rut no válido'
       }
 
-      if (!emailRegex.test(values.email)) {
+      if (!emailRegex.test(values.email.toLowerCase())) {
         errors.emailInvalid = 'Email no válido';
       }
 
