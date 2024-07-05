@@ -42,7 +42,7 @@ const AddExperienceInfo = () => {
   }, [id, navigate]);
 
   const handleExperienceCreate = (data) => {
-    axios.post(`${backendUrl}/experiences/${id}`, {
+    axios.post(`${backendUrl}/experience/${id}`, {
       job_title: data.jobTitle,
       description: data.description,
       institution: data.institution,
@@ -238,6 +238,7 @@ const AddExperienceInfo = () => {
           <div className="flex flex-row-reverse gap-3 mr-8">
             <Button
               type="submit"
+              id="create_button"
               label="Crear antecedente"
               disabled={Object.keys(formik.errors).length !== 0}
               severity="success"

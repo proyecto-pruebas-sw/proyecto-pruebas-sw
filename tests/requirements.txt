@@ -7,3 +7,4 @@ robotframework-jsonlibrary==0.5
 robotframework-databaselibrary==1.4.4
 setuptools==69.5.1
 robotframework-seleniumlibrary==6.3.0
+selenium==4.21.0

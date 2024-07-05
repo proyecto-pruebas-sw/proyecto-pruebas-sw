@@ -66,7 +66,7 @@ const EditExperienceInfo = () => {
   }, [doctorId, experienceId, navigate]);
 
   const handleExperienceEdit = (data) => {
-    axios.post(`${backendUrl}/experiences/${experienceId}`, {
+    axios.put(`${backendUrl}/experience/${experienceId}`, {
       job_title: data.jobTitle,
       description: data.description,
       institution: data.institution,

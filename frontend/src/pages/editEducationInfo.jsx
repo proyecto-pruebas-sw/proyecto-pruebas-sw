@@ -66,7 +66,7 @@ const EditEducationInfo = () => {
   }, [doctorId, educationId, navigate]);
 
   const handleEducationEdit = (data) => {
-    axios.put(`${backendUrl}/educations/${educationId}`, {
+    axios.put(`${backendUrl}/education/${educationId}`, {
       degree: data.degree,
       description: data.description,
       institution: data.institution,
