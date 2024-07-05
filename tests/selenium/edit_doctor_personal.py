@@ -24,6 +24,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_name = driver.find_element(By.ID, "input_name")
+        input_name.send_keys(Keys.CONTROL + "a")
+        input_name.send_keys(Keys.DELETE)
         input_name.send_keys(doctor["name"])
 
         submit_button = driver.find_element(By.ID, "save_changes")
@@ -37,6 +39,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_lastname = driver.find_element(By.ID, "input_lastname")
+        input_lastname.send_keys(Keys.CONTROL + "a")
+        input_lastname.send_keys(Keys.DELETE)
         input_lastname.send_keys(doctor["lastname"])
 
         submit_button = driver.find_element(By.ID, "save_changes")
@@ -50,6 +54,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_rut = driver.find_element(By.ID, "input_rut")
+        input_rut.send_keys(Keys.CONTROL + "a")
+        input_rut.send_keys(Keys.DELETE)
         input_rut.send_keys(doctor["rut"])
 
         submit_button = driver.find_element(By.ID, "save_changes")
@@ -62,7 +68,9 @@ class EditPersonalInfo(unittest.TestCase):
         driver = self.driver
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
-        input_birthdate = driver.find_element(By.XPATH, "/html/body/div/div/div/div/div/div/form/div[1]/div[4]/div/span/input")
+        input_birthdate = driver.find_element(By.XPATH, "//*[@id='input_birthdate']")
+        input_birthdate.send_keys(Keys.CONTROL + "a")
+        input_birthdate.send_keys(Keys.DELETE)
         input_birthdate.send_keys(doctor["birthdate"])
 
         submit_button = driver.find_element(By.ID, "save_changes")
@@ -76,6 +84,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_city = driver.find_element(By.ID, "input_city")
+        input_city.send_keys(Keys.CONTROL + "a")
+        input_city.send_keys(Keys.DELETE)
         input_city.send_keys(doctor["city"])
 
         submit_button = driver.find_element(By.ID, "save_changes")
@@ -89,6 +99,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_email = driver.find_element(By.ID, "input_email")
+        input_email.send_keys(Keys.CONTROL + "a")
+        input_email.send_keys(Keys.DELETE)
         input_email.send_keys(doctor["email"].lower())
 
         submit_button = driver.find_element(By.ID, "save_changes")
@@ -102,6 +114,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_phone = driver.find_element(By.ID, "input_phone")
+        input_phone.send_keys(Keys.CONTROL + "a")
+        input_phone.send_keys(Keys.DELETE)
         input_phone.send_keys(doctor["phone"])
 
         submit_button = driver.find_element(By.ID, "save_changes")
@@ -115,7 +129,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_name = driver.find_element(By.ID, "input_name")
-        input_name.send_keys("")
+        input_name.send_keys(Keys.CONTROL + "a")
+        input_name.send_keys(Keys.DELETE)
 
         submit_button = driver.find_element(By.ID, "save_changes")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -126,7 +141,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_lastname = driver.find_element(By.ID, "input_lastname")
-        input_lastname.send_keys("")
+        input_lastname.send_keys(Keys.CONTROL + "a")
+        input_lastname.send_keys(Keys.DELETE)
 
         submit_button = driver.find_element(By.ID, "save_changes")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -137,7 +153,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_rut = driver.find_element(By.ID, "input_rut")
-        input_rut.send_keys(doctor["rut"])
+        input_rut.send_keys(Keys.CONTROL + "a")
+        input_rut.send_keys(Keys.DELETE)
 
         submit_button = driver.find_element(By.ID, "save_changes")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -147,8 +164,9 @@ class EditPersonalInfo(unittest.TestCase):
         driver = self.driver
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
-        input_birthdate = driver.find_element(By.XPATH, "/html/body/div/div/div/div/div/div/form/div[1]/div[4]/div/span/input")
-        input_birthdate.send_keys("")
+        input_birthdate = driver.find_element(By.XPATH, "//*[@id='input_birthdate']")
+        input_birthdate.send_keys(Keys.CONTROL + "a")
+        input_birthdate.send_keys(Keys.DELETE)
 
         submit_button = driver.find_element(By.ID, "save_changes")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -159,7 +177,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_city = driver.find_element(By.ID, "input_city")
-        input_city.send_keys("")
+        input_city.send_keys(Keys.CONTROL + "a")
+        input_city.send_keys(Keys.DELETE)
 
         submit_button = driver.find_element(By.ID, "save_changes")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -170,7 +189,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_email = driver.find_element(By.ID, "input_email")
-        input_email.send_keys("")
+        input_email.send_keys(Keys.CONTROL + "a")
+        input_email.send_keys(Keys.DELETE)
 
         submit_button = driver.find_element(By.ID, "save_changes")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
@@ -181,7 +201,8 @@ class EditPersonalInfo(unittest.TestCase):
         driver.get("http://localhost:3000/medics/1/editPersonalInfo")
 
         input_phone = driver.find_element(By.ID, "input_phone")
-        input_phone.send_keys("")
+        input_phone.send_keys(Keys.CONTROL + "a")
+        input_phone.send_keys(Keys.DELETE)
 
         submit_button = driver.find_element(By.ID, "save_changes")
         self.assertEqual(submit_button.get_attribute("disabled"), "true")
