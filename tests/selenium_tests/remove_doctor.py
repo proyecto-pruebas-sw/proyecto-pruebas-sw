@@ -9,13 +9,15 @@ from selenium.webdriver.support import expected_conditions as EC
 class DoctorRemove(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with open("backend/doctor/patch_data.json") as file:
+        with open("selenium_tests/data/patch_data.json") as file:
             cls.data = json.load(file)
             cls.data = cls.data["doctors"][0]
             file.close()
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        options = webdriver.FirefoxOptions()
+        options.add_argument("--headless")
+        self.driver = webdriver.Firefox(options=options)
 
     def tearDown(self):
         self.driver.close() 

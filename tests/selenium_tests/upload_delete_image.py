@@ -7,10 +7,12 @@ import os
 class UploadDeleteImage(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.image_path = os.path.abspath("backend/doctor/profile-picture.jpg")
+        cls.image_path = os.path.abspath("selenium_tests/data/profile-picture.jpg")
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        options = webdriver.FirefoxOptions()
+        options.add_argument("--headless")
+        self.driver = webdriver.Firefox(options=options)
 
     def tearDown(self):
         self.driver.close()
@@ -35,7 +37,7 @@ class UploadDeleteImage(unittest.TestCase):
         select_button3.click()
 
         # Delay to upload the image to Cloudinary
-        time.sleep(3)
+        time.sleep(5)
 
         # Verify if the image was uploaded
         image_url = driver.find_element(By.CSS_SELECTOR, "img").get_attribute("src")

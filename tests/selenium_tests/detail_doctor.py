@@ -8,12 +8,14 @@ import re
 class DetailDoctor(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with open("backend/doctor/initial_data.json") as file:
+        with open("selenium_tests/data/initial_data.json") as file:
             cls.detail_data = json.load(file)
             file.close()
     
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        options = webdriver.FirefoxOptions()
+        options.add_argument("--headless")
+        self.driver = webdriver.Firefox(options=options)
 
     def tearDown(self):
         self.driver.close()
