@@ -15,6 +15,7 @@
             "experiences": [
                 {
                     "job_title": "DERMATOLOGO",
+                    "description": "ATENCIÓN PRESENCIAL Y REMOTA",
                     "institution": "HOSPITAL DE VALPARAISO",
                     "city": "VALPARAISO",
                     "country": "CHILE",
@@ -23,6 +24,7 @@
                 },
                 {
                     "job_title": "ONCOLOGO",
+                    "description": "EXPERIENCIA CON TRATAMIENTO DE PACIENTES CON CANCER",
                     "institution": "INSTITUTO NACIONAL DEL CANCER",
                     "city": "SANTIAGO",
                     "country": "CHILE",
@@ -33,6 +35,7 @@
             "educations": [
                 {
                     "degree": "MEDICINA",
+                    "description": "ESPECIALIZACIÓN EN DERMATOLOGÍA",
                     "institution": "PONTIFICIA UNIVERSIDAD CATOLICA DE VALPARAISO",
                     "city": "VALPARAISO",
                     "country": "CHILE",
@@ -41,6 +44,7 @@
                 },
                 {
                     "degree": "ESPECIALIZACION EN ONCOLOGIA",
+                    "description": "CONOCIMIENTOS DE PROCEDIMIENTOS Y TRATO CON PERSONAS",
                     "institution": "UNIVERSIDAD DE CHILE",
                     "city": "SANTIAGO",
                     "country": "CHILE",

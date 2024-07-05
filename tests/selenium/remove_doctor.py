@@ -3,6 +3,7 @@ import json
 from selenium import webdriver 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.alert import Alert
 
 class DoctorRemove(unittest.TestCase):
     @classmethod
@@ -26,9 +27,6 @@ class DoctorRemove(unittest.TestCase):
         remove_button = driver.find_element(By.ID, "remove_medic")
         remove_button.click()
 
-        accept_button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Eliminar')]"))
-        )
-        accept_button.click()
+        Alert(driver).accept()
 
         self.assertEqual(driver.current_url, "http://localhost:3000/")

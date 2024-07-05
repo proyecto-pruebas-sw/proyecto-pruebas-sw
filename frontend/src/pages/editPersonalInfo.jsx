@@ -246,6 +246,7 @@ const EditPersonalInfo = () => {
           <div className="flex flex-row-reverse gap-3 mr-8">
             <Button
               type="submit"
+              id="save_changes"
               label="Guardar cambios"
               disabled={Object.keys(formik.errors).length !== 0}
               severity="success"
