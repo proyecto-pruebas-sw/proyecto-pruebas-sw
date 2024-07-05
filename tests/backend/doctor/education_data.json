@@ -1,0 +1,92 @@
+{
+    "educations": {
+        "correct_edit": {
+            "input_degree": "DEGREE EDITED",
+            "input_institution": "INSTITUTION EDITED",
+            "input_city": "CITY EDITED",
+            "input_country": "COUNTRY EDITED",
+            "input_start": "1998-03-1",
+            "input_end": "2022-09-2"
+        },
+        "all_empty": {
+            "input_degree": "",
+            "input_institution": "",
+            "input_city": "",
+            "input_country": "",
+            "input_start": "",
+            "input_end": ""
+        },
+        "degree_empty": {
+            "input_degree": "",
+            "input_institution": "INSTITUTION EDITED",
+            "input_city": "CITY EDITED",
+            "input_country": "COUNTRY EDITED",
+            "input_start": "1998-03-4",
+            "input_end": "2005-12-3"
+        },
+        "institution_empty": {
+            "input_degree": "DEGREE EDITED",
+            "input_institution": "",
+            "input_city": "CITY EDITED EDITED",
+            "input_country": "COUNTRY EDITED EDITED",
+            "input_start": "1998-03-2",
+            "input_end": "2005-12-1"
+        },
+        "city_empty": {
+            "input_degree": "DEGREE EDITED",
+            "input_institution": "INSTITUTION EDITED",
+            "input_city": "",
+            "input_country": "COUNTRY EDITED EDITED",
+            "input_start": "1998-03-9",
+            "input_end": "2005-12-6"
+        },
+        "country_empty": {
+            "input_degree": "DEGREE EDITED",
+            "input_institution": "INSTITUTION EDITED",
+            "input_city": "CITY EDITED",
+            "input_country": "",
+            "input_start": "1998-03-1",
+            "input_end": "2005-12-3"
+        },
+        "start_empty": {
+            "input_degree": "DEGREE EDITED",
+            "input_institution": "INSTITUTION EDITED",
+            "input_city": "CITY EDITED",
+            "input_country": "COUNTRY EDITED",
+            "input_start": "",
+            "input_end": "2005-12-4"
+        },
+        "end_empty": {
+            "input_degree": "DEGREE EDITED",
+            "input_institution": "INSTITUTION EDITED",
+            "input_city": "CITY EDITED",
+            "input_country": "COUNTRY EDITED",
+            "input_start": "1998-03-1",
+            "input_end": ""
+        },
+        "start_invalid": {
+            "input_degree": "DEGREE EDITED",
+            "input_institution": "INSTITUTION",
+            "input_city": "CITY EDITED",
+            "input_country": "COUNTRY EDITED",
+            "input_start": "INVALID",
+            "input_end": "2005-12-7"
+        },
+        "end_invalid": {
+            "input_degree": "DEGREE EDITED",
+            "input_institution": "INSTITUTION EDITED",
+            "input_city": "CITY EDITED",
+            "input_country": "COUNTRY EDITED",
+            "input_start": "1998-03-01",
+            "input_end": "INVALID"
+        },
+        "end_before_start": {
+            "input_degree": "DEGREE EDITED",
+            "input_institution": "INSTITUTION",
+            "input_city": "CITY EDITED",
+            "input_country": "COUNTRY EDITED",
+            "input_start": "2022-09-9",
+            "input_end": "1998-03-1"
+        }
+    }
+}
