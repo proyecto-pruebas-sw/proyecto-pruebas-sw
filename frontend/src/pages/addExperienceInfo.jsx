@@ -108,7 +108,7 @@ const AddExperienceInfo = () => {
       }
 
       if (!/^\d{4}-\d{1,2}-\d{1,2}$/.test(values.endDate)) {
-        errors.endDate = 'Fecha de inicio no válida';
+        errors.endDate = 'Fecha de término no válida';
       }
 
       const startDate = new Date(values.startDate);
@@ -221,17 +221,33 @@ const AddExperienceInfo = () => {
           </div>
           <div className="col-6 px-8 mt-6">
             <div>
-              <Calendar id="input_start" key="startDate" dateFormat="yy-mm-dd" value={formik.values.startDate} onChange={(e) => {
-                formik.setFieldValue('startDate', e.target.value.toISOString().split('T')[0]);
-              }} placeholder="Fecha de inicio" />
+              <label htmlFor="input_start">Fecha de inicio</label>
+              <InputText 
+                id="input_start" 
+                key="startDate" 
+                className="w-full"
+                placeholder="yyyy-mm-dd" 
+                value={formik.values.startDate} 
+                onChange={(e) => {
+                  formik.setFieldValue('startDate', e.target.value.toISOString().split('T')[0]);
+                }}
+              />
             </div>
             <small className="text-red-500">{formik.errors.startDate}</small>
           </div>
           <div className="col-6 px-8 mt-6">
             <div>
-              <Calendar id="input_end" key="endDate" dateFormat="yy-mm-dd" value={formik.values.endDate} onChange={(e) => {
-                formik.setFieldValue('endDate', e.target.value.toISOString().split('T')[0]);
-              }} placeholder="Fecha de término" />
+              <label htmlFor="input_end">Fecha de término</label>
+              <InputText 
+                id="input_end" 
+                key="endDate" 
+                className="w-full"
+                placeholder="yyyy-mm-dd" 
+                value={formik.values.endDate} 
+                onChange={(e) => {
+                  formik.setFieldValue('endDate', e.target.value.toISOString().split('T')[0]);
+                }}
+              />
             </div>
             <small className="text-red-500">{formik.errors.endDate}</small>
           </div>

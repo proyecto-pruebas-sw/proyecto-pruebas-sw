@@ -3,7 +3,8 @@ import json
 from selenium import webdriver 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class DoctorRemove(unittest.TestCase):
     @classmethod
@@ -27,6 +28,11 @@ class DoctorRemove(unittest.TestCase):
         remove_button = driver.find_element(By.ID, "remove_medic")
         remove_button.click()
 
-        Alert(driver).accept()
+        confirm_dialog = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, ".p-confirm-dialog"))
+        )
+
+        accept_button = confirm_dialog.find_element(By.XPATH, "//button[contains(@class, 'p-confirm-dialog-accept')]")
+        accept_button.click()
 
         self.assertEqual(driver.current_url, "http://localhost:3000/")
