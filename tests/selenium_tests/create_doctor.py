@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 class DoctorCreate(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with open("backend/doctor/post_data.json") as file:
+        with open("selenium_tests/data/post_data.json") as file:
             cls.data = json.load(file)
             cls.data = cls.data["doctors"][0]
             file.close()

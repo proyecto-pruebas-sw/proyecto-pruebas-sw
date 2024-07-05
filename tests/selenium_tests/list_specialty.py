@@ -7,7 +7,7 @@ import json
 class SpecialtyList(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with open("backend/doctor/initial_data.json") as file:
+        with open("selenium_tests/data/initial_data.json") as file:
             cls.initial_data = json.load(file)
             file.close()
 

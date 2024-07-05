@@ -7,7 +7,7 @@ import os
 class UploadDeleteImage(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.image_path = os.path.abspath("backend/doctor/profile-picture.jpg")
+        cls.image_path = os.path.abspath("selenium_tests/data/profile-picture.jpg")
 
     def setUp(self):
         options = webdriver.FirefoxOptions()
