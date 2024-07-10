@@ -14,15 +14,18 @@ class EditDoctorEducation(unittest.TestCase):
             file.close()
     
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        #headless mode
+        options = webdriver.FirefoxOptions()
+        options.add_argument("--headless")
+        self.driver = webdriver.Firefox(options=options)
 
     def tearDown(self):
         self.driver.close()
 
-    '''def test_1_edit_button_only(self):
+    def test_1_edit_button_only(self):
         driver = self.driver
         driver.get("http://localhost:3000/medics/1")
-        time.sleep(1)
+        time.sleep(5)
 
         # Click edit button
         edit_button = driver.find_element(By.CSS_SELECTOR, "button[aria-label='Editar']")
@@ -37,6 +40,7 @@ class EditDoctorEducation(unittest.TestCase):
 
         text_inputs_ids = ["input_degree", "input_institution", "input_city", "input_country",]
         date_inputs_ids = ["input_start", "input_end"]
+        time.sleep(5)
 
         for id in text_inputs_ids:
             element = driver.find_element(By.ID, id)
@@ -52,7 +56,7 @@ class EditDoctorEducation(unittest.TestCase):
 
         self.assertEqual(driver.current_url, "http://localhost:3000/medics/1")
 
-        time.sleep(1)
+        time.sleep(5)
 
         # Check if the doctor's edited education is correct
         container_with_educations = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[8]')
@@ -116,18 +120,12 @@ class EditDoctorEducation(unittest.TestCase):
     def test_7_country_empty(self):
         self.default_missing_fields("country_empty")
 
-    def test_8_start_empty(self):
-        self.default_missing_fields("start_empty")
-
-    def test_9_end_empty(self):
-        self.default_missing_fields("end_empty")
-
-    def test_10_end_before_start(self):
-        self.default_missing_fields("end_before_start")'''
+    def test_8_end_before_start(self):
+        self.default_missing_fields("end_before_start")
     
-    def test_11_delete_education(self):
+    def test_9_delete_education(self):
         driver = self.driver
-        driver.get("http://localhost:3000/medics/1")
+        driver.get("http://localhost:3000/medics/5")
         time.sleep(1)
 
         # Click delete button

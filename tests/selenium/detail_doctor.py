@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 import unittest
 import json
 import re
+import time
 
 class DetailDoctor(unittest.TestCase):
     @classmethod
@@ -23,6 +24,7 @@ class DetailDoctor(unittest.TestCase):
         specialties = self.detail_data["specialties"]
         driver = self.driver
         driver.get(f"http://localhost:3000/medics/{doctor_id}")
+        time.sleep(5)
 
         # Check if the doctor's name is correct
         doctor_name_html = driver.find_element(By.CSS_SELECTOR, "h2")
